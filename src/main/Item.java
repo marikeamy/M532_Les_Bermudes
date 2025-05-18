@@ -10,9 +10,13 @@ public abstract class Item {
         this.description=description;
     }
 
-    public String getName(){}
+    public String getName(){
+        return this.name;
+    }
 
-    public String getDescription(){}
+    public String getDescription(){
+        return this.description;
+    }
 
     public abstract void interactionsWithItem();
 

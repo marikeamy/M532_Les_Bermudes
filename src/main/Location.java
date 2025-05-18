@@ -16,13 +16,21 @@ public class Location {
     }
 
     //Getters
-    public String getName(){}
+    public String getName(){
+        return this.name;
+    }
 
-    public String getDescription(){}
+    public String getDescription(){
+        return this.description;
+    }
 
-    public boolean getIsLocked(){}
+    public boolean getIsLocked(){
+        return this.isLocked;
+    }
 
-    public List<Item> getItemList(){}
+    public List<Item> getItemList(){
+        return this.itemList;
+    }
 
     public void unlock(){}
 
