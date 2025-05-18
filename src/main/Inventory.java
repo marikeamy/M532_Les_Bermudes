@@ -1,0 +1,20 @@
+package main;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Inventory {
+    private List<Item> itemList;
+
+    //Constructeur
+    public Inventory(List<Item> itemList){
+    this.itemList=new ArrayList<>();
+    }
+
+    // Méthode pour récupérer la liste des objets
+    public List<Item>getItemList(){}
+
+    public void addItem(){}
+
+    public void deleteItem(){}
+
+}
