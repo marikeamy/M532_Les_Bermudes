@@ -1,6 +1,5 @@
 package main;
 
-
 import examples.ConsoleStylingExample;
 import examples.StringManipulation;
 import examples.UserInputExample;
