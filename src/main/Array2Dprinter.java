@@ -1,4 +1,8 @@
-package utils;
+package main.Game;
+
+import utils.Color;
+import utils.StringStyling;
+import utils.Style;
 
 /**
  * Utility class to print a 2D array in a grid formatted way.
