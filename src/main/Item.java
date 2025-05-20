@@ -10,19 +10,12 @@ public abstract class Item {
         this.description = description;
     }
 
-<<<<<<< Updated upstream
-    public String getName(){
-        return this.name;
-    }
 
-    public String getDescription(){
-=======
     public String getName() {
         return this.name;
     }
 
     public String getDescription() {
->>>>>>> Stashed changes
         return this.description;
     }
 
