@@ -3,7 +3,7 @@ package main.Game;
 
 import java.util.List;
 
-public class Location {
+public class Location implements IPrintable {
     private String name;
     private String description;
     private boolean isLocked;
@@ -17,15 +17,15 @@ public class Location {
     }
 
     //Getters
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return this.description;
     }
 
-    public boolean getIsLocked(){
+    public boolean getIsLocked() {
         return this.isLocked;
     }
 
@@ -37,4 +37,14 @@ public class Location {
     public void unlock() {
     }
 
+    @Override
+    public String getPrintableString() {
+        //affichera le nom de la zone.
+        return this.getName();
+    }
+
+    @Override
+    public boolean isGrayedOut() { //en gris ou en normal ?
+        return false;
+    }
 }

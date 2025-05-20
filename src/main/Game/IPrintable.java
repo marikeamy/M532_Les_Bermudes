@@ -1,4 +1,4 @@
-package utils;
+package main.Game;
 
 /**
  * Interface for elements that can be printed to the console.

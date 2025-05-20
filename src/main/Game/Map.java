@@ -3,13 +3,22 @@ package main.Game;
 import java.util.List;
 
 public class Map {
-    private List<List<Location>> locationGrid;
+    byte x = 3;
+    byte y = 3;
+    private Location[][] locationGrid = new Location[x][y];
 
-    public Map(List<List<Location>> locationGrid) {
+    //constructeur
+    public Map(Location[][] locationGrid) {
         this.locationGrid = locationGrid;
     }
 
-    public List<List<Location>> getLocationGrid() {
+    //getter Location
+    public Location[][] getLocationGrid() {
         return this.locationGrid;
     }
+
+    public void showMap(int[][] locationGrid) {
+
+    }
+
 }
