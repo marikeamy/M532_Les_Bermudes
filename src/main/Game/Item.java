@@ -1,4 +1,4 @@
-package main;
+package main.Game;
 
 public abstract class Item {
     private String name; // Ou protected?
