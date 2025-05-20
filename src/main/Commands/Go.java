@@ -1,4 +1,7 @@
-package main;
+package main.Commands;
+
+import main.Game.Map;
+import main.Game.Player;
 
 public class Go extends Command{
      public void execute(String argument){}

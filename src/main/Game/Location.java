@@ -1,5 +1,5 @@
 
-package main;
+package main.Game;
 
 import java.util.List;
 
