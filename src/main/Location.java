@@ -16,7 +16,6 @@ public class Location {
         this.isLocked = locked;
     }
 
-<<<<<<< Updated upstream
     //Getters
     public String getName(){
         return this.name;
@@ -30,26 +29,11 @@ public class Location {
         return this.isLocked;
     }
 
-    public List<Item> getItemList(){
-=======
-    // Getters
-    public String getName() {
-        return this.name;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public boolean getIsLocked() {
-        return this.isLocked;
-    }
-
     public List<Item> getItemList() {
->>>>>>> Stashed changes
         return this.itemList;
     }
 
+    //Methods
     public void unlock() {
     }
 
