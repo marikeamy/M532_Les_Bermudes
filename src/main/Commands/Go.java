@@ -11,11 +11,11 @@ public class Go extends Command {
 
     public Go(String description, String verb, Map map, Player player) {
         super(description, verb);
-        this.map = Game.getMap();
-        this.player = Game.getPlayer();
+        this.map = map;
+        this.player = player;
     }
 
     public void execute(String argument) {
-       // map.movePlayer(player, argument);
+        // map.movePlayer(player, argument);
     }
 }
