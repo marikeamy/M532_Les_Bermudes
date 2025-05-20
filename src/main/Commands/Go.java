@@ -1,12 +1,21 @@
 package main.Commands;
 
+import main.Game.Game;
 import main.Game.Map;
 import main.Game.Player;
 
-public class Go extends Command{
-     public void execute(String argument){}
-      
-     public Go(String description, String verb, Map map, Player player) {
+public class Go extends Command {
+
+    private Map map;
+    private Player player;
+
+    public Go(String description, String verb, Map map, Player player) {
         super(description, verb);
-     }
+        this.map = Game.getMap();
+        this.player = Game.getPlayer();
+    }
+
+    public void execute(String argument) {
+       // map.movePlayer(player, argument);
+    }
 }

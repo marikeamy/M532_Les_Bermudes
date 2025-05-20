@@ -12,4 +12,11 @@ public class Map {
     public List<List<Location>> getLocationGrid() {
         return this.locationGrid;
     }
+    /*
+     * public void movePlayer(Player player, String direction) {
+     * List<Integer> playerPosition = player.getPlayerPosition();
+     * int x = playerPosition.get(0);
+     * int y = playerPosition.get(1);
+     * }
+     */
 }
