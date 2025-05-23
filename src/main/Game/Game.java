@@ -71,8 +71,8 @@ public class Game {
 
     private static Map<String, Command> createAllCommands(WorldMap map, Player player) {
         Map<String, Command> allCommands = new HashMap<>();
-        Command commandGo = new Go("You can move north, west, east and south with this command.", "Go", map, player);
-        allCommands.put("Go", commandGo);
+        Command commandGo = new Go("You can move north, west, east and south with this command.", "go", map, player);
+        allCommands.put("go", commandGo);
         // AUTRES COMMANDES A RAJOUTER PLUS TARD
         return allCommands;
     }

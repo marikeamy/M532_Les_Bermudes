@@ -45,9 +45,9 @@ public class Main {
         Scanner commandScanner = new Scanner(System.in);
         while (!gameIsFinished) {
 
-            System.out.println("The player is here : " + game.getWorldMap().getPlayerLocation().getName());
+            System.out.println(game.getWorldMap().getPlayerLocation().getDescription());
 
-            String sentence = commandScanner.nextLine();
+            String sentence = commandScanner.nextLine().toLowerCase();
             String[] command = sentence.split(" ");
             if (command.length > 2) {
                 System.out.println("Try to write one to two words.");

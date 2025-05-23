@@ -30,13 +30,13 @@ public class Go extends Command {
             } else {
                 System.out.println("The way south is blocked.");
             }
-        } else if ("west".equals(argument)) {
+        } else if ("west".equals(argument)  || "left".equals(argument)) {
             if (game.getPlayer().getPlayerPosition().get(1) > 0) {
                 game.getPlayer().getPlayerPosition().set(1, game.getPlayer().getPlayerPosition().get(1) - 1);
             } else {
                 System.out.println("The way westward is blocked.");
             }
-        } else if ("east".equals(argument)) {
+        } else if ("east".equals(argument) || "right".equals(argument)) {
             if (game.getPlayer().getPlayerPosition().get(1) < 2) {
                 game.getPlayer().getPlayerPosition().set(1, game.getPlayer().getPlayerPosition().get(1) + 1);
             } else {
