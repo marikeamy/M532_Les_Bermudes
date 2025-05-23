@@ -74,6 +74,7 @@ public class Game {
         Command commandGo = new Go("You can move north, west, east and south with this command.", "go", map, player);
         allCommands.put("go", commandGo);
         // AUTRES COMMANDES A RAJOUTER PLUS TARD
+        // Il faut créer la classe d'abord, mais vous pouvez reprendre le code en dessus et changer les variables et la clef
         return allCommands;
     }
 
