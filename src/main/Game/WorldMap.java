@@ -15,11 +15,11 @@ public class WorldMap {
         return this.locationGrid;
     }
 
-    public void addLocation(Location location, int x, int y) {
+    protected void addLocation(Location location, int x, int y) {
         this.locationGrid.get(x).set(y, location);
     }
 
-    public void setPlayerPosition(Player player, int x, int y) {
+    protected void setPlayerPosition(Player player, int x, int y) {
         List<Integer> playerPosition = player.getPlayerPosition();
         playerPosition.set(0, x);
         playerPosition.set(1, y);

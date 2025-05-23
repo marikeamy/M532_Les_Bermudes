@@ -32,22 +32,28 @@ public class Main {
          * + game.getPlayer().getPlayerPosition().get(0) + ", " +
          * game.getPlayer().getPlayerPosition().get(1)
          * + ".");
+         * for (List<Location> row : Game.getInstance().getWorldMap().getLocationGrid())
+         * {
+         * for (Location loc : row) {
+         * System.out.println(loc.getName() + " - " + loc.getDescription());
+         * }
+         * }
          */
-        System.out.println("The player is here : " + game.getWorldMap().getPlayerLocation().getName());
+
         // System.out.println(game.getCommandsRegistry().getCommand("Go").getVerb());
+
         Scanner commandScanner = new Scanner(System.in);
         while (!gameIsFinished) {
+
+            System.out.println("The player is here : " + game.getWorldMap().getPlayerLocation().getName());
+
             String sentence = commandScanner.nextLine();
             String[] command = sentence.split(" ");
             if (command.length > 2) {
                 System.out.println("Try to write one to two words.");
             } else if (command.length == 2) {
-                try {
                 game.getCommandsRegistry().getCommand(command[0]).execute(command[1]);
-                } catch(Exception e) {
-                    System.out.println("I don't recognise this sentence.");
-                }
-            } else if(command.length == 1 && command[0].isEmpty()) {
+            } else if (command.length == 1 && command[0].isEmpty()) {
                 System.out.println("I don't recognise this sentence YET.");
             }
         }

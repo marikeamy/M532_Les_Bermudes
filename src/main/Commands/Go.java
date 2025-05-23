@@ -15,7 +15,34 @@ public class Go extends Command {
         this.player = player;
     }
 
+    @Override
     public void execute(String argument) {
-        // map.movePlayer(player, argument);
+        Game game = Game.getInstance();
+        if ("north".equals(argument)) {
+            if (game.getPlayer().getPlayerPosition().get(0) > 0) {
+                game.getPlayer().getPlayerPosition().set(0, game.getPlayer().getPlayerPosition().get(0) - 1);
+            } else {
+                System.out.println("The way north is blocked.");
+            }
+        } else if ("south".equals(argument)) {
+            if (game.getPlayer().getPlayerPosition().get(0) < 2) {
+                game.getPlayer().getPlayerPosition().set(0, game.getPlayer().getPlayerPosition().get(0) + 1);
+            } else {
+                System.out.println("The way south is blocked.");
+            }
+        } else if ("west".equals(argument)) {
+            if (game.getPlayer().getPlayerPosition().get(1) > 0) {
+                game.getPlayer().getPlayerPosition().set(1, game.getPlayer().getPlayerPosition().get(1) - 1);
+            } else {
+                System.out.println("The way westward is blocked.");
+            }
+        } else if ("east".equals(argument)) {
+            if (game.getPlayer().getPlayerPosition().get(1) < 2) {
+                game.getPlayer().getPlayerPosition().set(1, game.getPlayer().getPlayerPosition().get(1) + 1);
+            } else {
+                System.out.println("The way eastward is blocked.");
+            }
+        }
     }
+
 }

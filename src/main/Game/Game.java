@@ -29,7 +29,7 @@ public class Game {
 
     public static Game getInstance() {
         if (instance == null) {
-            Player player = new Player("Player1", Arrays.asList(1, 1));
+            Player player = new Player("Player1", Arrays.asList(0, 1));
             WorldMap worldMap = new WorldMap(createAllLocations());
             Map<String, Command> commands = createAllCommands(worldMap, player);
             CommandsRegistry registry = new CommandsRegistry(commands);
@@ -73,6 +73,7 @@ public class Game {
         Map<String, Command> allCommands = new HashMap<>();
         Command commandGo = new Go("You can move north, west, east and south with this command.", "Go", map, player);
         allCommands.put("Go", commandGo);
+        // AUTRES COMMANDES A RAJOUTER PLUS TARD
         return allCommands;
     }
 
