@@ -26,7 +26,7 @@ public class Main {
         // Color.BLACK));
         Game.getInstance();
         Game.run();
-     //   Game game = Game.getInstance();
+        // Game game = Game.getInstance();
         /*
          * System.out.println("You are " + game.getPlayer().getName() + " at position "
          * + game.getPlayer().getPlayerPosition().get(0) + ", " +
@@ -47,13 +47,21 @@ public class Main {
             System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
 
             String sentence = commandScanner.nextLine().toLowerCase();
-            String[] command = sentence.split(" ");
+
+            if (sentence.isEmpty()) {
+                System.out.println("Enter a command, please.");
+                continue;
+            }
+
+            String[] command = sentence.split("\\s+");
             if (command.length > 2) {
                 System.out.println("Try to write one to two words.");
             } else if (command.length == 2) {
                 Game.getInstance().getCommandsRegistry().getCommand(command[0]).execute(command[1]);
-            } else if (command.length == 1 && command[0].isEmpty()) {
+            } else if (command.length == 1 || command[0].isEmpty()) {
                 System.out.println("I don't recognise this sentence YET.");
+            } else if (command[0].isEmpty()) {
+                System.out.println("FUCK YOU");
             }
         }
     }

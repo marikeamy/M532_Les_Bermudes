@@ -39,6 +39,8 @@ public class Go extends Command {
             } else {
                 System.out.println("The way eastward is blocked.");
             }
+        } else {
+            System.out.println("I don't recognise this sentence.");
         }
     }
 
