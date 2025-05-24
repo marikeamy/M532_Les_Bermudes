@@ -1,16 +1,14 @@
+package main.Commands;
 
 import main.Game.*;
 
-/*Tess 24.05.25*/
-
+/*Tess*/
 public class Look extends Command {
     private WorldMap map;
-    private Player player;
 
-    public Look(String description, String verb, WorldMap map, Player player) {
+    public Look(String description, String verb, WorldMap map) {
         super(description, verb);
         this.map = map;
-        this.player = player;
     }
 
     @Override
