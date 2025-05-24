@@ -73,6 +73,15 @@ public class Game {
         Map<String, Command> allCommands = new HashMap<>();
         Command commandGo = new Go("You can move north, west, east and south with this command.", "go", map, player);
         allCommands.put("go", commandGo);
+
+        /*Tess 25.05.25*/
+        Command commandLook = new Look("Gives you the description of your current location.", "look", map, player);
+        allCommands.put("look", commandLook);
+
+        /*Tess 25.05.25*/
+        Command commandHelp = new Help("Displays all available commands and their description.", "help");
+        allCommands.put("help", commandHelp);
+
         // AUTRES COMMANDES A RAJOUTER PLUS TARD
         // Il faut créer la classe d'abord, mais vous pouvez reprendre le code en dessus et changer les variables et la clef
         return allCommands;
