@@ -2,7 +2,7 @@ package main.Commands;
 
 import main.Game.*;
 
-/*Tess*/
+/*Tess 25.05.25*/
 public class Look extends Command {
     private WorldMap map;
 
