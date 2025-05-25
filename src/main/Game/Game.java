@@ -34,6 +34,7 @@ public class Game {
             Map<String, Command> commands = createAllCommands(worldMap, player);
             CommandsRegistry registry = new CommandsRegistry(commands);
             instance = new Game(worldMap, player, registry);
+            addAllItemsToLocation();
         }
         return instance;
     }
@@ -50,9 +51,18 @@ public class Game {
         return commandsRegistry;
     }
 
+    private static List<Item> createAllItems() {
+        List<Item> itemList = new ArrayList<>();
+        itemList.addAll(Arrays.asList(new Letter("Elven Sword",
+                "It's an old elven sword with a riddle inscribed on it: What has a head, a tail, but no body?", "coin"),
+                new Letter("Old treasure map",
+                        "It's an old treasure map with a volcano drawn on it. It says: Say Merde before the great volcano and a key you shall find.",
+                        "merde")));
+        return itemList;
+    }
+
     private static List<List<Location>> createAllLocations() {
         List<List<Location>> grid = new ArrayList<>();
-
         grid.add(Arrays.asList(
                 new Location("Location 1", "You are in a meadow.", false, new ArrayList<>()),
                 new Location("Location 2", "You are in the woods.", false, new ArrayList<>()),
@@ -69,6 +79,13 @@ public class Game {
                         new ArrayList<>())));
 
         return grid;
+    }
+
+    private static void addAllItemsToLocation() {
+        List<Item> itemList = createAllItems();
+        List<List<Location>> locationGrid = Game.getInstance().getWorldMap().getLocationGrid();
+        locationGrid.get(0).get(1).getItemList().add(itemList.get(0));
+        locationGrid.get(0).get(1).getItemList().add(itemList.get(1));
     }
 
     private static Map<String, Command> createAllCommands(WorldMap map, Player player) {
