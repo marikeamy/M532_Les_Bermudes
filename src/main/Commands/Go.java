@@ -25,7 +25,7 @@ public class Go extends Command {
                 List<Location> rowAbove = grid.get(positionY - 1);
                 if (positionX >= 0 && positionX < rowAbove.size() && !rowAbove.get(positionX).getIsLocked()) {
                     player.getPlayerPosition().set(0, positionY - 1);
-                    System.out.println(map.getPlayerLocation().getDescription());
+                    System.out.println("You went north and arrived at the " + map.getPlayerLocation().getName());
                 } else {
                     System.out.println("The way north is locked.");
                 }
@@ -36,8 +36,8 @@ public class Go extends Command {
             if (positionX < 2) {
                 List<Location> rowAbove = grid.get(positionY + 1);
                 if (positionX >= 0 && positionX < rowAbove.size() && !rowAbove.get(positionX).getIsLocked()) {
-                   player.getPlayerPosition().set(0, positionY + 1);
-                    System.out.println(map.getPlayerLocation().getDescription());
+                   player.getPlayerPosition().set(0, positionY + 01);
+                    System.out.println("You went south and arrived at the " + map.getPlayerLocation().getName() + ".");
                 } else {
                     System.out.println("The way south is locked.");
                 }
@@ -48,7 +48,7 @@ public class Go extends Command {
             if (positionX > 0) {
                 if (!grid.get(positionY).get(positionX - 1).getIsLocked()) {
                     player.getPlayerPosition().set(1, positionX - 1);
-                    System.out.println(map.getPlayerLocation().getDescription());
+                    System.out.println("You went west and arrived at the " + map.getPlayerLocation().getName() + ".");
                 } else {
                     System.out.println("The way westward is locked.");
                 }
@@ -59,7 +59,7 @@ public class Go extends Command {
             if (positionX + 1 < grid.get(positionY).size()) {
                 if (!grid.get(positionY).get(positionX + 1).getIsLocked()) {
                     player.getPlayerPosition().set(1, positionX + 1);
-                    System.out.println(map.getPlayerLocation().getDescription());
+                    System.out.println("You went east and arrived at the " + map.getPlayerLocation().getName() + ".");
                 } else {
                     System.out.println("The way eastward is locked.");
                 }
