@@ -41,10 +41,9 @@ public class Main {
          */
 
         // System.out.println(game.getCommandsRegistry().getCommand("Go").getVerb());
-
+        System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
         Scanner commandScanner = new Scanner(System.in);
         while (!gameIsFinished) {
-            System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
 
             String sentence = commandScanner.nextLine().toLowerCase();
 
@@ -57,9 +56,18 @@ public class Main {
             if (command.length > 2) {
                 System.out.println("Try to write one to two words.");
             } else if (command.length == 2) {
-                Game.getInstance().getCommandsRegistry().getCommand(command[0]).execute(command[1]);
-            } else if (command.length == 1 || command[0].isEmpty()) {
-                System.out.println("I don't recognise this sentence YET.");
+                try {
+                    Game.getInstance().getCommandsRegistry().getCommand(command[0]).execute(command[1]);
+                } catch (Exception e) {
+                    System.out.println("I don't recognise this command.");
+                }
+
+            } else if (command.length == 1) {
+                try {
+                    Game.getInstance().getCommandsRegistry().getCommand(command[0]).execute(null);
+                } catch (Exception e) {
+                    System.out.println("I don't recognise this command.");
+                }
             } else if (command[0].isEmpty()) {
                 System.out.println("Try to write a command.");
             }
