@@ -17,25 +17,33 @@ public class Go extends Command {
     public void execute(String argument) {
         if ("north".equals(argument)) {
             if (Game.getInstance().getPlayer().getPlayerPosition().get(0) > 0) {
-                Game.getInstance().getPlayer().getPlayerPosition().set(0, Game.getInstance().getPlayer().getPlayerPosition().get(0) - 1);
+                Game.getInstance().getPlayer().getPlayerPosition().set(0,
+                        Game.getInstance().getPlayer().getPlayerPosition().get(0) - 1);
+                System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
             } else {
                 System.out.println("The way north is blocked.");
             }
         } else if ("south".equals(argument)) {
             if (Game.getInstance().getPlayer().getPlayerPosition().get(0) < 2) {
-                Game.getInstance().getPlayer().getPlayerPosition().set(0, Game.getInstance().getPlayer().getPlayerPosition().get(0) + 1);
+                Game.getInstance().getPlayer().getPlayerPosition().set(0,
+                        Game.getInstance().getPlayer().getPlayerPosition().get(0) + 1);
+                System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
             } else {
                 System.out.println("The way south is blocked.");
             }
-        } else if ("west".equals(argument)  || "left".equals(argument)) {
+        } else if ("west".equals(argument) || "left".equals(argument)) {
             if (Game.getInstance().getPlayer().getPlayerPosition().get(1) > 0) {
-                Game.getInstance().getPlayer().getPlayerPosition().set(1, Game.getInstance().getPlayer().getPlayerPosition().get(1) - 1);
+                Game.getInstance().getPlayer().getPlayerPosition().set(1,
+                        Game.getInstance().getPlayer().getPlayerPosition().get(1) - 1);
+                System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
             } else {
                 System.out.println("The way westward is blocked.");
             }
         } else if ("east".equals(argument) || "right".equals(argument)) {
             if (Game.getInstance().getPlayer().getPlayerPosition().get(1) < 2) {
-                Game.getInstance().getPlayer().getPlayerPosition().set(1, Game.getInstance().getPlayer().getPlayerPosition().get(1) + 1);
+                Game.getInstance().getPlayer().getPlayerPosition().set(1,
+                        Game.getInstance().getPlayer().getPlayerPosition().get(1) + 1);
+                System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
             } else {
                 System.out.println("The way eastward is blocked.");
             }
