@@ -17,15 +17,15 @@ public class Go extends Command {
 
     @Override
     public void execute(String argument) {
-        int positionY = Game.getInstance().getPlayer().getPlayerPosition().get(0);
-        int positionX = Game.getInstance().getPlayer().getPlayerPosition().get(1);
-        List<List<Location>> grid = Game.getInstance().getWorldMap().getLocationGrid();
+        int positionY = player.getPlayerPosition().get(0);
+        int positionX = player.getPlayerPosition().get(1);
+        List<List<Location>> grid = map.getLocationGrid();
         if ("north".equals(argument)) {
             if (positionY > 0) {
                 List<Location> rowAbove = grid.get(positionY - 1);
                 if (positionX >= 0 && positionX < rowAbove.size() && !rowAbove.get(positionX).getIsLocked()) {
-                    Game.getInstance().getPlayer().getPlayerPosition().set(0, positionY - 1);
-                    System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
+                    player.getPlayerPosition().set(0, positionY - 1);
+                    System.out.println(map.getPlayerLocation().getDescription());
                 } else {
                     System.out.println("The way north is locked.");
                 }
@@ -36,8 +36,8 @@ public class Go extends Command {
             if (positionX < 2) {
                 List<Location> rowAbove = grid.get(positionY + 1);
                 if (positionX >= 0 && positionX < rowAbove.size() && !rowAbove.get(positionX).getIsLocked()) {
-                    Game.getInstance().getPlayer().getPlayerPosition().set(0, positionY + 1);
-                    System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
+                   player.getPlayerPosition().set(0, positionY + 1);
+                    System.out.println(map.getPlayerLocation().getDescription());
                 } else {
                     System.out.println("The way south is locked.");
                 }
@@ -47,8 +47,8 @@ public class Go extends Command {
         } else if ("west".equals(argument) || "left".equals(argument)) {
             if (positionX > 0) {
                 if (!grid.get(positionY).get(positionX - 1).getIsLocked()) {
-                    Game.getInstance().getPlayer().getPlayerPosition().set(1, positionX - 1);
-                    System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
+                    player.getPlayerPosition().set(1, positionX - 1);
+                    System.out.println(map.getPlayerLocation().getDescription());
                 } else {
                     System.out.println("The way westward is locked.");
                 }
@@ -58,8 +58,8 @@ public class Go extends Command {
         } else if ("east".equals(argument) || "right".equals(argument)) {
             if (positionX + 1 < grid.get(positionY).size()) {
                 if (!grid.get(positionY).get(positionX + 1).getIsLocked()) {
-                    Game.getInstance().getPlayer().getPlayerPosition().set(1, positionX + 1);
-                    System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
+                    player.getPlayerPosition().set(1, positionX + 1);
+                    System.out.println(map.getPlayerLocation().getDescription());
                 } else {
                     System.out.println("The way eastward is locked.");
                 }
