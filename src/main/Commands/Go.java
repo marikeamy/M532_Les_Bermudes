@@ -27,22 +27,22 @@ public class Go extends Command {
                     player.getPlayerPosition().set(0, positionY - 1);
                     System.out.println("You went north and arrived at the " + map.getPlayerLocation().getName());
                 } else {
-                    System.out.println("The way north is locked.");
+                    System.out.println("The path north to the " + map.getPlayerLocation().getName() + " is locked.");
                 }
             } else {
-                System.out.println("The way north is blocked.");
+                System.out.println("The path north is completely blocked.");
             }
         } else if ("south".equals(argument)) {
             if (positionX < 2) {
                 List<Location> rowAbove = grid.get(positionY + 1);
                 if (positionX >= 0 && positionX < rowAbove.size() && !rowAbove.get(positionX).getIsLocked()) {
-                   player.getPlayerPosition().set(0, positionY + 01);
+                    player.getPlayerPosition().set(0, positionY + 01);
                     System.out.println("You went south and arrived at the " + map.getPlayerLocation().getName() + ".");
                 } else {
-                    System.out.println("The way south is locked.");
+                    System.out.println("The path south to the " + map.getPlayerLocation().getName() + " is locked.");
                 }
             } else {
-                System.out.println("The way south is blocked.");
+                System.out.println("The path south is completely blocked.");
             }
         } else if ("west".equals(argument) || "left".equals(argument)) {
             if (positionX > 0) {
@@ -50,10 +50,10 @@ public class Go extends Command {
                     player.getPlayerPosition().set(1, positionX - 1);
                     System.out.println("You went west and arrived at the " + map.getPlayerLocation().getName() + ".");
                 } else {
-                    System.out.println("The way westward is locked.");
+                    System.out.println("The path westward to the " + map.getPlayerLocation().getName() + " is locked.");
                 }
             } else {
-                System.out.println("The way westward is blocked.");
+                System.out.println("The path westward is completely blocked.");
             }
         } else if ("east".equals(argument) || "right".equals(argument)) {
             if (positionX + 1 < grid.get(positionY).size()) {
@@ -61,10 +61,10 @@ public class Go extends Command {
                     player.getPlayerPosition().set(1, positionX + 1);
                     System.out.println("You went east and arrived at the " + map.getPlayerLocation().getName() + ".");
                 } else {
-                    System.out.println("The way eastward is locked.");
+                    System.out.println("The path eastward to the " + map.getPlayerLocation().getName() + " is locked.");
                 }
             } else {
-                System.out.println("The way eastward is blocked.");
+                System.out.println("The path eastward is completely blocked.");
             }
         }
     }

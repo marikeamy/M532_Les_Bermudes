@@ -76,7 +76,7 @@ public class Game {
                 new Location("Ruins by the river", "You are in a small forest with a river.", false, new ArrayList<>()),
                 new Location("Dangerous bridge", "You see a bridge in the distance.", false, new ArrayList<>())));
         grid.add(Arrays.asList(
-                new Location("Royal Castle", "There's a big wall of stone in front of you.", false, new ArrayList<>()),
+                new Location("Royal Castle", "There's a big doorway leading to the inside of the castle.", false, new ArrayList<>()),
                 new Location("Castle floor", "The castle floors seem endless and full of secrets...", true,
                         new ArrayList<>()),
                 new Location("Treasure Chamber", "There's a chest full of treasure in front of you! Go grab them!",
