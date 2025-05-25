@@ -10,10 +10,11 @@ public class Location {
     private List<Item> itemList;
 
     // Constructeur de location
-    public Location(String name, String description, boolean locked) {
+    public Location(String name, String description, boolean isLocked, List<Item> itemList) {
         this.name = name;
         this.description = description;
-        this.isLocked = locked;
+        this.isLocked = isLocked;
+        this.itemList = itemList;
     }
 
     //Getters

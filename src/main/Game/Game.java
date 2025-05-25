@@ -54,17 +54,17 @@ public class Game {
         List<List<Location>> grid = new ArrayList<>();
 
         grid.add(Arrays.asList(
-                new Location("Location 1", "You are in a meadow.", false),
-                new Location("Location 2", "You are in the woods.", false),
-                new Location("Location 3", "You are in a field with a locked house in the middle.", false)));
+                new Location("Location 1", "You are in a meadow.", false, new ArrayList<>()),
+                new Location("Location 2", "You are in the woods.", false, new ArrayList<>()),
+                new Location("Location 3", "You are in a field with a locked house in the middle.", false, new ArrayList<>())));
         grid.add(Arrays.asList(
-                new Location("Location 4", "You are in a volcano.", false),
-                new Location("Location 5", "You are in a small forest with a river.", false),
-                new Location("Location 6", "You see a bridge in the distance.", false)));
+                new Location("Location 4", "You are in a volcano.", false, new ArrayList<>()),
+                new Location("Location 5", "You are in a small forest with a river.", false, new ArrayList<>()),
+                new Location("Location 6", "You see a bridge in the distance.", false, new ArrayList<>())));
         grid.add(Arrays.asList(
-                new Location("Location 7", "There's a big wall of stone in front of you.", false),
-                new Location("Location 8", "The secret passage goes deep underground.", true),
-                new Location("Location 9", "There's a chest full of treasure in front of you!", true)));
+                new Location("Location 7", "There's a big wall of stone in front of you.", false, new ArrayList<>()),
+                new Location("Location 8", "The secret passage goes deep underground.", true, new ArrayList<>()),
+                new Location("Location 9", "There's a chest full of treasure in front of you!", true, new ArrayList<>())));
 
         return grid;
     }
