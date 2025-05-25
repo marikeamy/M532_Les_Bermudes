@@ -1,7 +1,5 @@
 package main.Game;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class WorldMap {

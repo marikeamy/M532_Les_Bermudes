@@ -26,21 +26,7 @@ public class Main {
         // Color.BLACK));
         Game.getInstance();
         Game.run();
-        // Game game = Game.getInstance();
-        /*
-         * System.out.println("You are " + game.getPlayer().getName() + " at position "
-         * + game.getPlayer().getPlayerPosition().get(0) + ", " +
-         * game.getPlayer().getPlayerPosition().get(1)
-         * + ".");
-         * for (List<Location> row : Game.getInstance().getWorldMap().getLocationGrid())
-         * {
-         * for (Location loc : row) {
-         * System.out.println(loc.getName() + " - " + loc.getDescription());
-         * }
-         * }
-         */
 
-        // System.out.println(game.getCommandsRegistry().getCommand("Go").getVerb());
         System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
         Scanner commandScanner = new Scanner(System.in);
         while (!gameIsFinished) {
