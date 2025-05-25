@@ -5,7 +5,6 @@ import java.util.List;
 import main.Game.*;
 
 public class Go extends Command {
-    private static Go commandGo;
     private WorldMap map;
     private Player player;
 
