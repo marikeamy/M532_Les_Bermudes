@@ -29,7 +29,7 @@ public class Game {
 
     public static Game getInstance() {
         if (instance == null) {
-            Player player = new Player("Player1", Arrays.asList(0, 1));
+            Player player = new Player("Player1", Arrays.asList(1, 1));
             WorldMap worldMap = new WorldMap(createAllLocations());
             Map<String, Command> commands = createAllCommands(worldMap, player);
             CommandsRegistry registry = new CommandsRegistry(commands);
@@ -63,8 +63,8 @@ public class Game {
                 new Location("Location 6", "You see a bridge in the distance.", false)));
         grid.add(Arrays.asList(
                 new Location("Location 7", "There's a big wall of stone in front of you.", false),
-                new Location("Location 8", "The secret passage goes deep underground.", false),
-                new Location("Location 9", "There's a chest full of treasure in front of you!", false)));
+                new Location("Location 8", "The secret passage goes deep underground.", true),
+                new Location("Location 9", "There's a chest full of treasure in front of you!", true)));
 
         return grid;
     }
@@ -74,16 +74,17 @@ public class Game {
         Command commandGo = new Go("You can move north, west, east and south with this command.", "go", map, player);
         allCommands.put("go", commandGo);
 
-        /*Tess 25.05.25*/
+        /* Tess 25.05.25 */
         Command commandLook = new Look("Gives you the description of your current location.", "look", map);
         allCommands.put("look", commandLook);
 
-        /*Tess 25.05.25*/
+        /* Tess 25.05.25 */
         Command commandHelp = new Help("Displays all available commands and their description.", "help");
         allCommands.put("help", commandHelp);
 
         // AUTRES COMMANDES A RAJOUTER PLUS TARD
-        // Il faut créer la classe d'abord, mais vous pouvez reprendre le code en dessus et changer les variables et la clef
+        // Il faut créer la classe d'abord, mais vous pouvez reprendre le code en dessus
+        // et changer les variables et la clef
         return allCommands;
     }
 
