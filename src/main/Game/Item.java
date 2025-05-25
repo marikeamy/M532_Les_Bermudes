@@ -1,5 +1,6 @@
 package main.Game;
 
+
 public abstract class Item {
     private String name; // Ou protected?
     private String description; // Ou protected?
@@ -9,7 +10,6 @@ public abstract class Item {
         this.name = name;
         this.description = description;
     }
-
 
     public String getName() {
         return this.name;
