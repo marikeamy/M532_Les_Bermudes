@@ -61,7 +61,7 @@ public class Main {
             } else if (command.length == 1 || command[0].isEmpty()) {
                 System.out.println("I don't recognise this sentence YET.");
             } else if (command[0].isEmpty()) {
-                System.out.println("FUCK YOU");
+                System.out.println("Try to write a command.");
             }
         }
     }
