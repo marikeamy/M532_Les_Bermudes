@@ -3,7 +3,9 @@ package main.Game;
 
 import java.util.List;
 
-public class Location {
+import utils.IPrintable;
+
+public class Location implements IPrintable {
     private String name;
     private String description;
     private boolean isLocked;
@@ -17,16 +19,16 @@ public class Location {
         this.itemList = itemList;
     }
 
-    //Getters
-    public String getName(){
+    // Getters
+    public String getName() {
         return this.name;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return this.description;
     }
 
-    public boolean getIsLocked(){
+    public boolean getIsLocked() {
         return this.isLocked;
     }
 
@@ -34,8 +36,18 @@ public class Location {
         return this.itemList;
     }
 
-    //Methods
+    // Methods
     public void unlock() {
+    }
+
+    @Override
+    public String getPrintableString() {
+        return isLocked ? "🔒" : name;
+    }
+
+    @Override
+    public boolean isGrayedOut() {
+        return isLocked;
     }
 
 }

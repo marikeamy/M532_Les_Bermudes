@@ -56,7 +56,8 @@ public class Game {
         grid.add(Arrays.asList(
                 new Location("Location 1", "You are in a meadow.", false, new ArrayList<>()),
                 new Location("Location 2", "You are in the woods.", false, new ArrayList<>()),
-                new Location("Location 3", "You are in a field with a locked house in the middle.", false, new ArrayList<>())));
+                new Location("Location 3", "You are in a field with a locked house in the middle.", false,
+                        new ArrayList<>())));
         grid.add(Arrays.asList(
                 new Location("Location 4", "You are in a volcano.", false, new ArrayList<>()),
                 new Location("Location 5", "You are in a small forest with a river.", false, new ArrayList<>()),
@@ -64,7 +65,8 @@ public class Game {
         grid.add(Arrays.asList(
                 new Location("Location 7", "There's a big wall of stone in front of you.", false, new ArrayList<>()),
                 new Location("Location 8", "The secret passage goes deep underground.", true, new ArrayList<>()),
-                new Location("Location 9", "There's a chest full of treasure in front of you!", true, new ArrayList<>())));
+                new Location("Location 9", "There's a chest full of treasure in front of you!", true,
+                        new ArrayList<>())));
 
         return grid;
     }
@@ -81,6 +83,9 @@ public class Game {
         /* Tess 25.05.25 */
         Command commandHelp = new Help("Displays all available commands and their description.", "help");
         allCommands.put("help", commandHelp);
+
+        Command commandMap = new DisplayMap("Displays the map of the game.", "map", map);
+        allCommands.put("map", commandMap);
 
         // AUTRES COMMANDES A RAJOUTER PLUS TARD
         // Il faut créer la classe d'abord, mais vous pouvez reprendre le code en dessus
