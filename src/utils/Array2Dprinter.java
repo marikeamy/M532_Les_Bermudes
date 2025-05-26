@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.List;
+
 /**
  * Utility class to print a 2D array in a grid formatted way.
  */
@@ -25,6 +27,23 @@ public class Array2Dprinter {
         grayedOutTextColor = color;
         grayedOutTextStyle = style;
         grayedOutBackgroundColor = backgroundColor;
+    }
+
+    /**
+     * Convert a 2D array List of IPrintable objects to a 2D array.
+     * @param arrayList2D The 2D list to be converted.
+     * @return The converted 2D array
+     */
+    public static IPrintable[][] convert2DArray(List<List<IPrintable>> arrayList2D) {
+        IPrintable[][] array2D = new IPrintable[arrayList2D.size()][];
+        for (int y = 0; y < arrayList2D.size(); y++) {
+            List<IPrintable> row = arrayList2D.get(y);
+            array2D[y] = new IPrintable[row.size()];
+            for (int x = 0; x < row.size(); x++) {
+                array2D[y][x] = row.get(x);
+            }
+        }
+        return array2D;
     }
 
     /**

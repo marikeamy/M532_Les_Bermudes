@@ -3,7 +3,7 @@ package main.Game;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.List;
 
 import main.Commands.*;
@@ -29,11 +29,13 @@ public class Game {
 
     public static Game getInstance() {
         if (instance == null) {
-            Player player = new Player("Player1", Arrays.asList(1, 1));
+            Inventory inventory = new Inventory(null);
+            Player player = new Player("Player1", Arrays.asList(1, 1), inventory);
             WorldMap worldMap = new WorldMap(createAllLocations());
             Map<String, Command> commands = createAllCommands(worldMap, player);
             CommandsRegistry registry = new CommandsRegistry(commands);
             instance = new Game(worldMap, player, registry);
+            addAllItemsToLocation();
         }
         return instance;
     }
@@ -50,37 +52,69 @@ public class Game {
         return commandsRegistry;
     }
 
+    private static List<Item> createAllItems() {
+        List<Item> itemList = new ArrayList<>();
+        itemList.addAll(Arrays.asList(new Letter("Elven Sword",
+                "It's an old elven sword with a riddle inscribed on it: What has a head, a tail, but no body?", "coin"),
+                new Letter("Old treasure map",
+                        "It's an old treasure map with a volcano drawn on it. It says: Say Merde before the great volcano and a key you shall find.",
+                        "merde")));
+        return itemList;
+    }
+
     private static List<List<Location>> createAllLocations() {
         List<List<Location>> grid = new ArrayList<>();
-
         grid.add(Arrays.asList(
-                new Location("Location 1", "You are in a meadow.", false),
-                new Location("Location 2", "You are in the woods.", false),
-                new Location("Location 3", "You are in a field with a locked house in the middle.", false)));
+                new Location("Peaceful meadow", "You are in a meadow.", false, new ArrayList<>()),
+                new Location("Forgotten Woods",
+                        "You stand in the Forgotten Woods, where twisted trees whisper secrets of a time long lost.",
+                        false, new ArrayList<>()),
+                new Location("Old decrepit manor",
+                        "You entered the old decrepit manor. You hear whispers in the dark.", false,
+                        new ArrayList<>())));
         grid.add(Arrays.asList(
-                new Location("Location 4", "You are in a volcano.", false),
-                new Location("Location 5", "You are in a small forest with a river.", false),
-                new Location("Location 6", "You see a bridge in the distance.", false)));
+                new Location("Raging volcano", "You are in a volcano.", false, new ArrayList<>()),
+                new Location("Ruins by the river", "You are in a small forest with a river.", false, new ArrayList<>()),
+                new Location("Dangerous bridge", "You see a bridge in the distance.", false, new ArrayList<>())));
         grid.add(Arrays.asList(
-                new Location("Location 7", "There's a big wall of stone in front of you.", false),
-                new Location("Location 8", "The secret passage goes deep underground.", true),
-                new Location("Location 9", "There's a chest full of treasure in front of you!", true)));
-
+                new Location("Royal Castle", "There's a big doorway leading to the inside of the castle.", false,
+                        new ArrayList<>()),
+                new Location("Castle floor", "The castle floors seem endless and full of secrets...", true,
+                        new ArrayList<>()),
+                new Location("Treasure Chamber", "There's a chest full of treasure in front of you! Go grab them!",
+                        true,
+                        new ArrayList<>())));
+        // Nom et description à valider et finir.
         return grid;
     }
 
+    private static void addAllItemsToLocation() {
+        List<Item> itemList = createAllItems();
+        List<List<Location>> locationGrid = Game.getInstance().getWorldMap().getLocationGrid();
+        locationGrid.get(0).get(1).getItemList().add(itemList.get(0));
+        locationGrid.get(0).get(1).getItemList().add(itemList.get(1));
+        // A finir
+    }
+
     private static Map<String, Command> createAllCommands(WorldMap map, Player player) {
-        Map<String, Command> allCommands = new HashMap<>();
+        Map<String, Command> allCommands = new TreeMap<>();
+        /* Tess 25.05.25 */
+        Command commandHelp = new Help("Displays all available commands and their description.", "help");
+        allCommands.put("help", commandHelp);
+
         Command commandGo = new Go("You can move north, west, east and south with this command.", "go", map, player);
         allCommands.put("go", commandGo);
 
         /* Tess 25.05.25 */
-        Command commandLook = new Look("Gives you the description of your current location.", "look", map);
+        Command commandLook = new Look(
+                "Gives you the description of your current location and displays the item inside of it.", "look", map);
         allCommands.put("look", commandLook);
 
-        /* Tess 25.05.25 */
-        Command commandHelp = new Help("Displays all available commands and their description.", "help");
-        allCommands.put("help", commandHelp);
+        Command commandMap = new DisplayMap("Displays the map of the game.", "map", map, player);
+        allCommands.put("map", commandMap);
+
+        Command commandTake = new Take("Take an object found in the location you are in.", "take", map, player);
+        allCommands.put("take", commandTake);
 
         // AUTRES COMMANDES A RAJOUTER PLUS TARD
         // Il faut créer la classe d'abord, mais vous pouvez reprendre le code en dessus
