@@ -107,7 +107,7 @@ public class Game {
         Command commandHelp = new Help("Displays all available commands and their description.", "help");
         allCommands.put("help", commandHelp);
 
-        Command commandMap = new DisplayMap("Displays the map of the game.", "map", map);
+        Command commandMap = new DisplayMap("Displays the map of the game.", "map", map, player);
         allCommands.put("map", commandMap);
 
         // AUTRES COMMANDES A RAJOUTER PLUS TARD

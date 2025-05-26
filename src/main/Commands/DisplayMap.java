@@ -9,18 +9,18 @@ import utils.IPrintable;
 
 public class DisplayMap extends Command {
     private WorldMap map;
-
-    public DisplayMap(String description, String verb, WorldMap map) {
+    private Player player;
+    public DisplayMap(String description, String verb, WorldMap map, Player player) {
         super(description, verb);
         this.map = map;
+        this.player = player;
     }
 
     @Override
     public void execute(String argument) {
         List<List<IPrintable>> toPrint = toPrintableGrid(map.getLocationGrid());
         IPrintable[][] array2D = Array2Dprinter.convert2DArray(toPrint);
-        String output = Array2Dprinter.print2DArray(array2D, -1, -1);
-        System.out.println(output);
+        System.out.println(Array2Dprinter.print2DArray(array2D, player.getPlayerPosition().get(0), player.getPlayerPosition().get(1)));
     }
 
     public static List<List<IPrintable>> toPrintableGrid(List<List<Location>> grid) {
