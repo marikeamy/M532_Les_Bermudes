@@ -68,7 +68,7 @@ public class Game {
                 new Location("Forgotten Woods",
                         "You stand in the Forgotten Woods, where twisted trees whisper secrets of a time long lost.",
                         false, new ArrayList<>()),
-                new Location("Old decrepit manor.",
+                new Location("Old decrepit manor",
                         "You entered the old decrepit manor. You hear whispers in the dark.", false,
                         new ArrayList<>())));
         grid.add(Arrays.asList(
