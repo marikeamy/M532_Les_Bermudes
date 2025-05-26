@@ -42,7 +42,9 @@ public class Location implements IPrintable {
 
     @Override
     public String getPrintableString() {
+        if(!isLocked){
         return name;
+        } return "";
     }
 
     @Override

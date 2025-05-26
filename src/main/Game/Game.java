@@ -29,7 +29,8 @@ public class Game {
 
     public static Game getInstance() {
         if (instance == null) {
-            Player player = new Player("Player1", Arrays.asList(1, 1));
+            Inventory inventory = new Inventory(null);
+            Player player = new Player("Player1", Arrays.asList(1, 1), inventory);
             WorldMap worldMap = new WorldMap(createAllLocations());
             Map<String, Command> commands = createAllCommands(worldMap, player);
             CommandsRegistry registry = new CommandsRegistry(commands);
