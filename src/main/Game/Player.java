@@ -20,4 +20,8 @@ public class Player {
     public List<Integer> getPlayerPosition() {
         return playerPosition;
     }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
 }

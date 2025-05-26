@@ -38,25 +38,17 @@ public class Main {
                 continue;
             }
 
-            String[] command = sentence.split("\\s+");
-            if (command.length > 2) {
-                System.out.println("Try to write one to two words.");
-            } else if (command.length == 2) {
-                try {
-                    Game.getInstance().getCommandsRegistry().getCommand(command[0]).execute(command[1]);
-                } catch (Exception e) {
-                    System.out.println("I don't recognise this command.");
-                }
+            String[] command = sentence.trim().split("\\s+", 2);
 
-            } else if (command.length == 1) {
-                try {
-                    Game.getInstance().getCommandsRegistry().getCommand(command[0]).execute(null);
-                } catch (Exception e) {
-                    System.out.println("I don't recognise this command.");
-                }
-            } else if (command[0].isEmpty()) {
-                System.out.println("Try to write a command.");
+            try {
+                String commandName = command[0];
+                String argument = (command.length > 1) ? command[1] : null;
+
+                Game.getInstance().getCommandsRegistry().getCommand(commandName).execute(argument);
+            } catch (Exception e) {
+                System.out.println("I don't recognise this command.");
             }
+
         }
     }
 
