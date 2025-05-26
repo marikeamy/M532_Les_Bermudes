@@ -3,7 +3,7 @@ package main.Game;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.List;
 
 import main.Commands.*;
@@ -77,7 +77,8 @@ public class Game {
                 new Location("Ruins by the river", "You are in a small forest with a river.", false, new ArrayList<>()),
                 new Location("Dangerous bridge", "You see a bridge in the distance.", false, new ArrayList<>())));
         grid.add(Arrays.asList(
-                new Location("Royal Castle", "There's a big doorway leading to the inside of the castle.", false, new ArrayList<>()),
+                new Location("Royal Castle", "There's a big doorway leading to the inside of the castle.", false,
+                        new ArrayList<>()),
                 new Location("Castle floor", "The castle floors seem endless and full of secrets...", true,
                         new ArrayList<>()),
                 new Location("Treasure Chamber", "There's a chest full of treasure in front of you! Go grab them!",
@@ -96,20 +97,24 @@ public class Game {
     }
 
     private static Map<String, Command> createAllCommands(WorldMap map, Player player) {
-        Map<String, Command> allCommands = new HashMap<>();
-        Command commandGo = new Go("You can move north, west, east and south with this command.", "go", map, player);
-        allCommands.put("go", commandGo);
-
-        /* Tess 25.05.25 */
-        Command commandLook = new Look("Gives you the description of your current location and displays the item inside of it.", "look", map);
-        allCommands.put("look", commandLook);
-
+        Map<String, Command> allCommands = new TreeMap<>();
         /* Tess 25.05.25 */
         Command commandHelp = new Help("Displays all available commands and their description.", "help");
         allCommands.put("help", commandHelp);
 
+        Command commandGo = new Go("You can move north, west, east and south with this command.", "go", map, player);
+        allCommands.put("go", commandGo);
+
+        /* Tess 25.05.25 */
+        Command commandLook = new Look(
+                "Gives you the description of your current location and displays the item inside of it.", "look", map);
+        allCommands.put("look", commandLook);
+
         Command commandMap = new DisplayMap("Displays the map of the game.", "map", map, player);
         allCommands.put("map", commandMap);
+
+        Command commandTake = new Take("Take an object found in the location you are in.", "take", map, player);
+        allCommands.put("take", commandTake);
 
         // AUTRES COMMANDES A RAJOUTER PLUS TARD
         // Il faut créer la classe d'abord, mais vous pouvez reprendre le code en dessus
