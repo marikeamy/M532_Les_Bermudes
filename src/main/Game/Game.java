@@ -100,7 +100,7 @@ public class Game {
         allCommands.put("go", commandGo);
 
         /* Tess 25.05.25 */
-        Command commandLook = new Look("Gives you the description of your current location.", "look", map);
+        Command commandLook = new Look("Gives you the description of your current location and displays the item inside of it.", "look", map);
         allCommands.put("look", commandLook);
 
         /* Tess 25.05.25 */
