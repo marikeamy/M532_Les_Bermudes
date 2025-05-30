@@ -55,10 +55,11 @@ public class Game {
     private static List<Item> createAllItems() {
         List<Item> itemList = new ArrayList<>();
         itemList.addAll(Arrays.asList(new Letter("Elven Sword",
-                "It's an old elven sword with a riddle inscribed on it: What has a head, a tail, but no body?", "coin"),
+                "It's an old elven sword with a riddle inscribed on it: What has a head, a tail, but no body?", "coin",
+                "Treasure Chamber"),
                 new Letter("Old treasure map",
                         "It's an old treasure map with a volcano drawn on it. It says: Say Merde before the great volcano and a key you shall find.",
-                        "merde")));
+                        "merde", "Castle floor")));
         return itemList;
     }
 
@@ -98,14 +99,13 @@ public class Game {
 
     private static Map<String, Command> createAllCommands(WorldMap map, Player player) {
         Map<String, Command> allCommands = new TreeMap<>();
-        /* Tess 25.05.25 */
+
         Command commandHelp = new Help("Displays all available commands and their description.", "help");
         allCommands.put("help", commandHelp);
 
         Command commandGo = new Go("You can move north, west, east and south with this command.", "go", map, player);
         allCommands.put("go", commandGo);
 
-        /* Tess 25.05.25 */
         Command commandLook = new Look(
                 "Gives you the description of your current location and displays the item inside of it.", "look", map);
         allCommands.put("look", commandLook);
@@ -115,6 +115,9 @@ public class Game {
 
         Command commandTake = new Take("Take an object found in the location you are in.", "take", map, player);
         allCommands.put("take", commandTake);
+
+        Command commandSay = new Say("Say a word to answer a riddle.", "say", map, player);
+        allCommands.put("say", commandSay); /*Tess */
 
         // AUTRES COMMANDES A RAJOUTER PLUS TARD
         // Il faut créer la classe d'abord, mais vous pouvez reprendre le code en dessus
