@@ -119,6 +119,9 @@ public class Game {
         Command commandSay = new Say("Say a word to answer a riddle.", "say", map, player);
         allCommands.put("say", commandSay); /*Tess */
 
+        Command commandUse = new Use("Use an object you found.", "use", map, player);
+        allCommands.put("use", commandUse); /*Tess */
+
         // AUTRES COMMANDES A RAJOUTER PLUS TARD
         // Il faut créer la classe d'abord, mais vous pouvez reprendre le code en dessus
         // et changer les variables et la clef
