@@ -31,45 +31,46 @@ public class Say extends Command {
             Item item = inventory.get(i);
             if (item instanceof Letter) {
                 Letter letter = (Letter) item;
-                if (letter.isSolved()) {/*Tess */
+                if (letter.isSolved()) {/* Tess */
                     continue; // On ignore les lettres déjà résolues
                 }
 
-                if (letter.checkAnswer(argument)) {/*Donne la clé*/
+                if (letter.checkAnswer(argument)) {/* Donne la clé */
                     String locationName = letter.getLocationNameToUnlock();
-                /*Recherche la location*/ 
-                List<List<Location>> grid = map.getLocationGrid();
-                boolean found = false;
-                for (int y = 0; y < grid.size(); y++) {
-                    List<Location> row = grid.get(y);
-                    for (int x = 0; x < row.size(); x++) {
-                        Location loc = row.get(x);
-                        if (loc.getName().equalsIgnoreCase(locationName)) {
-                            found = true;
-                            if (!loc.getIsLocked()) {
-                                System.out.println("This place is already unlocked. You don't need a key.");
-                                return;
-                            } else {
-                                /*Donne la clé, marque lettre comme résolue*/
-                                Item key = new Key("Key to " + locationName,
-                                                  "A key that unlocks " + locationName,
-                                                  locationName, map);
-                                inventory.add(key);
-                                letter.markAsSolved();
-                                System.out.println("Correct! You've received the key to " + locationName + ".");
-                                return;
+                    /* Recherche la location */
+                    List<List<Location>> grid = map.getLocationGrid();
+                    boolean found = false;
+                    for (int y = 0; y < grid.size(); y++) {
+                        List<Location> row = grid.get(y);
+                        for (int x = 0; x < row.size(); x++) {
+                            Location loc = row.get(x);
+                            if (loc.getName().equalsIgnoreCase(locationName)) {
+                                found = true;
+                                if (!loc.getIsLocked()) {
+                                    System.out.println("This place is already unlocked. You don't need a key.");
+                                    return;
+                                } else {
+                                    /* Donne la clé, marque lettre comme résolue */
+                                    Item key = new Key("Key to " + locationName,
+                                            "A key that unlocks " + locationName,
+                                            locationName, map);
+                                    inventory.add(key);
+                                    letter.markAsSolved();
+                                    System.out.println("Correct! You've received the key to " + locationName + ".");
+                                    return;
+                                }
+                            }
+                        }
+                    }
+
+                    if (!found) {
+                        System.out.println("Error: Target location not found.");
+                    }
+                    return;
                 }
             }
         }
-    }
 
-if (!found) {
-                    System.out.println("Error: Target location not found.");
-                }
-                return;
-            }
-        }
+        System.out.println("That doesn’t seem to be the correct answer to any riddle.");
     }
-
-    System.out.println("Nothing happened...");
-}}
+}
