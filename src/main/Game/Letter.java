@@ -15,8 +15,6 @@ public class Letter extends Item {
         return input.trim().equalsIgnoreCase(answer.trim());
     }
 
-    }
-
     public boolean isSolved() {
         return solved;
     }
