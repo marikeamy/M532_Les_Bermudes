@@ -107,7 +107,7 @@ public class Game {
         allCommands.put("go", commandGo);
 
         Command commandLook = new Look(
-                "Gives you the description of your current location and displays the item inside of it.", "look", map); //Marike
+                "Gives you the description of your current location and displays the item inside of it.", "look", map); // Marike
         allCommands.put("look", commandLook);
 
         Command commandMap = new DisplayMap("Displays the map of the game.", "map", map, player);
@@ -117,14 +117,18 @@ public class Game {
         allCommands.put("take", commandTake);
 
         Command commandSay = new Say("Say a word to answer a riddle.", "say", map, player);
-        allCommands.put("say", commandSay); /*Tess */
+        allCommands.put("say", commandSay); /* Tess */
 
         Command commandUse = new Use("Use an object you found.", "use", map, player);
-        allCommands.put("use", commandUse); /*Tess */
+        allCommands.put("use", commandUse); /* Tess */
 
-        Command commandInspect = new Inspect("You can inspect whichever item you possess and find what their use are.", "inspect", player.getInventory());
+        Command commandInspect = new Inspect("You can inspect whichever item you possess and find what their use are.",
+                "inspect", player.getInventory());
         allCommands.put("inspect", commandInspect);
 
+        Command commandInventory = new CommandInventory("You can inspect whatever item is in your inventory.",
+                "inventory", player.getInventory());
+        allCommands.put("inventory", commandInventory);
         // AUTRES COMMANDES A RAJOUTER PLUS TARD
         // Il faut créer la classe d'abord, mais vous pouvez reprendre le code en dessus
         // et changer les variables et la clef

@@ -17,7 +17,7 @@ public class Take extends Command {
     @Override
     public void execute(String argument) {
         Location currentLocation = map.getPlayerLocation();
-        List<Item> inventory = player.getInventory().getItemList();
+        Inventory inventory = player.getInventory();
         List<Item> itemList = currentLocation.getItemList();
         String itemTaken = null;
         if (itemList.isEmpty()) {
@@ -25,7 +25,7 @@ public class Take extends Command {
         } else {
             for (Item i : itemList) {
                 if (argument.equals(i.getName().toLowerCase())) {
-                    inventory.add(i);
+                    inventory.addItem(i);
                     itemList.remove(i);
                     itemTaken = i.getName();
                 }
