@@ -65,6 +65,8 @@ public class Go extends Command {
             } else {
                 System.out.println("The path eastward is completely blocked.");
             }
+        } else {
+            System.out.println("I don't recognise this direction.");
         }
     }
 }

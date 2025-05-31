@@ -38,6 +38,7 @@ public class Location implements IPrintable {
 
     // Methods
     public void unlock() {
+        this.isLocked = false;
     }
 
     @Override
