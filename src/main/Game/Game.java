@@ -54,8 +54,8 @@ public class Game {
 
     private static List<Item> createAllItems() {
         List<Item> itemList = new ArrayList<>();
-        itemList.addAll(Arrays.asList(new Letter("Elven Sword",
-                "It's an old elven sword with a riddle inscribed on it: What has a head, a tail, but no body?", "coin",
+        itemList.addAll(Arrays.asList(new Letter("Old Parchment",
+                "It's an old parchment with a riddle inscribed on it: What has a head, a tail, but no body?", "coin",
                 "Treasure Chamber"),
                 new Letter("Old treasure map",
                         "It's an old treasure map with a volcano drawn on it. It says: Say Merde before the great volcano and a key you shall find.",
