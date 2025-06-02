@@ -30,9 +30,9 @@ public void execute(String argument) {
             Item i = iterator.next();
             if (argument.equals(i.getName().toLowerCase())) {
                 inventory.addItem(i);
-                iterator.remove(); // ✔️ suppression sécurisée
+                iterator.remove();
                 itemTaken = i.getName();
-                break; // facultatif si tu veux prendre un seul item
+                break;
             }
         }
 
