@@ -32,7 +32,6 @@ public void execute(String argument) {
                 inventory.addItem(i);
                 iterator.remove();
                 itemTaken = i.getName();
-                break;
             }
         }
 
