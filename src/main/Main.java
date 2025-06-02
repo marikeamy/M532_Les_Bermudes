@@ -4,13 +4,10 @@ import examples.ConsoleStylingExample;
 import examples.StringManipulation;
 import examples.UserInputExample;
 import main.Game.*;
-import main.Commands.*;
 import utils.Color;
 import utils.StringStyling;
 import utils.Style;
-import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
 
