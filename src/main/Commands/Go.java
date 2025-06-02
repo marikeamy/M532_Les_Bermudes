@@ -19,7 +19,7 @@ public class Go extends Command {
         int positionY = player.getPlayerPosition().get(0);
         int positionX = player.getPlayerPosition().get(1);
         List<List<Location>> grid = map.getLocationGrid();
-        if ("north".equals(argument)) {
+        if ("north".equals(argument) || "up".equals(argument)) {
             if (positionY > 0) {
                 List<Location> rowAbove = grid.get(positionY - 1);
                 if (positionX >= 0 && positionX < rowAbove.size() && !rowAbove.get(positionX).getIsLocked()) {
@@ -31,7 +31,7 @@ public class Go extends Command {
             } else {
                 System.out.println("The path north is completely blocked.");
             }
-        } else if ("south".equals(argument)) {
+        } else if ("south".equals(argument) || "down".equals(argument)) {
             if (positionX < 2) {
                 List<Location> rowAbove = grid.get(positionY + 1);
                 if (positionX >= 0 && positionX < rowAbove.size() && !rowAbove.get(positionX).getIsLocked()) {
