@@ -71,11 +71,11 @@ public class Game {
                         "swan", "The Magic Lake"),
                 new Letter("Blood Stained Skeletton",
                         "It's a skeleton of a man leaning against a wall, clutching a worn notebook in his hand. Inside the notebook is a riddle: I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?",
-                        "gold", "Royal Throne"),
-                new Item("Teleport Crystal",
-                        "With this magic stone you can teleport around the world at your heart's content.")));
-
+                        "gold", "Royal Throne")));
+        // new Item("Teleport Crystal","With this magic stone you can teleport around
+        // the world to your heart's content.")
         return itemList;
+
     }
 
     private static List<List<Location>> createAllLocations() {
@@ -140,7 +140,6 @@ public class Game {
         locationGrid.get(2).get(1).getItemList().add(itemList.get(3));
         locationGrid.get(2).get(0).getItemList().add(itemList.get(4));
         locationGrid.get(3).get(0).getItemList().add(itemList.get(5));
-        locationGrid.get(0).get(1).getItemList().add(itemList.get(6)); // TELEPORT STONE
         // A finir
     }
 
