@@ -68,7 +68,10 @@ public class Game {
                         "fire", "Royal Dungeon"),
                 new Letter("Curious Tree", 
                         "It's a curious tree standing alone, its trunk shaped in the likeness of Prince SiegFried. It whispers: a long neck bear I, my gown is white - yet at whiles am I clad in black. What am I?", 
-                        "swan", "The Magic Lake")));
+                        "swan", "The Magic Lake"),
+                new Letter("Blood Stained Skeletton", 
+                        "It's a skeleton of a man leaning against a wall, clutching a worn notebook in his hand. Inside the notebook is a riddle: I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?", 
+                        "gold", "Royal Throne")));
         return itemList;
     }
 
@@ -117,7 +120,8 @@ public class Game {
                         new ArrayList<>()),
                 new Location(null, null, true, null),
                 new Location("Treasure Chambers",
-                        "This gigantic room is full of all the treasures of the King! Go grab them!", true,
+                        "Hail, brave soul! Thou hast triumphed o’er perils untold and reached the heart of the ancient vault. Before thee lies the treasure long sought: the Elixir of Life, glowing with eternal promise, and heaps of gleaming gold beyond measure. May this reward bring thee fortune and immortality, for thou art truly a hero of legend.", 
+                        true,
                         new ArrayList<>())));
         // Nom et description à valider et finir.
         return grid;
@@ -128,7 +132,12 @@ public class Game {
         List<List<Location>> locationGrid = Game.getInstance().getWorldMap().getLocationGrid();
         locationGrid.get(0).get(1).getItemList().add(itemList.get(0));
         locationGrid.get(0).get(1).getItemList().add(itemList.get(1));
-        // A finir
+        //Code Marike
+        locationGrid.get(1).get(2).getItemList().add(itemList.get(2));
+        locationGrid.get(2).get(1).getItemList().add(itemList.get(3));
+        locationGrid.get(2).get(0).getItemList().add(itemList.get(4));
+        locationGrid.get(3).get(0).getItemList().add(itemList.get(5));
+        //A finir
     }
 
     private static Map<String, Command> createAllCommands(WorldMap map, Player player) {
