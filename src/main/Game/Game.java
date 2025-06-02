@@ -154,13 +154,12 @@ public class Game {
         Command commandInventory = new CommandInventory("You can inspect whatever item is in your inventory.",
                 "inventory", player.getInventory());
         allCommands.put("inventory", commandInventory);
-        /*
-         * Command commandTeleport = new Teleport(
-         * "With a special item you need to find, you will be able to teleport anywhere on the map!"
-         * ,
-         * "teleport", map, player, player.getInventory());
-         * allCommands.put("teleport", commandTeleport);
-         */
+
+        Command commandTeleport = new Teleport(
+                "With a special item you need to find, you will be able to teleport anywhere on the map and maybe finish the game!",
+                "teleport", map, player, player.getInventory());
+        allCommands.put("teleport", commandTeleport);
+
         return allCommands;
     }
 
