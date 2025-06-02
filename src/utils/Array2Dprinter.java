@@ -13,39 +13,6 @@ public class Array2Dprinter {
     private static Color highlightTextColor = Color.WHITE;
     private static Color highlightBackgroundColor = Color.BLUE;
 
-    public static void setHighlightStyle(Style style, Color color, Color backgroundColor) {
-        highlightTextColor = color;
-        highlightTextStyle = style;
-        highlightBackgroundColor = backgroundColor;
-    }
-
-    private static Color grayedOutTextColor = Color.BLACK;
-    private static Style grayedOutTextStyle = Style.NORMAL;
-    private static Color grayedOutBackgroundColor = Color.BLACK;
-
-    public static void setGrayedOutStyle(Style style, Color color, Color backgroundColor) {
-        grayedOutTextColor = color;
-        grayedOutTextStyle = style;
-        grayedOutBackgroundColor = backgroundColor;
-    }
-
-    /**
-     * Convert a 2D array List of IPrintable objects to a 2D array.
-     * @param arrayList2D The 2D list to be converted.
-     * @return The converted 2D array
-     */
-    public static IPrintable[][] convert2DArray(List<List<IPrintable>> arrayList2D) {
-        IPrintable[][] array2D = new IPrintable[arrayList2D.size()][];
-        for (int y = 0; y < arrayList2D.size(); y++) {
-            List<IPrintable> row = arrayList2D.get(y);
-            array2D[y] = new IPrintable[row.size()];
-            for (int x = 0; x < row.size(); x++) {
-                array2D[y][x] = row.get(x);
-            }
-        }
-        return array2D;
-    }
-
     /**
      * Build a grid string representation of a 2D array.
      *
@@ -65,6 +32,48 @@ public class Array2Dprinter {
         }
         appendHorizontalLine(output, maxLength, numColumns); // Print the last horizontal line of the array.
         return output.toString();
+    }
+
+    /**
+     * Converts a 2D ArrayList of IPrintable objects to a 2D regular array [][].
+     * @param arrayList2D The 2D list or ArrayList to convert
+     * @return The converted 2D array
+     */
+    public static IPrintable[][] convert2DArray(List<? extends List<? extends IPrintable>> arrayList2D) {
+        IPrintable[][] array2D = new IPrintable[arrayList2D.size()][];
+        for (int y = 0; y < arrayList2D.size(); y++) {
+            List<? extends IPrintable> row = arrayList2D.get(y);
+            array2D[y] = row.toArray(IPrintable[]::new);
+        }
+        return array2D;
+    }
+
+    /**
+     * Sets the highlight style and color
+     * @param style
+     * @param color
+     * @param backgroundColor
+     */
+    public static void setHighlightStyle(Style style, Color color, Color backgroundColor) {
+        highlightTextColor = color;
+        highlightTextStyle = style;
+        highlightBackgroundColor = backgroundColor;
+    }
+
+    private static Color grayedOutTextColor = Color.BLACK;
+    private static Style grayedOutTextStyle = Style.NORMAL;
+    private static Color grayedOutBackgroundColor = Color.BLACK;
+
+    /**
+     * Sets the grayed out style and color
+     * @param style
+     * @param color
+     * @param backgroundColor
+     */
+    public static void setGrayedOutStyle(Style style, Color color, Color backgroundColor) {
+        grayedOutTextColor = color;
+        grayedOutTextStyle = style;
+        grayedOutBackgroundColor = backgroundColor;
     }
 
     private static <T> void appendHorizontalLine(StringBuilder output, int maxLength, int numColumns) {
@@ -118,4 +127,3 @@ public class Array2Dprinter {
         return maxLength;
     }
 }
-
