@@ -59,7 +59,16 @@ public class Game {
                 "Master Sword Meadow"),
                 new Letter("Old treasure map",
                         "It's an old treasure map with a volcano drawn on it. It says: Say Merde before the great volcano and a key you shall find.",
-                        "merde", "Castle floor")));
+                        "merde", "Castle floor"),
+                new Letter("Strange Toad", 
+                        "It's an old toad of strange shape. It eyes thee and says: it ever runs, yet never walks. It murmurs softly, but speaks no word. It holds a bed, yet knows no sleep. It has a mouth, yet taketh no food. What is it?", 
+                        "river", "Castle bridge"),
+                new Letter("Dusty Chimney", 
+                        "It's a chimney veiled in dust, bearing an ancient carving upon its stone: give me food, and I shall live. Give me drink, and I shall perish. What am I?",
+                        "fire", "Royal Dungeon"),
+                new Letter("Curious Tree", 
+                        "It's a curious tree standing alone, its trunk shaped in the likeness of Prince SiegFried. It whispers: a long neck bear I, my gown is white - yet at whiles am I clad in black. What am I?", 
+                        "swan", "The Magic Lake")));
         return itemList;
     }
 
@@ -132,7 +141,7 @@ public class Game {
         allCommands.put("go", commandGo);
 
         Command commandLook = new Look(
-                "Gives you the description of your current location and displays the item inside of it.", "look", map); // Marike
+                "Gives you the description of your current location and displays the item inside of it.", "look", map);
         allCommands.put("look", commandLook);
 
         Command commandMap = new DisplayMap("Displays the map of the game.", "map", map, player);
