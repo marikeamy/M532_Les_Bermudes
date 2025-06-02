@@ -29,6 +29,7 @@ public class Main {
         Game.run();
 
         Scanner commandScanner = new Scanner(System.in);
+        // ENLEVER LA COMMANDE EN COMMENTAIRE EN DESSOUS POUR CHECK L'INTRO !!!!!!
         // Game.startIntro();
 
         while (!gameIsFinished) {
