@@ -1,8 +1,5 @@
 package main.Commands;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import main.Game.*;
 import utils.Array2Dprinter;
 import utils.IPrintable;

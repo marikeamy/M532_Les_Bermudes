@@ -24,7 +24,7 @@ public class Inspect extends Command{
             }else if(argument.isEmpty()){ //Si l'argument est vide, on affiche tous les items    
                 System.out.println("You can inspect the following items in your inventory:");
                 for (Item i : itemList) {
-                    System.out.println("- " + i.getName() + ": " + i.getDescription());
+                    System.out.println("- " + i.getName());
                 }
                 System.out.println("Which item would you like to inspect?");
             }else{ // Sinon, on cherche l'item correspondant à l'argument

@@ -2,7 +2,7 @@ package main.Commands;
 
 import java.util.List;
 
-import main.Game.Inventory;
+// import main.Game.Inventory;
 import main.Game.Item;
 import main.Game.Key;
 import main.Game.Letter;

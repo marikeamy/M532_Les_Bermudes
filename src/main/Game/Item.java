@@ -1,6 +1,6 @@
 package main.Game;
 
-public abstract class Item {
+public class Item {
     private String name; // Ou protected?
     private String description; // Ou protected?
 

@@ -60,18 +60,21 @@ public class Game {
                 new Letter("Old treasure map",
                         "It's an old treasure map with a volcano drawn on it. It says: Say Merde before the great volcano and a key you shall find.",
                         "merde", "Castle floor"),
-                new Letter("Strange Toad", 
-                        "It's an old toad of strange shape. It eyes thee and says: it ever runs, yet never walks. It murmurs softly, but speaks no word. It holds a bed, yet knows no sleep. It has a mouth, yet taketh no food. What is it?", 
+                new Letter("Strange Toad",
+                        "It's an old toad of strange shape. It eyes thee and says: it ever runs, yet never walks. It murmurs softly, but speaks no word. It holds a bed, yet knows no sleep. It has a mouth, yet taketh no food. What is it?",
                         "river", "Castle bridge"),
-                new Letter("Dusty Chimney", 
+                new Letter("Dusty Chimney",
                         "It's a chimney veiled in dust, bearing an ancient carving upon its stone: give me food, and I shall live. Give me drink, and I shall perish. What am I?",
                         "fire", "Royal Dungeon"),
-                new Letter("Curious Tree", 
-                        "It's a curious tree standing alone, its trunk shaped in the likeness of Prince SiegFried. It whispers: a long neck bear I, my gown is white - yet at whiles am I clad in black. What am I?", 
+                new Letter("Curious Tree",
+                        "It's a curious tree standing alone, its trunk shaped in the likeness of Prince SiegFried. It whispers: a long neck bear I, my gown is white - yet at whiles am I clad in black. What am I?",
                         "swan", "The Magic Lake"),
-                new Letter("Blood Stained Skeletton", 
-                        "It's a skeleton of a man leaning against a wall, clutching a worn notebook in his hand. Inside the notebook is a riddle: I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?", 
-                        "gold", "Royal Throne")));
+                new Letter("Blood Stained Skeletton",
+                        "It's a skeleton of a man leaning against a wall, clutching a worn notebook in his hand. Inside the notebook is a riddle: I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?",
+                        "gold", "Royal Throne"),
+                new Item("Teleport Crystal",
+                        "With this magic stone you can teleport around the world at your heart's content.")));
+
         return itemList;
     }
 
@@ -92,7 +95,7 @@ public class Game {
                         true, new ArrayList<>())));
 
         grid.add(Arrays.asList(
-                new Location(null, null, true, null),
+                new Location("empty", null, true, null),
                 new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls.", true,
                         new ArrayList<>()),
                 new Location("The Peaceful River",
@@ -109,8 +112,8 @@ public class Game {
                 new Location("Castle Hall",
                         "The Castle Hall is immense and dimly lit. You hear whispers in the dark...", true,
                         new ArrayList<>()),
-                new Location(null, null, true, null),
-                new Location(null, null, true, null)));
+                new Location("empty", null, true, null),
+                new Location("empty", null, true, null)));
 
         grid.add(Arrays.asList(new Location("Royal Throne",
                 "The mighty Throne of the King stands before you, but no one's there.",
@@ -118,9 +121,9 @@ public class Game {
                 new Location("Royal Dungeon",
                         "You stand in the Royal Dungeon. There's some old empty cells and blood on the walls...", true,
                         new ArrayList<>()),
-                new Location(null, null, true, null),
+                new Location("empty", null, true, null),
                 new Location("Treasure Chambers",
-                        "Hail, brave soul! Thou hast triumphed o’er perils untold and reached the heart of the ancient vault. Before thee lies the treasure long sought: the Elixir of Life, glowing with eternal promise, and heaps of gleaming gold beyond measure. May this reward bring thee fortune and immortality, for thou art truly a hero of legend.", 
+                        "Hail, brave soul! Thou hast triumphed o’er perils untold and reached the heart of the ancient vault. Before thee lies the treasure long sought: the Elixir of Life, glowing with eternal promise, and heaps of gleaming gold beyond measure. May this reward bring thee fortune and immortality, for thou art truly a hero of legend.",
                         true,
                         new ArrayList<>())));
         // Nom et description à valider et finir.
@@ -132,12 +135,13 @@ public class Game {
         List<List<Location>> locationGrid = Game.getInstance().getWorldMap().getLocationGrid();
         locationGrid.get(0).get(1).getItemList().add(itemList.get(0));
         locationGrid.get(0).get(1).getItemList().add(itemList.get(1));
-        //Code Marike
+        // Code Marike
         locationGrid.get(1).get(2).getItemList().add(itemList.get(2));
         locationGrid.get(2).get(1).getItemList().add(itemList.get(3));
         locationGrid.get(2).get(0).getItemList().add(itemList.get(4));
         locationGrid.get(3).get(0).getItemList().add(itemList.get(5));
-        //A finir
+        locationGrid.get(0).get(1).getItemList().add(itemList.get(6)); // TELEPORT STONE
+        // A finir
     }
 
     private static Map<String, Command> createAllCommands(WorldMap map, Player player) {
