@@ -56,7 +56,7 @@ public class Game {
         List<Item> itemList = new ArrayList<>();
         itemList.addAll(Arrays.asList(new Letter("Old Parchment",
                 "It's an old parchment with a riddle inscribed on it: What has a head, a tail, but no body?", "coin",
-                "Treasure Chamber"),
+                "Master Sword Meadow"),
                 new Letter("Old treasure map",
                         "It's an old treasure map with a volcano drawn on it. It says: Say Merde before the great volcano and a key you shall find.",
                         "merde", "Castle floor")));
@@ -154,10 +154,56 @@ public class Game {
         Command commandInventory = new CommandInventory("You can inspect whatever item is in your inventory.",
                 "inventory", player.getInventory());
         allCommands.put("inventory", commandInventory);
-        // AUTRES COMMANDES A RAJOUTER PLUS TARD
-        // Il faut créer la classe d'abord, mais vous pouvez reprendre le code en dessus
-        // et changer les variables et la clef
+        /*
+         * Command commandTeleport = new Teleport(
+         * "With a special item you need to find, you will be able to teleport anywhere on the map!"
+         * ,
+         * "teleport", map, player, player.getInventory());
+         * allCommands.put("teleport", commandTeleport);
+         */
         return allCommands;
     }
 
+    public static void startIntro() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("An old man stands before you. He says:");
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(
+                "\"The King is dead and you're the only heir still alive.\"");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(
+                "\"Find the secret numbers scattered around the world to claim the treasures of the king as yours.\"");
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("The old man laughs and disappears in a puff of smoke.");
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
+    }
 }

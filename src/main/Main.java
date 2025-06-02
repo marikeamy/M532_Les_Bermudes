@@ -10,6 +10,7 @@ import utils.StringStyling;
 import utils.Style;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
 
@@ -27,9 +28,9 @@ public class Main {
         Game.getInstance();
         Game.run();
 
-        System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
         Scanner commandScanner = new Scanner(System.in);
-        
+        // Game.startIntro();
+
         while (!gameIsFinished) {
 
             String sentence = commandScanner.nextLine().toLowerCase();
@@ -39,7 +40,7 @@ public class Main {
                 continue;
             }
 
-            String[] command = sentence.trim().split("\\s+", 2);
+            String[] command = sentence.trim().split("\s+", 2);
 
             try {
                 String commandName = command[0];
@@ -51,6 +52,7 @@ public class Main {
             }
 
         }
+        System.out.println("You win the game! Thanks for playing!");
     }
 
 }

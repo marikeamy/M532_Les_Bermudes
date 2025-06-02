@@ -17,6 +17,4 @@ public abstract class Item {
         return this.description;
     }
 
-    public abstract void interactionsWithItem();
-
 }
