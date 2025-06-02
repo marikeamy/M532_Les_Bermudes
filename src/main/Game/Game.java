@@ -30,7 +30,7 @@ public class Game {
     public static Game getInstance() {
         if (instance == null) {
             Inventory inventory = new Inventory(null);
-            Player player = new Player("Player1", Arrays.asList(1, 1), inventory);
+            Player player = new Player("Player1", Arrays.asList(0, 1), inventory);
             WorldMap worldMap = new WorldMap(createAllLocations());
             Map<String, Command> commands = createAllCommands(worldMap, player);
             CommandsRegistry registry = new CommandsRegistry(commands);
@@ -52,7 +52,7 @@ public class Game {
         return commandsRegistry;
     }
 
-    private static List<Item> createAllItems() {
+    private static List<Item> createAllLetters() {
         List<Item> itemList = new ArrayList<>();
         itemList.addAll(Arrays.asList(new Letter("Old Parchment",
                 "It's an old parchment with a riddle inscribed on it: What has a head, a tail, but no body?", "coin",
@@ -66,31 +66,56 @@ public class Game {
     private static List<List<Location>> createAllLocations() {
         List<List<Location>> grid = new ArrayList<>();
         grid.add(Arrays.asList(
-                new Location("Peaceful meadow", "You are in a meadow.", false, new ArrayList<>()),
+
+                new Location("The Old Village", "The Old Village seems completely abandonned...", false,
+                        new ArrayList<>()),
+                new Location("The Ermit Grotto",
+                        "The Grotto is now empty. You only hear the wind wispering to you.", false,
+                        new ArrayList<>()),
                 new Location("Forgotten Woods",
                         "You stand in the Forgotten Woods, where twisted trees whisper secrets of a time long lost.",
                         false, new ArrayList<>()),
-                new Location("Old decrepit manor",
-                        "You entered the old decrepit manor. You hear whispers in the dark.", false,
+                new Location("Master Sword Meadow",
+                        "The meadow is breaming with life. There's deers everywhere and a mighty sword plunged into a rock in the middle.",
+                        true, new ArrayList<>())));
+
+        grid.add(Arrays.asList(
+                new Location(null, null, true, null),
+                new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls.", true,
+                        new ArrayList<>()),
+                new Location("The Peaceful River",
+                        "The castle floors seam endless. You might get lost if you're not careful enough.", true,
+                        new ArrayList<>()),
+                new Location("The Magic Lake",
+                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", true,
                         new ArrayList<>())));
+
         grid.add(Arrays.asList(
-                new Location("Raging volcano", "You are in a volcano.", false, new ArrayList<>()),
-                new Location("Ruins by the river", "You are in a small forest with a river.", false, new ArrayList<>()),
-                new Location("Dangerous bridge", "You see a bridge in the distance.", false, new ArrayList<>())));
-        grid.add(Arrays.asList(
-                new Location("Royal Castle", "There's a big doorway leading to the inside of the castle.", false,
+                new Location("Castle gardens",
+                        "The garden look luscious and full of life with flowers blooming everywhere.", true,
                         new ArrayList<>()),
-                new Location("Castle floor", "The castle floors seem endless and full of secrets...", true,
+                new Location("Castle Hall",
+                        "The Castle Hall is immense and dimly lit. You hear whispers in the dark...", true,
                         new ArrayList<>()),
-                new Location("Treasure Chamber", "There's a chest full of treasure in front of you! Go grab them!",
-                        true,
+                new Location(null, null, true, null),
+                new Location(null, null, true, null)));
+
+        grid.add(Arrays.asList(new Location("Royal Throne",
+                "The mighty Throne of the King stands before you, but no one's there.",
+                true, new ArrayList<>()),
+                new Location("Royal Dungeon",
+                        "You stand in the Royal Dungeon. There's some old empty cells and blood on the walls...", true,
+                        new ArrayList<>()),
+                new Location(null, null, true, null),
+                new Location("Treasure Chambers",
+                        "This gigantic room is full of all the treasures of the King! Go grab them!", true,
                         new ArrayList<>())));
         // Nom et description à valider et finir.
         return grid;
     }
 
     private static void addAllItemsToLocation() {
-        List<Item> itemList = createAllItems();
+        List<Item> itemList = createAllLetters();
         List<List<Location>> locationGrid = Game.getInstance().getWorldMap().getLocationGrid();
         locationGrid.get(0).get(1).getItemList().add(itemList.get(0));
         locationGrid.get(0).get(1).getItemList().add(itemList.get(1));
