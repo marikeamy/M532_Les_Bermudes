@@ -29,4 +29,6 @@ public class WorldMap {
         Location location = Game.getInstance().getWorldMap().getLocationGrid().get(x).get(y);
         return location;
     }
+
+    
 }

@@ -16,10 +16,15 @@ public class Inventory {
         return this.itemList;
     }
 
-    public void addItem() {
+    // Uniquement lorsque le joueur récupère un item ? 
+    // Ou est-ce que des items tombent dans l'inventaire suite à la résolution d'une énigme par ex?
+    public void addItem(Item item) {
+        this.itemList.add(item);
     }
 
-    public void deleteItem() {
+    // Lors de l'utilisation de l'Item
+    public void deleteItem(Item item) {
+        this.itemList.remove(item);
     }
 
 }

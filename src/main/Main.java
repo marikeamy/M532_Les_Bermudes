@@ -4,11 +4,9 @@ import examples.ConsoleStylingExample;
 import examples.StringManipulation;
 import examples.UserInputExample;
 import main.Game.*;
-import main.Commands.*;
 import utils.Color;
 import utils.StringStyling;
 import utils.Style;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -27,8 +25,10 @@ public class Main {
         Game.getInstance();
         Game.run();
 
-        System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
         Scanner commandScanner = new Scanner(System.in);
+        // ENLEVER LA COMMANDE EN COMMENTAIRE EN DESSOUS POUR CHECK L'INTRO !!!!!!
+        // Game.startIntro();
+
         while (!gameIsFinished) {
 
             String sentence = commandScanner.nextLine().toLowerCase();
@@ -38,11 +38,11 @@ public class Main {
                 continue;
             }
 
-            String[] command = sentence.trim().split("\\s+", 2);
+            String[] command = sentence.trim().split("\s+", 2);
 
             try {
                 String commandName = command[0];
-                String argument = (command.length > 1) ? command[1] : null;
+                String argument = (command.length > 1) ? command[1] : "";
 
                 Game.getInstance().getCommandsRegistry().getCommand(commandName).execute(argument);
             } catch (Exception e) {
@@ -50,6 +50,7 @@ public class Main {
             }
 
         }
+        System.out.println("You win the game! Thanks for playing!");
     }
 
 }

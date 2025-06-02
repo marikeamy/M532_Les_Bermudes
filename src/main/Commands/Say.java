@@ -57,6 +57,8 @@ public class Say extends Command {
                                     inventory.add(key);
                                     letter.markAsSolved();
                                     System.out.println("Correct! You've received the key to " + locationName + ".");
+                                    System.out.println("The " + letter.getName() + " disappear from your inventory.");
+                                    inventory.remove(letter);
                                     return;
                                 }
                             }

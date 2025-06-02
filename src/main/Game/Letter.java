@@ -27,9 +27,4 @@ public class Letter extends Item {
         return locationNameToUnlock;
     }
 
-    @Override
-    public void interactionsWithItem() {
-        // TODO Auto-generated method stub
-
-    }
 }
