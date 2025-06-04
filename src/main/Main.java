@@ -46,7 +46,6 @@ public class Main {
 
                 Game.getInstance().getCommandsRegistry().getCommand(commandName).execute(argument);
             } catch (Exception e) {
-                e.printStackTrace();
                 System.out.println("I don't recognise this command.");
             }
 

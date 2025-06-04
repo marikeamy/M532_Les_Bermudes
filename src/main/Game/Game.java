@@ -54,12 +54,10 @@ public class Game {
 
     private static List<Item> createAllLetters() {
         List<Item> itemList = new ArrayList<>();
-        itemList.addAll(Arrays.asList(new Letter("Old Parchment",
-                "It's an old parchment with a riddle inscribed on it: What has a head, a tail, but no body?", "coin",
+        itemList.addAll(Arrays.asList(new Letter("Broken Golden Pyramid",
+                "It's a piece of a Golden Pyramid. It has a riddle inscribed on it: What has a head, a tail, but no body?",
+                "coin",
                 "Master Sword Meadow"),
-                new Letter("Old treasure map",
-                        "It's an old treasure map with a volcano drawn on it. It says: Say Merde before the great volcano and a key you shall find.",
-                        "merde", "Castle floor"),
                 new Letter("Strange Toad",
                         "It's an old toad of strange shape. It eyes thee and says: it ever runs, yet never walks. It murmurs softly, but speaks no word. It holds a bed, yet knows no sleep. It has a mouth, yet taketh no food. What is it?",
                         "river", "Castle bridge"),
@@ -67,10 +65,10 @@ public class Game {
                         "It's a chimney veiled in dust, bearing an ancient carving upon its stone: give me food, and I shall live. Give me drink, and I shall perish. What am I?",
                         "fire", "Royal Dungeon"),
                 new Letter("Curious Tree",
-                        "It's a curious tree standing alone, its trunk shaped in the likeness of Prince SiegFried. It whispers: a long neck bear I, my gown is white - yet at whiles am I clad in black. What am I?",
+                        "It's a curious tree standing alone, its trunk shaped in the likeness of Prince Siegfried. It whispers: a long neck bear I, my gown is white - yet at whiles am I clad in black. What am I?",
                         "swan", "The Magic Lake"),
-                new Letter("Blood Stained Skeletton",
-                        "It's a skeleton of a man leaning against a wall, clutching a worn notebook in his hand. Inside the notebook is a riddle: I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?",
+                new Letter("Blood Stained Skull",
+                        "It's the skull of a servant dead long ago, it speaks to you: I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?",
                         "gold", "Royal Throne")));
         // new Item("Teleport Crystal","With this magic stone you can teleport around
         // the world to your heart's content.")
@@ -133,13 +131,12 @@ public class Game {
     private static void addAllItemsToLocation() {
         List<Item> itemList = createAllLetters();
         List<List<Location>> locationGrid = Game.getInstance().getWorldMap().getLocationGrid();
-        locationGrid.get(0).get(1).getItemList().add(itemList.get(0));
-        locationGrid.get(0).get(1).getItemList().add(itemList.get(1));
+        locationGrid.get(0).get(0).getItemList().add(itemList.get(0));
         // Code Marike
-        locationGrid.get(1).get(2).getItemList().add(itemList.get(2));
-        locationGrid.get(2).get(1).getItemList().add(itemList.get(3));
-        locationGrid.get(2).get(0).getItemList().add(itemList.get(4));
-        locationGrid.get(3).get(0).getItemList().add(itemList.get(5));
+        locationGrid.get(1).get(2).getItemList().add(itemList.get(1));
+        locationGrid.get(2).get(1).getItemList().add(itemList.get(2));
+        locationGrid.get(2).get(0).getItemList().add(itemList.get(3));
+        locationGrid.get(3).get(0).getItemList().add(itemList.get(4));
         // A finir
     }
 
