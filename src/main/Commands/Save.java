@@ -4,17 +4,15 @@ import java.io.*;
 import main.Game.*;
 
 public class Save extends Command {
-    private GameState gameState;
 
-    public Save(String description, String verb, GameState gameState) {
+    public Save(String description, String verb) {
         super(description, verb);
-        this.gameState = gameState;
     }
 
     @Override
     public void execute(String argument) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("save.txt"))) {
-            for (String command : gameState.getCommandHistory()) {
+            for (String command : Game.getInstance().getGameState().getCommandHistory()) {
                 writer.write(command);
                 writer.newLine();
             }

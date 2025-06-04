@@ -214,8 +214,7 @@ public class Game {
                 "inventory", player.getInventory());
         allCommands.put("inventory", commandInventory);
 
-        Command commandSave = new Save("You can save the game.",
-                "save", gameState);
+        Command commandSave = new Save("You can save the game.", "save");
         allCommands.put("save", commandSave);
         /*
          * Command commandTeleport = new Teleport(

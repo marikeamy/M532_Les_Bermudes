@@ -38,14 +38,16 @@ public class Main {
                 continue;
             }
 
-            Game.getInstance().getGameState().addCommand(sentence);
-             System.out.println(Game.getInstance().getGameState().getCommandHistory().get(0));
             String[] command = sentence.trim().split("\s+", 2);
 
             try {
                 String commandName = command[0];
                 String argument = (command.length > 1) ? command[1] : "";
 
+                if (!commandName.equals("save")) {
+                    Game.getInstance().getGameState().addCommand(sentence);
+                }
+                
                 Game.getInstance().getCommandsRegistry().getCommand(commandName).execute(argument);
             } catch (Exception e) {
                 e.printStackTrace();
