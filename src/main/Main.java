@@ -38,6 +38,8 @@ public class Main {
                 continue;
             }
 
+            Game.getInstance().getGameState().addCommand(sentence);
+             System.out.println(Game.getInstance().getGameState().getCommandHistory().get(0));
             String[] command = sentence.trim().split("\s+", 2);
 
             try {
@@ -46,6 +48,7 @@ public class Main {
 
                 Game.getInstance().getCommandsRegistry().getCommand(commandName).execute(argument);
             } catch (Exception e) {
+                e.printStackTrace();
                 System.out.println("I don't recognise this command.");
             }
 

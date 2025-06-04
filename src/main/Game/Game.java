@@ -1,8 +1,12 @@
 package main.Game;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.List;
 
@@ -14,12 +18,14 @@ public class Game {
     private WorldMap map;
     private Player player;
     private CommandsRegistry commandsRegistry;
+    private static GameState gameState;
 
-    private Game(WorldMap map, Player player, CommandsRegistry commandsRegistry) {
+    private Game(WorldMap map, Player player, CommandsRegistry commandsRegistry, GameState gameState) {
         System.out.println("Initializing game...");
         this.map = map;
         this.player = player;
         this.commandsRegistry = commandsRegistry;
+        this.gameState = gameState;
     }
 
     public static void run() {
@@ -29,15 +35,50 @@ public class Game {
 
     public static Game getInstance() {
         if (instance == null) {
+            // GAME STATE
+            Scanner saveScanner = new Scanner(System.in);
+            GameState gameState = new GameState(new ArrayList<>());
             Inventory inventory = new Inventory(null);
             Player player = new Player("Player1", Arrays.asList(0, 1), inventory);
             WorldMap worldMap = new WorldMap(createAllLocations());
             Map<String, Command> commands = createAllCommands(worldMap, player);
             CommandsRegistry registry = new CommandsRegistry(commands);
-            instance = new Game(worldMap, player, registry);
+            instance = new Game(worldMap, player, registry, gameState);
             addAllItemsToLocation();
+            System.out.println("1. New game");
+            System.out.println("2. Load last save");
+            String choice = saveScanner.nextLine();
+
+            if (choice.equals("2")) {
+                try (BufferedReader reader = new BufferedReader(new FileReader("save.txt"))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        if (line.trim().isEmpty())
+                            continue;
+
+                        String[] command = line.trim().split("\s+", 2);
+                        String commandName = command[0];
+                        String argument = (command.length > 1) ? command[1] : "";
+
+                        Game.getInstance().getCommandsRegistry().getCommand(commandName).execute(argument);
+
+                        gameState.addCommand(line);
+                    }
+                    System.out.println("Game loaded successfully.");
+                } catch (IOException e) {
+                    System.out.println("No saved game found.");
+                } catch (Exception e) {
+                    System.out.println("Error while loading saved game.");
+                    e.printStackTrace();
+                }
+            }
+
         }
         return instance;
+    }
+
+    public GameState getGameState() {
+        return gameState;
     }
 
     public WorldMap getWorldMap() {
@@ -172,6 +213,10 @@ public class Game {
         Command commandInventory = new CommandInventory("You can inspect whatever item is in your inventory.",
                 "inventory", player.getInventory());
         allCommands.put("inventory", commandInventory);
+
+        Command commandSave = new Save("You can save the game.",
+                "save", gameState);
+        allCommands.put("save", commandSave);
         /*
          * Command commandTeleport = new Teleport(
          * "With a special item you need to find, you will be able to teleport anywhere on the map and maybe finish the game!"
