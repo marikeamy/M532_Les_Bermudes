@@ -55,38 +55,7 @@ public class Game {
             String choice = saveScanner.nextLine();
 
             if (choice.equals("2")) {
-                try (BufferedReader reader = new BufferedReader(new FileReader("save.txt"))) {
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        if (line.trim().isEmpty())
-                            continue;
-
-                        String[] command = line.trim().split("\\s+", 2);
-
-                        if (command.length >= 1) {
-                            String commandName = command[0];
-                            String argument = (command.length > 1) ? command[1] : "";
-
-                            ICommand cmd = instance.getCommandsRegistry().getCommand(commandName);
-                            if (cmd != null) {
-                                try {
-                                    cmd.execute(argument);
-                                    gameState.addCommand(line);
-                                } catch (Exception e) {
-                                    System.out.println("Skipped command: " + line);
-                                }
-                            }
-                        }
-                    }
-                    System.out.println("Game loaded successfully.");
-                    instance.setIsStarting(false);
-                    run();
-                } catch (IOException e) {
-                    System.out.println("No saved game found.");
-                } catch (Exception e) {
-                    System.out.println("Error while loading saved game.");
-                    e.printStackTrace();
-                }
+                loadGame();
             } else {
                 run();
                 startIntro();
@@ -112,7 +81,7 @@ public class Game {
         return commandsRegistry;
     }
 
-    public boolean getIsStarting(){
+    public boolean getIsStarting() {
         return isStarting;
     }
 
@@ -153,31 +122,31 @@ public class Game {
                 new Location("The Ermit Grotto",
                         "The Grotto is now empty. You only hear the wind wispering to you.", false,
                         new ArrayList<>()),
-                new Location("Forgotten Woods",
+                new Location("Lost Woods",
                         "You stand in the Forgotten Woods, where twisted trees whisper secrets of a time long lost.",
                         false, new ArrayList<>()),
                 new Location("Master Sword Meadow",
                         "The meadow is breaming with life. There's deers everywhere and a mighty sword plunged into a rock in the middle.",
-                        false, new ArrayList<>())));
+                        true, new ArrayList<>())));
 
         grid.add(Arrays.asList(
                 new Location("empty", null, true, null),
                 new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls.",
-                        false,
+                        true,
                         new ArrayList<>()),
                 new Location("The Peaceful River",
-                        "The castle floors seam endless. You might get lost if you're not careful enough.", false,
+                        "The castle floors seam endless. You might get lost if you're not careful enough.", true,
                         new ArrayList<>()),
                 new Location("The Magic Lake",
-                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", false,
+                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", true,
                         new ArrayList<>())));
 
         grid.add(Arrays.asList(
                 new Location("Castle gardens",
-                        "The garden look luscious and full of life with flowers blooming everywhere.", false,
+                        "The garden look luscious and full of life with flowers blooming everywhere.", true,
                         new ArrayList<>()),
                 new Location("Castle Hall",
-                        "The Castle Hall is immense and dimly lit. You hear whispers in the dark...", false,
+                        "The Castle Hall is immense and dimly lit. You hear whispers in the dark...", true,
                         new ArrayList<>()),
                 new Location("empty", null, true, null),
                 new Location("empty", null, true, null)));
@@ -186,12 +155,12 @@ public class Game {
                 "The mighty Throne of the King stands before you, but no one's there.",
                 false, new ArrayList<>()),
                 new Location("Royal Dungeon",
-                        "You stand in the Royal Dungeon. There's some old empty cells and blood on the walls...", false,
+                        "You stand in the Royal Dungeon. There's some old empty cells and blood on the walls...", true,
                         new ArrayList<>()),
                 new Location("empty", null, true, null),
                 new Location("Treasure Chambers",
                         "Hail, brave soul! Thou hast triumphed o’er perils untold and reached the heart of the ancient vault. Before thee lies the treasure long sought: the Elixir of Life, glowing with eternal promise, and heaps of gleaming gold beyond measure. May this reward bring thee fortune and immortality, for thou art truly a hero of legend.",
-                        false,
+                        true,
                         new ArrayList<>())));
         // Nom et description à valider et finir.
         return grid;
@@ -256,7 +225,7 @@ public class Game {
     }
 
     public static void startIntro() {
-
+        instance.setIsStarting(false);
         System.out.println();
         System.out.println(StringStyling.StyleString("Welcome to our game!", Style.ITALIC, Color.GREEN));
         System.out.println();
@@ -301,5 +270,40 @@ public class Game {
         }
 
         System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
+    }
+
+    public static void loadGame() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("save.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().isEmpty())
+                    continue;
+
+                String[] command = line.trim().split("\\s+", 2);
+
+                if (command.length >= 1) {
+                    String commandName = command[0];
+                    String argument = (command.length > 1) ? command[1] : "";
+
+                    ICommand cmd = instance.getCommandsRegistry().getCommand(commandName);
+                    if (cmd != null) {
+                        try {
+                            cmd.execute(argument);
+                            instance.getGameState().addCommand(line);
+                        } catch (Exception e) {
+                            System.out.println("Skipped command: " + line);
+                        }
+                    }
+                }
+            }
+            System.out.println("Game loaded successfully.");
+            instance.setIsStarting(false);
+            run();
+        } catch (IOException e) {
+            System.out.println("No saved game found.");
+        } catch (Exception e) {
+            System.out.println("Error while loading saved game.");
+            e.printStackTrace();
+        }
     }
 }
