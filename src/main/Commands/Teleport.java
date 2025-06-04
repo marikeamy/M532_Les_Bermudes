@@ -23,7 +23,7 @@ public class Teleport extends Command {
         int foundY = -1;
         
         if (!argument.toLowerCase().startsWith("to ")) {
-            System.out.println("It's not a valid teleport command. Use: teleport to <Name of the location>");
+            printOutput("It's not a valid teleport command. Use: teleport to <Name of the location>");
         }
 
         String destination = argument.substring(3).trim();
@@ -40,7 +40,7 @@ public class Teleport extends Command {
         }
 
         if (foundX == -1 || foundY == -1) {
-            System.out.println("This location doesn't exist.");
+            printOutput("This location doesn't exist.");
             return;
         }
 
@@ -55,12 +55,12 @@ public class Teleport extends Command {
             if (!grid.get(foundX).get(foundY).getIsLocked()) {
                 player.getPlayerPosition().set(0, foundX);
                 player.getPlayerPosition().set(1, foundY);
-                System.out.println("You teleported to the " + map.getPlayerLocation().getName());
+                printOutput("You teleported to the " + map.getPlayerLocation().getName());
             } else {
-                System.out.println("The location is completely blocked. You can't teleport there!");
+                printOutput("The location is completely blocked. You can't teleport there!");
             }
         } else {
-            System.out.println("You don't have a Teleport Crystal.");
+            printOutput("You don't have a Teleport Crystal.");
         }
     }
 }

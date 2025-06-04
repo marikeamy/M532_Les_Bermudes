@@ -23,12 +23,8 @@ public class Main {
         // System.out.println(StringStyling.StyleString("Terminating...", Style.ITALIC,
         // Color.BLACK));
         Game.getInstance();
-        Game.run();
 
         Scanner commandScanner = new Scanner(System.in);
-        // ENLEVER LA COMMANDE EN COMMENTAIRE EN DESSOUS POUR CHECK L'INTRO !!!!!!
-        // Game.startIntro();
-
         while (!gameIsFinished) {
 
             String sentence = commandScanner.nextLine().toLowerCase();

@@ -17,11 +17,11 @@ public class Look extends Command {
     public void execute(String argument) {
         Location currentLocation = map.getPlayerLocation();
         List<Item> itemList = currentLocation.getItemList();
-        System.out.println(currentLocation.getDescription());
+        printOutput(currentLocation.getDescription());
         if (!itemList.isEmpty()) {
-            System.out.println("There is some items laying around:");
+            printOutput("There is some items laying around:");
             for (Item i : itemList) {
-                System.out.println(i.getName());
+                printOutput(i.getName());
             }
         }
     }

@@ -28,7 +28,7 @@ public class Use extends Command {
     public void execute(String argument) {
         if (argument == null || argument.isEmpty()) { // Cherche dans l’inventaire un objet dont le nom correspond à
                                                       // l’argument. Si aucun objet ne correspond, message d’erreur.
-            System.out.println("You need to specify which item you want to use.");
+            printOutput("You need to specify which item you want to use.");
             return;
         }
 
@@ -43,7 +43,7 @@ public class Use extends Command {
         }
 
         if (itemToUse == null) {
-            System.out.println("You don't have this item in your inventory.");
+            printOutput("You don't have this item in your inventory.");
             return;
         }
 
@@ -58,17 +58,17 @@ public class Use extends Command {
                 System.out
                         .println("You used the " + key.getName() + " to unlock " + key.getLocationNameToUnlock() + ".");
             } else {
-                System.out.println("The key doesn't match any locked location.");
+                printOutput("The key doesn't match any locked location.");
             }
         } else if (itemToUse instanceof Letter) {
             Letter letter = (Letter) itemToUse;
             if (letter.isSolved()) {
-                System.out.println("You already solved the riddle: " + letter.getDescription());
+                printOutput("You already solved the riddle: " + letter.getDescription());
             } else {
-                System.out.println("Riddle: " + letter.getDescription());
+                printOutput("Riddle: " + letter.getDescription());
             }
         } else {
-            System.out.println("This item can't be used.");
+            printOutput("This item can't be used.");
         }
     }
 }

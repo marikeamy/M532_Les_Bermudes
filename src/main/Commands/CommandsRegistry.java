@@ -17,11 +17,6 @@ public class CommandsRegistry {
         return this.commandsRegistry.get(verb);
     }
 
-    /*
-     * public ICommand getCommand(Map<String, ICommand> commandsRegistry) {
-     * return this.ICommand;
-     * }
-     */
     public void addCommand(String verb, ICommand Command) {
 
     }

@@ -9,6 +9,9 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.List;
+import utils.Color;
+import utils.StringStyling;
+import utils.Style;
 
 import main.Commands.*;
 
@@ -18,7 +21,8 @@ public class Game {
     private WorldMap map;
     private Player player;
     private CommandsRegistry commandsRegistry;
-    private static GameState gameState;
+    private GameState gameState;
+    private boolean isStarting;
 
     private Game(WorldMap map, Player player, CommandsRegistry commandsRegistry, GameState gameState) {
         System.out.println("Initializing game...");
@@ -26,6 +30,7 @@ public class Game {
         this.player = player;
         this.commandsRegistry = commandsRegistry;
         this.gameState = gameState;
+        this.isStarting = true;
     }
 
     public static void run() {
@@ -74,12 +79,17 @@ public class Game {
                         }
                     }
                     System.out.println("Game loaded successfully.");
+                    instance.setIsStarting(false);
+                    run();
                 } catch (IOException e) {
                     System.out.println("No saved game found.");
                 } catch (Exception e) {
                     System.out.println("Error while loading saved game.");
                     e.printStackTrace();
                 }
+            } else {
+                run();
+                startIntro();
             }
 
         }
@@ -100,6 +110,14 @@ public class Game {
 
     public CommandsRegistry getCommandsRegistry() {
         return commandsRegistry;
+    }
+
+    public boolean getIsStarting(){
+        return isStarting;
+    }
+
+    public void setIsStarting(boolean state) {
+        this.isStarting = state;
     }
 
     private static List<Item> createAllLetters() {
@@ -238,6 +256,11 @@ public class Game {
     }
 
     public static void startIntro() {
+
+        System.out.println();
+        System.out.println(StringStyling.StyleString("Welcome to our game!", Style.ITALIC, Color.GREEN));
+        System.out.println();
+
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {

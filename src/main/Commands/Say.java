@@ -22,7 +22,7 @@ public class Say extends Command {
     @Override
     public void execute(String argument) {
         if (argument == null || argument.isEmpty()) {
-            System.out.println("You need to say something.");
+            printOutput("You need to say something.");
             return;
         }
 
@@ -47,7 +47,7 @@ public class Say extends Command {
                             if (loc.getName().equalsIgnoreCase(locationName)) {
                                 found = true;
                                 if (!loc.getIsLocked()) {
-                                    System.out.println("This place is already unlocked. You don't need a key.");
+                                    printOutput("This place is already unlocked. You don't need a key.");
                                     return;
                                 } else {
                                     /* Donne la clé, marque lettre comme résolue */
@@ -56,8 +56,8 @@ public class Say extends Command {
                                             locationName, map);
                                     inventory.add(key);
                                     letter.markAsSolved();
-                                    System.out.println("Correct! You've received the key to " + locationName + ".");
-                                    System.out.println("The " + letter.getName() + " disappear from your inventory.");
+                                    printOutput("Correct! You've received the key to " + locationName + ".");
+                                    printOutput("The " + letter.getName() + " disappear from your inventory.");
                                     inventory.remove(letter);
                                     return;
                                 }
@@ -66,13 +66,13 @@ public class Say extends Command {
                     }
 
                     if (!found) {
-                        System.out.println("Error: Target location not found.");
+                        printOutput("Error: Target location not found.");
                     }
                     return;
                 }
             }
         }
 
-        System.out.println("That doesn’t seem to be the correct answer to any riddle.");
+        printOutput("That doesn’t seem to be the correct answer to any riddle.");
     }
 }

@@ -20,32 +20,32 @@ public class Inspect extends Command{
             // La réponse est différente en fonction de si c'est une clé ou une lettre.
             // Si l'inventaire est vide
             if (itemList.isEmpty()) {
-                System.out.println("There are no items in your inventory yet!");
+                printOutput("There are no items in your inventory yet!");
             }else if(argument.isEmpty()){ //Si l'argument est vide, on affiche tous les items    
-                System.out.println("You can inspect the following items in your inventory:");
+                printOutput("You can inspect the following items in your inventory:");
                 for (Item i : itemList) {
-                    System.out.println("- " + i.getName());
+                    printOutput("- " + i.getName());
                 }
-                System.out.println("Which item would you like to inspect?");
+                printOutput("Which item would you like to inspect?");
             }else{ // Sinon, on cherche l'item correspondant à l'argument
             for (Item i : itemList) {
                     if (i.getName().equalsIgnoreCase(argument.trim())) {
                         found = true;
                         if (i instanceof Key) {
                             Key key = (Key) i;
-                            System.out.println("This is a key for: " + key.getLocationNameToUnlock());
-                            System.out.println(key.getDescription());
+                            printOutput("This is a key for: " + key.getLocationNameToUnlock());
+                            printOutput(key.getDescription());
                         } else if (i instanceof Letter) {
                             Letter letter = (Letter) i;
-                            System.out.println(letter.getDescription());
+                            printOutput(letter.getDescription());
                         } else {
-                            System.out.println(i.getName() + ": " + i.getDescription());
+                            printOutput(i.getName() + ": " + i.getDescription());
                         }
                         break;
                     }
                 }
             if (!found) {
-                System.out.println("There is no such item in your inventory. Check again?");
+                printOutput("There is no such item in your inventory. Check again?");
             }            
             }
         }
