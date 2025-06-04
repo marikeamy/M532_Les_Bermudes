@@ -44,8 +44,13 @@ public class Main {
                 String commandName = command[0];
                 String argument = (command.length > 1) ? command[1] : "";
 
+                if (!commandName.equals("save")) {
+                    Game.getInstance().getGameState().addCommand(sentence);
+                }
+                
                 Game.getInstance().getCommandsRegistry().getCommand(commandName).execute(argument);
             } catch (Exception e) {
+                e.printStackTrace();
                 System.out.println("I don't recognise this command.");
             }
 

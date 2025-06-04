@@ -23,8 +23,7 @@ public class Teleport extends Command {
         int foundY = -1;
         
         if (!argument.toLowerCase().startsWith("to ")) {
-            System.out.println("Invalid teleport command. Use: teleport to <Name of the location>");
-            return;
+            System.out.println("It's not a valid teleport command. Use: teleport to <Name of the location>");
         }
 
         String destination = argument.substring(3).trim();
@@ -41,7 +40,7 @@ public class Teleport extends Command {
         }
 
         if (foundX == -1 || foundY == -1) {
-            System.out.println("Location not found.");
+            System.out.println("This location doesn't exist.");
             return;
         }
 
