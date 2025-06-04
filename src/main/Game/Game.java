@@ -61,17 +61,16 @@ public class Game {
                 new Letter("Strange Toad",
                         "It's an old toad of strange shape. It eyes thee and says: it ever runs, yet never walks. It murmurs softly, but speaks no word. It holds a bed, yet knows no sleep. It has a mouth, yet taketh no food. What is it?",
                         "river", "Castle bridge"),
-                new Letter("Dusty Chimney",
-                        "It's a chimney veiled in dust, bearing an ancient carving upon its stone: give me food, and I shall live. Give me drink, and I shall perish. What am I?",
+                new Letter("Chimney Candle",
+                        "You see, inside a chimney veiled in dust, a burning candle bearing a carving upon its wax: give me food, and I shall live. Give me drink, and I shall perish. What am I?",
                         "fire", "Royal Dungeon"),
-                new Letter("Curious Tree",
-                        "It's a curious tree standing alone, its trunk shaped in the likeness of Prince Siegfried. It whispers: a long neck bear I, my gown is white - yet at whiles am I clad in black. What am I?",
+                new Letter("Curious Branch",
+                        "It's a curious branch laying alone, it is shaped in the likeness of Prince Siegfried. It whispers: a long neck bear I, my gown is white - yet at whiles am I clad in black. What am I?",
                         "swan", "The Magic Lake"),
                 new Letter("Blood Stained Skull",
                         "It's the skull of a servant dead long ago, it speaks to you: I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?",
-                        "gold", "Royal Throne")));
-        // new Item("Teleport Crystal","With this magic stone you can teleport around
-        // the world to your heart's content.")
+                        "gold", "Royal Throne"),
+                new Item("Teleport Crystal","With this magic stone you can teleport around the world to your heart's content.")));
         return itemList;
 
     }
@@ -90,39 +89,40 @@ public class Game {
                         false, new ArrayList<>()),
                 new Location("Master Sword Meadow",
                         "The meadow is breaming with life. There's deers everywhere and a mighty sword plunged into a rock in the middle.",
-                        true, new ArrayList<>())));
+                        false, new ArrayList<>())));
 
         grid.add(Arrays.asList(
                 new Location("empty", null, true, null),
-                new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls.", true,
+                new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls.", 
+                false,
                         new ArrayList<>()),
                 new Location("The Peaceful River",
-                        "The castle floors seam endless. You might get lost if you're not careful enough.", true,
+                        "The castle floors seam endless. You might get lost if you're not careful enough.", false,
                         new ArrayList<>()),
                 new Location("The Magic Lake",
-                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", true,
+                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", false,
                         new ArrayList<>())));
 
         grid.add(Arrays.asList(
                 new Location("Castle gardens",
-                        "The garden look luscious and full of life with flowers blooming everywhere.", true,
+                        "The garden look luscious and full of life with flowers blooming everywhere.", false,
                         new ArrayList<>()),
                 new Location("Castle Hall",
-                        "The Castle Hall is immense and dimly lit. You hear whispers in the dark...", true,
+                        "The Castle Hall is immense and dimly lit. You hear whispers in the dark...", false,
                         new ArrayList<>()),
                 new Location("empty", null, true, null),
                 new Location("empty", null, true, null)));
 
         grid.add(Arrays.asList(new Location("Royal Throne",
                 "The mighty Throne of the King stands before you, but no one's there.",
-                true, new ArrayList<>()),
+                false, new ArrayList<>()),
                 new Location("Royal Dungeon",
-                        "You stand in the Royal Dungeon. There's some old empty cells and blood on the walls...", true,
+                        "You stand in the Royal Dungeon. There's some old empty cells and blood on the walls...", false,
                         new ArrayList<>()),
                 new Location("empty", null, true, null),
                 new Location("Treasure Chambers",
                         "Hail, brave soul! Thou hast triumphed o’er perils untold and reached the heart of the ancient vault. Before thee lies the treasure long sought: the Elixir of Life, glowing with eternal promise, and heaps of gleaming gold beyond measure. May this reward bring thee fortune and immortality, for thou art truly a hero of legend.",
-                        true,
+                        false,
                         new ArrayList<>())));
         // Nom et description à valider et finir.
         return grid;
@@ -131,12 +131,13 @@ public class Game {
     private static void addAllItemsToLocation() {
         List<Item> itemList = createAllLetters();
         List<List<Location>> locationGrid = Game.getInstance().getWorldMap().getLocationGrid();
-        locationGrid.get(0).get(0).getItemList().add(itemList.get(0));
+        locationGrid.get(0).get(0).getItemList().add(itemList.get(0)); //Golden Pyramid in Village
         // Code Marike
-        locationGrid.get(1).get(2).getItemList().add(itemList.get(1));
-        locationGrid.get(2).get(1).getItemList().add(itemList.get(2));
-        locationGrid.get(2).get(0).getItemList().add(itemList.get(3));
-        locationGrid.get(3).get(0).getItemList().add(itemList.get(4));
+        locationGrid.get(1).get(2).getItemList().add(itemList.get(1)); //Old Toad in River
+        locationGrid.get(1).get(2).getItemList().add(itemList.get(5)); //Crystal in River
+        locationGrid.get(2).get(1).getItemList().add(itemList.get(2)); //Chimney candle in Castle Hall
+        locationGrid.get(2).get(0).getItemList().add(itemList.get(3)); //Siegfried brand in Castle Garden
+        locationGrid.get(3).get(1).getItemList().add(itemList.get(4)); //Skull in Dungeon
         // A finir
     }
 
@@ -172,13 +173,12 @@ public class Game {
         Command commandInventory = new CommandInventory("You can inspect whatever item is in your inventory.",
                 "inventory", player.getInventory());
         allCommands.put("inventory", commandInventory);
-        /*
-         * Command commandTeleport = new Teleport(
-         * "With a special item you need to find, you will be able to teleport anywhere on the map and maybe finish the game!"
-         * ,
-         * "teleport", map, player, player.getInventory());
-         * allCommands.put("teleport", commandTeleport);
-         */
+        
+        //Command commandTeleport = new Teleport("With a special item you need to find, you will be able to teleport anywhere on the map and maybe finish the game!",
+        //        "teleport", map, player, player.getInventory());
+        //allCommands.put("teleport", commandTeleport);
+        //créée dans Take, lorsque le joueur ramasse le Crystal
+         
         return allCommands;
     }
 

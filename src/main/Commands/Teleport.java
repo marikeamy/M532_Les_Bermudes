@@ -24,6 +24,7 @@ public class Teleport extends Command {
         
         if (!argument.toLowerCase().startsWith("to ")) {
             System.out.println("Invalid teleport command. Use: teleport to <Name of the location>");
+            return;
         }
 
         String destination = argument.substring(3).trim();

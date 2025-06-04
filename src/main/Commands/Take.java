@@ -32,15 +32,23 @@ public void execute(String argument) {
                 inventory.addItem(i);
                 iterator.remove();
                 itemTaken = i.getName();
+                if (i.getName().equalsIgnoreCase("Teleport Crystal")) {
+                    Game.getInstance().getCommandsRegistry().addCommand("teleport", new Teleport("You can teleport anyplace you have already visited.", 
+                    "teleport", map, player, player.getInventory()));
+                    System.out.println("You feel a strange power... You can now teleport! Use the help command to find out how to use the Teleport Crystal.");            
+                }
+                
             }
         }
-
-        if (itemTaken == null) {
-            System.out.println("This item is not here.");
-        } else {
-            System.out.println("You took the " + itemTaken + ".");
-        }
     }
+        
+    if (itemTaken == null) {
+        System.out.println("This item is not here.");
+    } else {
+       System.out.println("You took the " + itemTaken + ".");
+    }
+    
+
 }
 
 }
