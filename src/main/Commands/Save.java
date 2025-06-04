@@ -16,9 +16,9 @@ public class Save extends Command {
                 writer.write(command);
                 writer.newLine();
             }
-            System.out.println("Game saved successfully.");
+            printOutput("Game saved successfully.");
         } catch (IOException e) {
-            System.out.println("Failed to save game.");
+            printOutput("Failed to save game.");
             e.printStackTrace();
         }
     }

@@ -16,39 +16,40 @@ public class Take extends Command {
     }
 
     @Override
-public void execute(String argument) {
-    Location currentLocation = map.getPlayerLocation();
-    Inventory inventory = player.getInventory();
-    List<Item> itemList = currentLocation.getItemList();
-    String itemTaken = null;
+    public void execute(String argument) {
+        Location currentLocation = map.getPlayerLocation();
+        Inventory inventory = player.getInventory();
+        List<Item> itemList = currentLocation.getItemList();
+        String itemTaken = null;
 
-    if (itemList.isEmpty()) {
-        System.out.println("There's no item to take here!");
-    } else {
-        Iterator<Item> iterator = itemList.iterator();
-        while (iterator.hasNext()) {
-            Item i = iterator.next();
-            if (argument.equals(i.getName().toLowerCase())) {
-                inventory.addItem(i);
-                iterator.remove();
-                itemTaken = i.getName();
-                if (i.getName().equalsIgnoreCase("Teleport Crystal")) {
-                    Game.getInstance().getCommandsRegistry().addCommand("teleport", new Teleport("You can teleport anyplace you have already visited.", 
-                    "teleport", map, player, player.getInventory()));
-                    System.out.println("You feel a strange power... You can now teleport! Use the help command to find out how to use the Teleport Crystal.");            
+        if (itemList.isEmpty()) {
+            printOutput("There's no item to take here!");
+        } else {
+            Iterator<Item> iterator = itemList.iterator();
+            while (iterator.hasNext()) {
+                Item i = iterator.next();
+                if (argument.equals(i.getName().toLowerCase())) {
+                    inventory.addItem(i);
+                    iterator.remove();
+                    itemTaken = i.getName();
+                    if (i.getName().equalsIgnoreCase("Teleport Crystal")) {
+                        Game.getInstance().getCommandsRegistry().addCommand("teleport",
+                                new Teleport("You can teleport anyplace you have already visited.",
+                                        "teleport", map, player, player.getInventory()));
+                        printOutput(
+                                "You feel a strange power... You can now teleport! Use the help command to find out how to use the Teleport Crystal.");
+                    }
+
                 }
-                
             }
         }
-    }
-        
-    if (itemTaken == null) {
-        System.out.println("This item is not here.");
-    } else {
-       System.out.println("You took the " + itemTaken + ".");
-    }
-    
 
-}
+        if (itemTaken == null) {
+            printOutput("This item is not here.");
+        } else {
+            printOutput("You took the " + itemTaken + ".");
+        }
+
+    }
 
 }

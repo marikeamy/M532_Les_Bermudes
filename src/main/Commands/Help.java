@@ -14,9 +14,9 @@ public class Help extends Command {
     @Override
     public void execute(String argument) {
         Map<String, Command> allCommands = Game.getInstance().getCommandsRegistry().getCommandsRegistry();
-        System.out.println("Available commands:");
+        printOutput("Available commands:");
         for (Command cmd : allCommands.values()) {
-            System.out.println("- " + cmd.getVerb() + ": " + cmd.getDescription());
+            printOutput("- " + cmd.getVerb() + ": " + cmd.getDescription());
         }
     }
 }

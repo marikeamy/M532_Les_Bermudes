@@ -9,6 +9,9 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.List;
+import utils.Color;
+import utils.StringStyling;
+import utils.Style;
 
 import main.Commands.*;
 
@@ -18,7 +21,8 @@ public class Game {
     private WorldMap map;
     private Player player;
     private CommandsRegistry commandsRegistry;
-    private static GameState gameState;
+    private GameState gameState;
+    private boolean isStarting;
 
     private Game(WorldMap map, Player player, CommandsRegistry commandsRegistry, GameState gameState) {
         System.out.println("Initializing game...");
@@ -26,6 +30,7 @@ public class Game {
         this.player = player;
         this.commandsRegistry = commandsRegistry;
         this.gameState = gameState;
+        this.isStarting = true;
     }
 
     public static void run() {
@@ -65,12 +70,17 @@ public class Game {
                         gameState.addCommand(line);
                     }
                     System.out.println("Game loaded successfully.");
+                    instance.setIsStarting(false);
+                    run();
                 } catch (IOException e) {
                     System.out.println("No saved game found.");
                 } catch (Exception e) {
                     System.out.println("Error while loading saved game.");
                     e.printStackTrace();
                 }
+            } else {
+                run();
+                startIntro();
             }
 
         }
@@ -93,6 +103,14 @@ public class Game {
         return commandsRegistry;
     }
 
+    public boolean getIsStarting(){
+        return isStarting;
+    }
+
+    public void setIsStarting(boolean state) {
+        this.isStarting = state;
+    }
+
     private static List<Item> createAllLetters() {
         List<Item> itemList = new ArrayList<>();
         itemList.addAll(Arrays.asList(new Letter("Broken Golden Pyramid",
@@ -111,7 +129,8 @@ public class Game {
                 new Letter("Blood Stained Skull",
                         "It's the skull of a servant dead long ago, it speaks to you: I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?",
                         "gold", "Royal Throne"),
-                new Item("Teleport Crystal","With this magic stone you can teleport around the world to your heart's content.")));
+                new Item("Teleport Crystal",
+                        "With this magic stone you can teleport around the world to your heart's content.")));
         return itemList;
 
     }
@@ -134,8 +153,8 @@ public class Game {
 
         grid.add(Arrays.asList(
                 new Location("empty", null, true, null),
-                new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls.", 
-                false,
+                new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls.",
+                        false,
                         new ArrayList<>()),
                 new Location("The Peaceful River",
                         "The castle floors seam endless. You might get lost if you're not careful enough.", false,
@@ -172,13 +191,13 @@ public class Game {
     private static void addAllItemsToLocation() {
         List<Item> itemList = createAllLetters();
         List<List<Location>> locationGrid = Game.getInstance().getWorldMap().getLocationGrid();
-        locationGrid.get(0).get(0).getItemList().add(itemList.get(0)); //Golden Pyramid in Village
+        locationGrid.get(0).get(0).getItemList().add(itemList.get(0)); // Golden Pyramid in Village
         // Code Marike
-        locationGrid.get(1).get(2).getItemList().add(itemList.get(1)); //Old Toad in River
-        locationGrid.get(1).get(2).getItemList().add(itemList.get(5)); //Crystal in River
-        locationGrid.get(2).get(1).getItemList().add(itemList.get(2)); //Chimney candle in Castle Hall
-        locationGrid.get(2).get(0).getItemList().add(itemList.get(3)); //Siegfried brand in Castle Garden
-        locationGrid.get(3).get(1).getItemList().add(itemList.get(4)); //Skull in Dungeon
+        locationGrid.get(1).get(2).getItemList().add(itemList.get(1)); // Old Toad in River
+        locationGrid.get(1).get(2).getItemList().add(itemList.get(5)); // Crystal in River
+        locationGrid.get(2).get(1).getItemList().add(itemList.get(2)); // Chimney candle in Castle Hall
+        locationGrid.get(2).get(0).getItemList().add(itemList.get(3)); // Siegfried brand in Castle Garden
+        locationGrid.get(3).get(1).getItemList().add(itemList.get(4)); // Skull in Dungeon
         // A finir
     }
 
@@ -228,6 +247,11 @@ public class Game {
     }
 
     public static void startIntro() {
+
+        System.out.println();
+        System.out.println(StringStyling.StyleString("Welcome to our game!", Style.ITALIC, Color.GREEN));
+        System.out.println();
+
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
