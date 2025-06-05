@@ -17,8 +17,8 @@ public class CommandsRegistry {
         return this.commandsRegistry.get(verb);
     }
 
-    public void addCommand(String verb, ICommand Command) {
-
+    public void addCommand(String verb, Command Command) {
+        this.commandsRegistry.put(verb, Command);
     }
 
     public void executeCommand(String verb) {
