@@ -117,9 +117,9 @@ public class Game {
         List<List<Location>> grid = new ArrayList<>();
         grid.add(Arrays.asList(
 
-                new Location("The Old Village", "The Old Village seems completely abandonned...", false,
+                new Location("Old Village", "The Old Village seems completely abandonned...", false,
                         new ArrayList<>()),
-                new Location("The Ermit Grotto",
+                new Location("Ermit Grotto",
                         "The Grotto is now empty. You only hear the wind wispering to you.", false,
                         new ArrayList<>()),
                 new Location("Lost Woods",
@@ -134,10 +134,10 @@ public class Game {
                 new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls.",
                         true,
                         new ArrayList<>()),
-                new Location("The Peaceful River",
+                new Location("Peaceful River",
                         "The castle floors seam endless. You might get lost if you're not careful enough.", false,
                         new ArrayList<>()),
-                new Location("The Magic Lake",
+                new Location("Magic Lake",
                         "You are on the coast of the Magic Lake. There's some swans and cute ducks.", true,
                         new ArrayList<>())));
 
