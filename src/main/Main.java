@@ -1,33 +1,17 @@
 package main;
 
-import examples.ConsoleStylingExample;
-import examples.StringManipulation;
-import examples.UserInputExample;
 import main.Game.*;
-import utils.Color;
-import utils.StringStyling;
-import utils.Style;
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         boolean gameIsFinished = false;
-        /*
-         * StringManipulation.Example();
-         * ConsoleStylingExample.Example();
-         * UserInputExample.Example();
-         */
-        // System.out.println(StringStyling.StyleString("Starting...", Style.ITALIC,
-        // Color.BLACK));
-        // System.out.println(StringStyling.StyleString("Terminating...", Style.ITALIC,
-        // Color.BLACK));
+
         Game.getInstance();
 
-        Scanner commandScanner = new Scanner(System.in);
         while (!gameIsFinished) {
 
-            String sentence = commandScanner.nextLine().toLowerCase();
+            String sentence = Game.getInstance().getScanner().nextLine().toLowerCase();
 
             if (sentence.isEmpty()) {
                 System.out.println("Enter a command, please.");
@@ -53,6 +37,7 @@ public class Main {
             }
 
         }
+        Game.getInstance().getScanner().close();
         System.out.println("You win the game! Thanks for playing!");
     }
 

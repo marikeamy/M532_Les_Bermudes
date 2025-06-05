@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
@@ -23,6 +24,7 @@ public class Game {
     private CommandsRegistry commandsRegistry;
     private GameState gameState;
     private boolean isStarting;
+    private Scanner inputScanner;
 
     private Game(WorldMap map, Player player, CommandsRegistry commandsRegistry, GameState gameState) {
         System.out.println("Initializing game...");
@@ -31,6 +33,7 @@ public class Game {
         this.commandsRegistry = commandsRegistry;
         this.gameState = gameState;
         this.isStarting = true;
+        this.inputScanner = new Scanner(System.in);
     }
 
     public static void run() {
@@ -40,8 +43,6 @@ public class Game {
 
     public static Game getInstance() {
         if (instance == null) {
-            // GAME STATE
-            Scanner saveScanner = new Scanner(System.in);
             GameState gameState = new GameState(new ArrayList<>());
             Inventory inventory = new Inventory(null);
             Player player = new Player("Player1", Arrays.asList(0, 1), inventory);
@@ -49,17 +50,7 @@ public class Game {
             CommandsRegistry registry = new CommandsRegistry(createAllCommands(worldMap, player));
             instance = new Game(worldMap, player, registry, gameState);
             addAllItemsToLocation();
-            System.out.println("1. New game");
-            System.out.println("2. Load last save");
-            String choice = saveScanner.nextLine();
-
-            if (choice.equals("2")) {
-                loadGame();
-            } else {
-                run();
-                startIntro();
-            }
-
+            titleScreen();
         }
         return instance;
     }
@@ -88,6 +79,10 @@ public class Game {
         this.isStarting = state;
     }
 
+    public Scanner getScanner(){
+        return inputScanner;
+    }
+
     private static List<Item> createAllLetters() {
         List<Item> itemList = new ArrayList<>();
         itemList.addAll(Arrays.asList(new Letter("Broken Golden Pyramid",
@@ -103,7 +98,7 @@ public class Game {
                 new Letter("Curious Branch",
                         "It's a curious branch laying alone, it is shaped in the likeness of Prince Siegfried. It whispers: a long neck bear I, my gown is white - yet at whiles am I clad in black. What am I?",
                         "swan", "The Magic Lake"),
-            new Letter("Queen Skull",
+                new Letter("Queen Skull",
                         "It's the skull of the Queen dead long ago, it speaks to you: I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?",
                         "gold", "Royal Throne"),
                 new Item("Teleport Crystal",
@@ -210,16 +205,30 @@ public class Game {
                 "inventory", player.getInventory());
         allCommands.put("inventory", commandInventory);
 
-        Command commandSave = new Save("You can save the game.", "save");
+        Command commandSave = new Save("You can save your game and start again later.", "save");
         allCommands.put("save", commandSave);
-        /*
-         * Command commandTeleport = new Teleport(
-         * "With a special item you need to find, you will be able to teleport anywhere on the map and maybe finish the game!"
-         * ,
-         * "teleport", map, player, player.getInventory());
-         * allCommands.put("teleport", commandTeleport);
-         */
+
         return allCommands;
+    }
+
+    public static void titleScreen() {
+        System.out.println("1. New game");
+        System.out.println("2. Load last save");
+        boolean validChoice = false;
+        int choice;
+        while (!validChoice) {
+            choice = Game.getInstance().getScanner().nextInt();
+            if (choice == 2) {
+                validChoice = true;
+                loadGame();
+            } else if (choice == 1) {
+                validChoice = true;
+                run();
+                startIntro();
+            } else {
+                System.out.println("Please write 1 or 2 to start the game.");
+            }
+        }
     }
 
     public static void startIntro() {
@@ -268,6 +277,7 @@ public class Game {
         }
 
         System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
+        System.out.println();
     }
 
     public static void loadGame() {
@@ -297,6 +307,8 @@ public class Game {
             System.out.println("Game loaded successfully.");
             instance.setIsStarting(false);
             run();
+            System.out.println(Game.getInstance().getWorldMap().getPlayerLocation().getDescription());
+            System.out.println();
         } catch (IOException e) {
             System.out.println("No saved game found.");
         } catch (Exception e) {
