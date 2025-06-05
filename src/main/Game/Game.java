@@ -103,8 +103,8 @@ public class Game {
                 new Letter("Curious Branch",
                         "It's a curious branch laying alone, it is shaped in the likeness of Prince Siegfried. It whispers: a long neck bear I, my gown is white - yet at whiles am I clad in black. What am I?",
                         "swan", "The Magic Lake"),
-                new Letter("Blood Stained Skull",
-                        "It's the skull of a servant dead long ago, it speaks to you: I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?",
+            new Letter("Queen Skull",
+                        "It's the skull of the Queen dead long ago, it speaks to you: I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?",
                         "gold", "Royal Throne"),
                 new Item("Teleport Crystal",
                         "With this magic stone you can teleport around the world to your heart's content.")));
@@ -151,7 +151,7 @@ public class Game {
                 new Location("empty", null, true, null)));
 
         grid.add(Arrays.asList(new Location("Royal Throne",
-                "The mighty Throne of the King stands before you, but no one's there.",
+                "The mighty Throne of the Queen stands before you, but no one's there.",
                 false, new ArrayList<>()),
                 new Location("Royal Dungeon",
                         "You stand in the Royal Dungeon. There's some old empty cells and blood on the walls...", true,
@@ -243,7 +243,7 @@ public class Game {
         }
 
         System.out.println(
-                "\"The King is dead and you're the only heir still alive.\"");
+                "\"The Queen is dead and you're the only heir still alive.\"");
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -251,7 +251,7 @@ public class Game {
         }
 
         System.out.println(
-                "\"Find the secret numbers scattered around the world to claim the treasures of the king as yours.\"");
+                "\"Find the secret numbers scattered around the world to claim the treasures of the Queen as yours.\"");
 
         try {
             Thread.sleep(2000);
