@@ -127,7 +127,7 @@ public class Game {
                         false, new ArrayList<>()),
                 new Location("Master Sword Meadow",
                         "The meadow is breaming with life. There's deers everywhere and a mighty sword plunged into a rock in the middle.",
-                        true, new ArrayList<>())));
+                        false, new ArrayList<>())));
 
         grid.add(Arrays.asList(
                 new Location("empty", null, true, null),
@@ -135,7 +135,7 @@ public class Game {
                         true,
                         new ArrayList<>()),
                 new Location("The Peaceful River",
-                        "The castle floors seam endless. You might get lost if you're not careful enough.", true,
+                        "The castle floors seam endless. You might get lost if you're not careful enough.", false,
                         new ArrayList<>()),
                 new Location("The Magic Lake",
                         "You are on the coast of the Magic Lake. There's some swans and cute ducks.", true,
@@ -174,7 +174,7 @@ public class Game {
         locationGrid.get(1).get(2).getItemList().add(itemList.get(1)); // Old Toad in River
         locationGrid.get(1).get(2).getItemList().add(itemList.get(5)); // Crystal in River
         locationGrid.get(2).get(1).getItemList().add(itemList.get(2)); // Chimney candle in Castle Hall
-        locationGrid.get(2).get(0).getItemList().add(itemList.get(3)); // Siegfried brand in Castle Garden
+        locationGrid.get(2).get(0).getItemList().add(itemList.get(3)); // Siegfried branch in Castle Garden
         locationGrid.get(3).get(1).getItemList().add(itemList.get(4)); // Skull in Dungeon
         // A finir
     }

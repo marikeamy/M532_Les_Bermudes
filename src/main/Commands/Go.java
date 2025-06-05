@@ -33,8 +33,8 @@ public class Go extends Command {
             } else {
                 printOutput("The path north is completely blocked.");
             }
-        } else if ("south".equals(argument) || "down".equals(argument)) {
-            if (positionX < 2) {
+        } else if ("south".equals(argument) || "down".equals(argument)) { // if (positionY + 1 < grid.get(positionY).size()) {
+            if (positionY + 1 < grid.get(positionY).size()) {
                 List<Location> rowUnder = grid.get(positionY + 1);
                 if (positionX >= 0 && positionX < rowUnder.size() && !rowUnder.get(positionX).getIsLocked()) {
                     player.getPlayerPosition().set(0, positionY + 01);
