@@ -24,7 +24,7 @@ public class Go extends Command {
                 List<Location> rowAbove = grid.get(positionY - 1);
                 if (positionX >= 0 && positionX < rowAbove.size() && !rowAbove.get(positionX).getIsLocked()) {
                     player.getPlayerPosition().set(0, positionY - 1);
-                    printOutput("You went north and arrived at the " + map.getPlayerLocation().getName());
+                    printOutput("You went north and arrived at the " + map.getPlayerLocation().getName() + ".");
                 } else if (rowAbove.get(positionX).getIsLocked() && rowAbove.get(positionX).getName().equals("empty")) {
                     printOutput("The path south is completely blocked.");
                 } else {
@@ -33,11 +33,11 @@ public class Go extends Command {
             } else {
                 printOutput("The path north is completely blocked.");
             }
-        } else if ("south".equals(argument) || "down".equals(argument)) { // if (positionY + 1 < grid.get(positionY).size()) {
+        } else if ("south".equals(argument) || "down".equals(argument)) {
             if (positionY + 1 < grid.get(positionY).size()) {
                 List<Location> rowUnder = grid.get(positionY + 1);
                 if (positionX >= 0 && positionX < rowUnder.size() && !rowUnder.get(positionX).getIsLocked()) {
-                    player.getPlayerPosition().set(0, positionY + 01);
+                    player.getPlayerPosition().set(0, positionY + 1);
                     printOutput("You went south and arrived at the " + map.getPlayerLocation().getName() + ".");
                 } else if (rowUnder.get(positionX).getIsLocked() && rowUnder.get(positionX).getName().equals("empty")) {
                     printOutput("The path south is completely blocked.");
@@ -62,7 +62,7 @@ public class Go extends Command {
                 printOutput("The path westward is completely blocked.");
             }
         } else if ("east".equals(argument) || "right".equals(argument)) {
-            if (positionX + 1 < grid.get(positionY).size()) {
+            if (positionX + 1 < grid.get(positionX).size()) {
                 if (!grid.get(positionY).get(positionX + 1).getIsLocked()) {
                     player.getPlayerPosition().set(1, positionX + 1);
                     printOutput("You went east and arrived at the " + map.getPlayerLocation().getName() + ".");

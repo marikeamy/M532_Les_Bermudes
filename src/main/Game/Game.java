@@ -46,8 +46,7 @@ public class Game {
             Inventory inventory = new Inventory(null);
             Player player = new Player("Player1", Arrays.asList(0, 1), inventory);
             WorldMap worldMap = new WorldMap(createAllLocations());
-            Map<String, Command> commands = createAllCommands(worldMap, player);
-            CommandsRegistry registry = new CommandsRegistry(commands);
+            CommandsRegistry registry = new CommandsRegistry(createAllCommands(worldMap, player));
             instance = new Game(worldMap, player, registry, gameState);
             addAllItemsToLocation();
             System.out.println("1. New game");
@@ -181,7 +180,6 @@ public class Game {
 
     private static Map<String, Command> createAllCommands(WorldMap map, Player player) {
         Map<String, Command> allCommands = new TreeMap<>();
-
         Command commandHelp = new Help("Displays all available commands and their description.", "help");
         allCommands.put("help", commandHelp);
 
