@@ -219,16 +219,21 @@ public class Game {
         boolean validChoice = false;
         int choice;
         while (!validChoice) {
-            choice = Game.getInstance().getScanner().nextInt();
-            if (choice == 2) {
-                validChoice = true;
-                loadGame();
-            } else if (choice == 1) {
-                validChoice = true;
-                run();
-                startIntro();
-            } else {
+            try {
+                choice = Game.getInstance().getScanner().nextInt();
+                if (choice == 2) {
+                    validChoice = true;
+                    loadGame();
+                } else if (choice == 1) {
+                    validChoice = true;
+                    run();
+                    startIntro();
+                } else {
+                    System.out.println("Please write 1 or 2 to start the game.");
+                }
+            } catch (InputMismatchException ime) {
                 System.out.println("Please write 1 or 2 to start the game.");
+                Game.getInstance().getScanner().nextLine();
             }
         }
     }
