@@ -129,7 +129,7 @@ public class Game {
                         true, false,
                         new ArrayList<>()),
                 new Location("Peaceful River",
-                        "The castle floors seam endless. You might get lost if you're not careful enough.", false,
+                        "It's a peaceful river with some ducks, plants and a strange toad standing on a rock.", false,
                         false,
                         new ArrayList<>()),
                 new Location("Magic Lake",
