@@ -15,6 +15,7 @@ public class Main {
 
             if (sentence.isEmpty()) {
                 System.out.println("Enter a command, please.");
+                System.out.print("> ");
                 continue;
             }
 
