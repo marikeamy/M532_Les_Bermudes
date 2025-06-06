@@ -52,11 +52,14 @@ public class Teleport extends Command {
             }
         }
         if (hasTeleportStone) {
-            if (!grid.get(foundX).get(foundY).getIsLocked()) {
+            if (!grid.get(foundX).get(foundY).getIsLocked() && grid.get(foundX).get(foundY).wasVisited()) {
                 player.getPlayerPosition().set(0, foundX);
                 player.getPlayerPosition().set(1, foundY);
                 printOutput("You teleported to the " + map.getPlayerLocation().getName());
-            } else {
+            } else if(!grid.get(foundX).get(foundY).wasVisited()){
+                printOutput("You never visited this place. You can't teleport there.");
+            }
+            else {
                 printOutput("The location is completely blocked. You can't teleport there!");
             }
         } else {

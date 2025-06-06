@@ -79,7 +79,7 @@ public class Game {
         this.isStarting = state;
     }
 
-    public Scanner getScanner(){
+    public Scanner getScanner() {
         return inputScanner;
     }
 
@@ -111,50 +111,52 @@ public class Game {
         List<List<Location>> grid = new ArrayList<>();
         grid.add(Arrays.asList(
 
-                new Location("Old Village", "The Old Village seems completely abandonned...", false,
+                new Location("Old Village", "The Old Village seems completely abandonned...", false, false,
                         new ArrayList<>()),
                 new Location("Ermit Grotto",
-                        "The Grotto is now empty. You only hear the wind wispering to you.", false,
+                        "The Grotto is now empty. You only hear the wind wispering to you.", false, true,
                         new ArrayList<>()),
                 new Location("Lost Woods",
                         "You stand in the Forgotten Woods, where twisted trees whisper secrets of a time long lost.",
-                        false, new ArrayList<>()),
+                        false, false, new ArrayList<>()),
                 new Location("Master Sword Meadow",
                         "The meadow is breaming with life. There's deers everywhere and a mighty sword plunged into a rock in the middle.",
-                        false, new ArrayList<>())));
+                        false, false, new ArrayList<>())));
 
         grid.add(Arrays.asList(
-                new Location("empty", null, true, null),
+                new Location("empty", null, true, false, null),
                 new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls.",
-                        true,
+                        true, false,
                         new ArrayList<>()),
                 new Location("Peaceful River",
                         "The castle floors seam endless. You might get lost if you're not careful enough.", false,
+                        false,
                         new ArrayList<>()),
                 new Location("Magic Lake",
-                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", true,
+                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", true, false,
                         new ArrayList<>())));
 
         grid.add(Arrays.asList(
                 new Location("Castle gardens",
-                        "The garden look luscious and full of life with flowers blooming everywhere.", true,
+                        "The garden look luscious and full of life with flowers blooming everywhere.", true, false,
                         new ArrayList<>()),
                 new Location("Castle Hall",
-                        "The Castle Hall is immense and dimly lit. You hear whispers in the dark...", true,
+                        "The Castle Hall is immense and dimly lit. You hear whispers in the dark...", true, false,
                         new ArrayList<>()),
-                new Location("empty", null, true, null),
-                new Location("empty", null, true, null)));
+                new Location("empty", null, true, false, null),
+                new Location("empty", null, true, false, null)));
 
         grid.add(Arrays.asList(new Location("Royal Throne",
-                "The mighty Throne of the Queen stands before you, but no one's there.",
+                "The mighty Throne of the Queen stands before you, but no one's there.", false,
                 false, new ArrayList<>()),
                 new Location("Royal Dungeon",
                         "You stand in the Royal Dungeon. There's some old empty cells and blood on the walls...", true,
+                        false,
                         new ArrayList<>()),
-                new Location("empty", null, true, null),
+                new Location("empty", null, true, false, null),
                 new Location("Treasure Chambers",
                         "Hail, brave soul! Thou hast triumphed o’er perils untold and reached the heart of the ancient vault. Before thee lies the treasure long sought: the Elixir of Life, glowing with eternal promise, and heaps of gleaming gold beyond measure. May this reward bring thee fortune and immortality, for thou art truly a hero of legend.",
-                        true,
+                        true, true,
                         new ArrayList<>())));
         // Nom et description à valider et finir.
         return grid;

@@ -15,4 +15,5 @@ public interface IPrintable {
      * @return true if the element should be displayed in gray, false otherwise
      */
     boolean isGrayedOut();
+    boolean wasVisited();
 }

@@ -16,8 +16,10 @@ public class Array2Dprinter {
     /**
      * Build a grid string representation of a 2D array.
      *
-     * @param array2D The 2D array to be printed. first dimension is the row (vertical), second dimension is the column (horizontal).
-     * @param highlightRow The row coordinate of the cell to be highlighted
+     * @param array2D         The 2D array to be printed. first dimension is the row
+     *                        (vertical), second dimension is the column
+     *                        (horizontal).
+     * @param highlightRow    The row coordinate of the cell to be highlighted
      * @param highlightColumn The column coordinate of the cell to be highlighted
      * @return The grid string representation of the 2D array
      */
@@ -28,7 +30,8 @@ public class Array2Dprinter {
 
         for (int row = 0; row < array2D.length; row++) {
             appendHorizontalLine(output, maxLength, numColumns); // Print the top horizontal line for each element.
-            appendElements(output, array2D[row], maxLength, row == highlightRow, highlightColumn); // Print the elements in the row.
+            appendElements(output, array2D[row], maxLength, row == highlightRow, highlightColumn); // Print the elements
+                                                                                                   // in the row.
         }
         appendHorizontalLine(output, maxLength, numColumns); // Print the last horizontal line of the array.
         return output.toString();
@@ -36,6 +39,7 @@ public class Array2Dprinter {
 
     /**
      * Converts a 2D ArrayList of IPrintable objects to a 2D regular array [][].
+     * 
      * @param arrayList2D The 2D list or ArrayList to convert
      * @return The converted 2D array
      */
@@ -50,6 +54,7 @@ public class Array2Dprinter {
 
     /**
      * Sets the highlight style and color
+     * 
      * @param style
      * @param color
      * @param backgroundColor
@@ -66,6 +71,7 @@ public class Array2Dprinter {
 
     /**
      * Sets the grayed out style and color
+     * 
      * @param style
      * @param color
      * @param backgroundColor
@@ -79,13 +85,15 @@ public class Array2Dprinter {
     private static <T> void appendHorizontalLine(StringBuilder output, int maxLength, int numColumns) {
         for (int col = 0; col < numColumns; col++) {
             output.append("+");
-            output.append("-".repeat(maxLength + 2 * SPACING)); // Print the horizontal line with length according to the maxLength.
+            output.append("-".repeat(maxLength + 2 * SPACING)); // Print the horizontal line with length according to
+                                                                // the maxLength.
         }
         output.append("+");
         output.append(System.lineSeparator());
     }
 
-    private static void appendElements(StringBuilder output, IPrintable[] row, int maxLength, boolean isHighlightRow, int highlightColumn) {
+    private static void appendElements(StringBuilder output, IPrintable[] row, int maxLength, boolean isHighlightRow,
+            int highlightColumn) {
 
         output.append("|");
 
@@ -94,23 +102,27 @@ public class Array2Dprinter {
             String text = (element != null) ? element.getPrintableString() : "";
 
             double padding = (maxLength - text.length()) * 0.5;
-            int paddingBefore = (int)Math.floor(padding);
-            int paddingAfter = (int)Math.ceil(padding);
+            int paddingBefore = (int) Math.floor(padding);
+            int paddingAfter = (int) Math.ceil(padding);
 
             String paddingSpacesBefore = " ".repeat(paddingBefore);
             String paddingSpacesAfter = " ".repeat(paddingAfter);
 
             text = paddingSpacesBefore + text + paddingSpacesAfter;
             if (isHighlightRow && col == highlightColumn) {
-                text = StringStyling.StyleString(text, highlightTextStyle, highlightTextColor, highlightBackgroundColor);
+                text = StringStyling.StyleString(text, highlightTextStyle, highlightTextColor,
+                        highlightBackgroundColor);
             } else if (element != null && element.isGrayedOut()) {
-                text = StringStyling.StyleString(text, grayedOutTextStyle, grayedOutTextColor, grayedOutBackgroundColor);
+                text = StringStyling.StyleString(text, grayedOutTextStyle, grayedOutTextColor,
+                        grayedOutBackgroundColor);
+            } else if (element != null && !element.wasVisited()) {
+                text = StringStyling.StyleString(text, grayedOutTextStyle, grayedOutTextColor);
             }
 
             output.append(" ".repeat(SPACING))
-            .append(text)
-            .append(" ".repeat(SPACING))
-            .append("|");
+                    .append(text)
+                    .append(" ".repeat(SPACING))
+                    .append("|");
         }
         output.append(System.lineSeparator());
     }
