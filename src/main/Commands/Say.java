@@ -37,7 +37,8 @@ public class Say extends Command {
 
                 if (letter.checkAnswer(argument)) {/* Donne la clé */
                     String locationName = letter.getLocationNameToUnlock();
-                    /* Recherche la location */
+                    
+                    if (locationName != null) {/* Riddle avec clé */
                     List<List<Location>> grid = map.getLocationGrid();
                     boolean found = false;
                     for (int y = 0; y < grid.size(); y++) {
@@ -61,13 +62,36 @@ public class Say extends Command {
                                     inventory.remove(letter);
                                     return;
                                 }
+                                }
                             }
                         }
+
+                        if (!found) {
+                            printOutput("Error: Target location not found.");
+                        }
+
+                    } else {
+                        /* Riddle snas clé mais chiffre/code*/
+                        letter.markAsSolved();
+
+                        switch (letter.getName().toLowerCase()) {
+                            case "a daisy petal":
+                                printOutput("You’re answer is true. The numbers shall guide you to the treasure. In first place, you should keep the 2.");
+                                break;
+                            case "hazelnut":
+                                printOutput("You’re answer is true. The numbers shall guide you to the treasure. In second place, you should keep the 5.");
+                                break;
+                            case "the swan odette":
+                                printOutput("You’re answer is true. The numbers shall guide you to the treasure. In third place, you should keep the 0.");
+                                break;
+                            default:
+                                printOutput("You’re answer is true.");
+                        }
+
+                        printOutput("The " + letter.getName() + " disappears from your inventory.");
+                        inventory.remove(letter);
                     }
 
-                    if (!found) {
-                        printOutput("Error: Target location not found.");
-                    }
                     return;
                 }
             }
