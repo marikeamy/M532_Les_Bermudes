@@ -106,6 +106,27 @@ public class Game {
                 new Letter("Magic Box", 
                     "The box is bearing an ancient carving : The numbers shall reveal the path to eternity...", 
                     "250693", "Royal Hall of Bubbling Waters")));
+                /*new Letter("The lost parchment of a fairy", /* Tess 07.06.25 */
+                /*        "On the parchment in written: I lie between forest and hill,\n"
+                /*                + "With blossoms fair and air so still.\n"
+                /*                + "No castle stands upon my grace,\n"
+                /*                + "Yet knights and fawns may share my space.\n"
+                /*                + "Where sunlight dances, soft and low.\n"
+                /*                + "Tell me now, what am I, thou know?",
+                /*        "meadow",
+                /*        "Master Sword Meadow"),*/
+                new Letter("A daisy petal", /* Tess 07.06.25 */
+                        "The petal in your hand, the wind whispers in your ears: I have no voice, but I can tell you many stories.I have no legs, but I can spread for miles. I am full of life, but I am not alive. What am I?",
+                        "woods", null),
+                new Letter("Hazelnut", /* Tess 07.06.25 */
+                        "On the hazelnut is carved: I gather nuts but have no hands. I climb trees but have no feet. I have a bushy tail and love to leap. What am I?",
+                        "squirrel", null),
+                new Letter("Elven Sword", /* Tess 07.06.25 */
+                        "On the Sword is engraved a message: I have a mouth but never speak. I have a bed but never sleep. I can run, but I have no legs. What am I?",
+                        "river", "Peaceful River"),
+                new Letter("The Swan Odette", /* Tess 07.06.25 */
+                        "The swan tells you: By day, I am bound by a cruel spell, A prisoner of a fate I didn't compel. But when darkness falls and the stars ignite, A broken promise might end my endless night. Only true love's vow, and a heart so pure, Can free me from the form I must endure. Who is the one destined to save me, my only hope?",
+                        "siegfried", null));
         return itemList;
 
     }
@@ -170,6 +191,7 @@ public class Game {
         List<Item> itemList = createAllLetters();
         List<List<Location>> locationGrid = Game.getInstance().getWorldMap().getLocationGrid();
         locationGrid.get(0).get(0).getItemList().add(itemList.get(0)); // Golden Pyramid in Village
+        /*locationGrid.get(0).get(0).getItemList().add(itemList.get(0)); // The lost parchment of a fairy - Old Village*/
         // Code Marike
         locationGrid.get(1).get(2).getItemList().add(itemList.get(1)); // Old Toad in River
         locationGrid.get(1).get(2).getItemList().add(itemList.get(5)); // Crystal in River
@@ -177,7 +199,11 @@ public class Game {
         locationGrid.get(2).get(0).getItemList().add(itemList.get(3)); // Siegfried branch in Castle Garden
         locationGrid.get(3).get(1).getItemList().add(itemList.get(4)); // Skull in Dungeon
         locationGrid.get(3).get(0).getItemList().add(itemList.get(6)); // Magic Box dans Royal Throne
-        // A finir
+        // Code Tess
+        locationGrid.get(0).get(1).getItemList().add(itemList.get(6)); // Daisy Petal in the Ermit Grotto
+        locationGrid.get(0).get(2).getItemList().add(itemList.get(7)); // Hazelnut in the Forgotten Woods
+        locationGrid.get(0).get(3).getItemList().add(itemList.get(8)); // Elven Sword in the Meadow
+        locationGrid.get(1).get(3).getItemList().add(itemList.get(9)); // Swan Odette on the Magic Lake
     }
 
     private static Map<String, Command> createAllCommands(WorldMap map, Player player) {
