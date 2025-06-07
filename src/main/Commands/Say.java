@@ -76,16 +76,30 @@ public class Say extends Command {
 
                         switch (letter.getName().toLowerCase()) {
                             case "a daisy petal":
-                                printOutput("You're answer is true. The numbers shall guide you to the treasure. In first place, you should keep the 2.");
+                                printOutput("Your answer is true. The numbers shall guide you to the treasure. In first place, you should keep the 2.");
                                 break;
                             case "hazelnut":
-                                printOutput("You're answer is true. The numbers shall guide you to the treasure. In second place, you should keep the 5.");
+                                printOutput("Your answer is true. The numbers shall guide you to the treasure. In second place, you should keep the 5.");
                                 break;
                             case "the swan odette":
-                                printOutput("You're answer is true. The numbers shall guide you to the treasure. In third place, you should keep the 0.");
+                                printOutput("Your answer is true. The numbers shall guide you to the treasure. In third place, you should keep the 0.");
                                 break;
+                            case "tomorrow":
+                                printOutput("Your answer is true. The way to the castle bridge is now open to you.");
+                                break;
+                            case "fire":
+                                printOutput("Your answer is true. the old chimney creaketh open, revealing a hidden dungeon. You mayest enter.");
+                                break;
+                            case "swan":
+                                printOutput("Your answer is true. The numbers shall guide you to the treasure. In the fifth place, you should keep the 9.");
+                                break;
+                            case "gold":
+                                printOutput("Your answer is true. The throne of the new hall awaits you with eager patience. In the sixth place, you should keep the 3.");
+                                break;
+                            case "250693":
+                                printOutput("Your answer is true. You start smelling bubbles... Coming from... A new room...");;
                             default:
-                                printOutput("You're answer is true.");
+                                printOutput("Your answer is true.");
                         }
 
                         printOutput("The " + letter.getName() + " disappears from your inventory.");

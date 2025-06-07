@@ -90,8 +90,8 @@ public class Game {
                 "coin",
                 "Master Sword Meadow"),
                 new Letter("Strange Toad",
-                        "It's an old toad of strange shape. It eyes thee and says: it ever runs, yet never walks. It murmurs softly, but speaks no word. It holds a bed, yet knows no sleep. It has a mouth, yet taketh no food. What is it?",
-                        "river", "Castle bridge"),
+                        "What is always coming but never arrives?",
+                        "tomorrow", "Castle bridge"),
                 new Letter("Chimney Candle",
                         "You see, inside a chimney veiled in dust, a burning candle bearing a carving upon its wax: give me food, and I shall live. Give me drink, and I shall perish. What am I?",
                         "fire", "Royal Dungeon"),
@@ -105,7 +105,7 @@ public class Game {
                         "With this magic stone you can teleport around the world to your heart's content."),
                 new Letter("Magic Box", 
                     "The box is bearing an ancient carving : The numbers shall reveal the path to eternity...", 
-                    "250693", "Royal Hall of Bubbling Waters")));
+                    "250693", "Royal Hall of Bubbling Waters"),
                 /*new Letter("The lost parchment of a fairy", /* Tess 07.06.25 */
                 /*        "On the parchment in written: I lie between forest and hill,\n"
                 /*                + "With blossoms fair and air so still.\n"
@@ -126,7 +126,7 @@ public class Game {
                         "river", "Peaceful River"),
                 new Letter("The Swan Odette", /* Tess 07.06.25 */
                         "The swan tells you: By day, I am bound by a cruel spell, A prisoner of a fate I didn't compel. But when darkness falls and the stars ignite, A broken promise might end my endless night. Only true love's vow, and a heart so pure, Can free me from the form I must endure. Who is the one destined to save me, my only hope?",
-                        "siegfried", null));
+                        "siegfried", null)));
         return itemList;
 
     }
@@ -150,7 +150,7 @@ public class Game {
         grid.add(Arrays.asList(
                 new Location("empty", null, true, false, null),
                 new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls.",
-                        false, false,
+                        true, false,
                         new ArrayList<>()),
                 new Location("Peaceful River",
                         "It's a peaceful river with some ducks, plants and a strange toad standing on a rock.", false,
@@ -200,10 +200,10 @@ public class Game {
         locationGrid.get(3).get(1).getItemList().add(itemList.get(4)); // Skull in Dungeon
         locationGrid.get(3).get(0).getItemList().add(itemList.get(6)); // Magic Box dans Royal Throne
         // Code Tess
-        locationGrid.get(0).get(1).getItemList().add(itemList.get(6)); // Daisy Petal in the Ermit Grotto
-        locationGrid.get(0).get(2).getItemList().add(itemList.get(7)); // Hazelnut in the Forgotten Woods
-        locationGrid.get(0).get(3).getItemList().add(itemList.get(8)); // Elven Sword in the Meadow
-        locationGrid.get(1).get(3).getItemList().add(itemList.get(9)); // Swan Odette on the Magic Lake
+        locationGrid.get(0).get(1).getItemList().add(itemList.get(7)); // Daisy Petal in the Ermit Grotto
+        locationGrid.get(0).get(2).getItemList().add(itemList.get(8)); // Hazelnut in the Forgotten Woods
+        locationGrid.get(0).get(3).getItemList().add(itemList.get(9)); // Elven Sword in the Meadow
+        locationGrid.get(1).get(3).getItemList().add(itemList.get(10)); // Swan Odette on the Magic Lake
     }
 
     private static Map<String, Command> createAllCommands(WorldMap map, Player player) {
