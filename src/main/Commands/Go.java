@@ -90,5 +90,11 @@ public class Go extends Command {
         } else {
             printOutput("I don't recognise this direction.");
         }
+        
+        Location currentLocation = map.getPlayerLocation();
+        if (currentLocation.getName().equalsIgnoreCase("Royal Hall of Bubbling Waters")) {
+        Game.startOutro();
+        System.exit(0); // Termine le jeu proprement après l'outro
+        }
     }
 }

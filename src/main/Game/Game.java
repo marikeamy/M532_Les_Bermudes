@@ -102,7 +102,10 @@ public class Game {
                         "It's the skull of the Queen dead long ago, it speaks to you: I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?",
                         "gold", "Royal Throne"),
                 new Item("Teleport Crystal",
-                        "With this magic stone you can teleport around the world to your heart's content.")));
+                        "With this magic stone you can teleport around the world to your heart's content."),
+                new Letter("Magic Box", 
+                    "The box is bearing an ancient carving : The numbers shall reveal the path to eternity...", 
+                    "250693", "Royal Hall of Bubbling Waters")));
         return itemList;
 
     }
@@ -126,36 +129,37 @@ public class Game {
         grid.add(Arrays.asList(
                 new Location("empty", null, true, false, null),
                 new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls.",
-                        true, false,
+                        false, false,
                         new ArrayList<>()),
                 new Location("Peaceful River",
                         "It's a peaceful river with some ducks, plants and a strange toad standing on a rock.", false,
                         false,
                         new ArrayList<>()),
                 new Location("Magic Lake",
-                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", true, false,
+                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", false, false,
                         new ArrayList<>())));
 
         grid.add(Arrays.asList(
                 new Location("Castle gardens",
-                        "The garden look luscious and full of life with flowers blooming everywhere.", true, false,
+                        "The garden look luscious and full of life with flowers blooming everywhere.", false, false,
                         new ArrayList<>()),
                 new Location("Castle Hall",
-                        "The Castle Hall is immense and dimly lit. You hear whispers in the dark...", true, false,
+                        "The Castle Hall is immense and dimly lit. You hear whispers in the dark...", false, false,
                         new ArrayList<>()),
-                new Location("empty", null, true, false, null),
-                new Location("empty", null, true, false, null)));
+                new Location("empty", null, false, false, null),
+                new Location("empty", null, false, false, null)));
 
-        grid.add(Arrays.asList(new Location("Royal Throne",
-                "The mighty Throne of the Queen stands before you, but no one's there.", false,
-                false, new ArrayList<>()),
+        grid.add(Arrays.asList(
+                new Location("Royal Throne",
+                    "The mighty Throne of the Queen stands before you, but no one's there.", false,
+                    false, new ArrayList<>()),
                 new Location("Royal Dungeon",
-                        "You stand in the Royal Dungeon. There's some old empty cells and blood on the walls...", true,
+                        "You stand in the Royal Dungeon. There's some old empty cells and blood on the walls...", false,
                         false,
                         new ArrayList<>()),
                 new Location("empty", null, true, false, null),
-                new Location("Treasure Chambers",
-                        "Hail, brave soul! Thou hast triumphed o’er perils untold and reached the heart of the ancient vault. Before thee lies the treasure long sought: the Elixir of Life, glowing with eternal promise, and heaps of gleaming gold beyond measure. May this reward bring thee fortune and immortality, for thou art truly a hero of legend.",
+                new Location("Royal Hall of Bubbling Waters",
+                        "Hello dear",
                         true, true,
                         new ArrayList<>())));
         // Nom et description à valider et finir.
@@ -172,6 +176,7 @@ public class Game {
         locationGrid.get(2).get(1).getItemList().add(itemList.get(2)); // Chimney candle in Castle Hall
         locationGrid.get(2).get(0).getItemList().add(itemList.get(3)); // Siegfried branch in Castle Garden
         locationGrid.get(3).get(1).getItemList().add(itemList.get(4)); // Skull in Dungeon
+        locationGrid.get(3).get(0).getItemList().add(itemList.get(6)); // Magic Box dans Royal Throne
         // A finir
     }
 
@@ -322,5 +327,54 @@ public class Game {
             System.out.println("Error while loading saved game.");
             e.printStackTrace();
         }
+    }
+
+    public static void startOutro() {
+        instance.setIsStarting(false);
+        System.out.println();
+        System.out.println(StringStyling.StyleString("Hail, valiant soul!", Style.ITALIC, Color.GREEN));
+        System.out.println();
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(
+                "Thou hast braved trials most dire and ventured deep into the Queen’s hidden domain — the sacred Hall of Royal Jacuzzis.");
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(
+                "Here doth the very waters bubble with enchantment, known to sages as the Elixir of Life, said to mend the flesh, ease the spirit, and turn back the sands of time.");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(
+                "Let the warmth embrace thee, brave one, and let thy burdens melt into the steam.");
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Rest now, hero of legend, for thou art worthy indeed of such rare delights...");
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println();
     }
 }

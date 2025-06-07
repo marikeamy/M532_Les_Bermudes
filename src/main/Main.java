@@ -39,7 +39,7 @@ public class Main {
 
         }
         Game.getInstance().getScanner().close();
-        System.out.println("You win the game! Thanks for playing!");
+    
     }
 
 }
