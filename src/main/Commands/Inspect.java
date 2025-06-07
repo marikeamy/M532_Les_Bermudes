@@ -17,8 +17,7 @@ public class Inspect extends Command {
         List<Item> itemList = inventory.getItemList();
 
         boolean found = false;
-        // Doit donner le nom et la description de l'objet que le joueur nomme dans
-        // l'argument
+        // Doit donner le nom et la description de l'objet que le joueur nomme dans l'argument
         // La réponse est différente en fonction de si c'est une clé ou une lettre.
         // Si l'inventaire est vide
         if (itemList.isEmpty()) {
@@ -46,7 +45,7 @@ public class Inspect extends Command {
                     break;
                 }
             }
-            if (!found) {
+            if (!found) { //Si le nom ne correspond à rien
                 printOutput("There is no such item in your inventory. Check again?");
             }
         }
