@@ -113,24 +113,16 @@ public class Game {
                 /*        "meadow",
                 /*        "Master Sword Meadow"),*/
                 new Letter("A daisy petal", /* Tess 07.06.25 */
-                        "The petal in your hand, the wind whispers in your ears: I have no voice, but I can tell you many stories.\n"
-                                + "I have no legs, but I can spread for miles.\n"
-                                + "I am full of life, but I am not alive.\n"
-                                + "What am I?",
+                        "The petal in your hand, the wind whispers in your ears: I have no voice, but I can tell you many stories.I have no legs, but I can spread for miles. I am full of life, but I am not alive. What am I?",
                         "woods", null),
                 new Letter("Hazelnut", /* Tess 07.06.25 */
-                        "On the hazelnut is carved: I gather nuts but have no hands. I climb trees but have no feet. "
-                                + "I have a bushy tail and love to leap. What am I?",
+                        "On the hazelnut is carved: I gather nuts but have no hands. I climb trees but have no feet. I have a bushy tail and love to leap. What am I?",
                         "squirrel", null),
                 new Letter("Elven Sword", /* Tess 07.06.25 */
-                        "On the Sword is engraved a message: I have a mouth but never speak. I have a bed but never sleep. "
-                                + "I can run, but I have no legs. What am I?",
+                        "On the Sword is engraved a message: I have a mouth but never speak. I have a bed but never sleep. I can run, but I have no legs. What am I?",
                         "river", "Peaceful River"),
                 new Letter("The Swan Odette", /* Tess 07.06.25 */
-                        "The swan tells you: By day, I am bound by a cruel spell, A prisoner of a fate I didn't compel. "
-                                + "But when darkness falls and the stars ignite, A broken promise might end my endless night. "
-                                + "Only true love's vow, and a heart so pure, Can free me from the form I must endure.\n"
-                                + "Who is the one destined to save me, my only hope?",
+                        "The swan tells you: By day, I am bound by a cruel spell, A prisoner of a fate I didn't compel. But when darkness falls and the stars ignite, A broken promise might end my endless night. Only true love's vow, and a heart so pure, Can free me from the form I must endure. Who is the one destined to save me, my only hope?",
                         "siegfried", null)));
         return itemList;
 

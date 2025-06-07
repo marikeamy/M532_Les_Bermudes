@@ -76,16 +76,16 @@ public class Say extends Command {
 
                         switch (letter.getName().toLowerCase()) {
                             case "a daisy petal":
-                                printOutput("You’re answer is true. The numbers shall guide you to the treasure. In first place, you should keep the 2.");
+                                printOutput("You're answer is true. The numbers shall guide you to the treasure. In first place, you should keep the 2.");
                                 break;
                             case "hazelnut":
-                                printOutput("You’re answer is true. The numbers shall guide you to the treasure. In second place, you should keep the 5.");
+                                printOutput("You're answer is true. The numbers shall guide you to the treasure. In second place, you should keep the 5.");
                                 break;
                             case "the swan odette":
-                                printOutput("You’re answer is true. The numbers shall guide you to the treasure. In third place, you should keep the 0.");
+                                printOutput("You're answer is true. The numbers shall guide you to the treasure. In third place, you should keep the 0.");
                                 break;
                             default:
-                                printOutput("You’re answer is true.");
+                                printOutput("You're answer is true.");
                         }
 
                         printOutput("The " + letter.getName() + " disappears from your inventory.");
@@ -97,6 +97,6 @@ public class Say extends Command {
             }
         }
 
-        printOutput("That doesn’t seem to be the correct answer to any riddle.");
+        printOutput("That doesn't seem to be the correct answer to any riddle.");
     }
 }
