@@ -77,8 +77,9 @@ public class Say extends Command {
                             break;
                         case "swan odette":
                             printOutput(
-                                    "The numbers shall guide you to the treasure. In third place, you should keep the 0.");
-                            break;
+                                    "\"The swan transforms into a beautiful woman. She says : \\\"Thank you for saving me, my prince. The numbers shall guide you to the treasure. In third place, you should keep the 0. I hope we will meet again soon.\"");
+                            printOutput("She disappears in a puff of white feather.");
+                                    break;
                         case "strange toad":
                             printOutput("The toad leaped to the Castle Bridge and lowered down the bridge. You can go inside the castle now!");
                             Game.getInstance().getWorldMap().getLocationGrid().get(1).get(1).unlock();
@@ -93,7 +94,7 @@ public class Say extends Command {
                             break;
                         case "magic box":
                             printOutput(
-                                    "You start smelling bubbles... Coming from... A new room... Check your map!");
+                                    "You start smelling bubbles... Coming from... A new room... Check your map and try to teleport there!");
                             Game.getInstance().getWorldMap().getLocationGrid().get(3).get(3).unlock();
                             break;
                         default:

@@ -18,10 +18,6 @@ public class Use extends Command {
         super(description, verb);
         this.map = map;
         this.player = player;
-        /*
-         * this.inventory = player.getInventory(); // On éviter de passer Inventory en
-         * paramètre puisqu’il est accessible via player.getInventory().
-         */
     }
 
     @Override

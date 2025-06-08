@@ -1,6 +1,7 @@
 package main.Game;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -96,16 +97,16 @@ public class Game {
                         "You see, inside a chimney veiled in dust, a burning candle bearing a carving upon its wax: give me food, and I shall live. Give me drink, and I shall perish. What am I?",
                         "fire", "Royal Dungeon"),
                 new Letter("Curious Branch",
-                        "It's a curious branch laying alone, it is shaped in the likeness of Prince Siegfried. It whispers: a long neck bear I, my gown is white - yet at whiles am I clad in black. What am I?",
+                        "It's a curious branch laying alone, it is shaped in the likeness of Prince Siegfried. It whispers: \"A long neck bear I, my gown is white - yet at whiles am I clad in black. What am I?\"",
                         "swan", "Magic Lake"),
                 new Letter("Queen Skull",
-                        "It's the skull of the Queen dead long ago, it speaks to you: I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?",
+                        "It's the skull of the Queen dead long ago, it speaks to you: \"I drive men to madness for the love of me; I am easily beaten, yet never truly free. What am I?\"",
                         "gold", "Royal Throne"),
                 new Item("Teleport Crystal",
                         "With this magic stone you can teleport around the world to your heart's content."),
                 new Letter("Magic Box",
                         "The box is bearing an ancient carving : The numbers shall reveal the path to eternity...",
-                        "250693", "Hall of Bubbling Waters"),
+                        "250693", null),
                 new Letter("Daisy petal", /* Tess 07.06.25 */
                         "The petal in your hand, the wind whispers in your ears: \"I have no voice, but I can tell you many stories. I have no legs, but I can spread for miles. I am full of life, but I am not alive. What am I?\"",
                         "woods", null),
@@ -238,15 +239,25 @@ public class Game {
     public static void titleScreen() {
         System.out.println("1. New game");
         System.out.println("2. Load last save");
+        System.out.println("Type 1 or 2 to start your game.");
         System.out.print("> ");
         boolean validChoice = false;
         int choice;
+
         while (!validChoice) {
             try {
                 choice = Game.getInstance().getScanner().nextInt();
                 if (choice == 2) {
-                    validChoice = true;
-                    loadGame();
+                    File saveFile = new File("save.txt");
+                    if (!saveFile.exists() || saveFile.length() == 0) {
+                        System.out.println("No saves found. Starting a new game instead.");
+                        validChoice = true;
+                        run();
+                        startIntro();
+                    } else {
+                        validChoice = true;
+                        loadGame();
+                    }
                 } else if (choice == 1) {
                     validChoice = true;
                     run();

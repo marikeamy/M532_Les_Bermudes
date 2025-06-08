@@ -52,12 +52,10 @@ public class Location implements IPrintable {
 
     @Override
     public String getPrintableString() {
-        if (!isLocked) {
-            return name;
-        } else if(isLocked && !this.getName().equals("empty")) {
-            return "?";
-        }
-        return "";
+        if (isLocked && this.getName().equalsIgnoreCase("empty")) {
+            return "";
+        } 
+        return name;
     }
 
     @Override
