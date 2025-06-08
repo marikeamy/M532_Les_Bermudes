@@ -47,7 +47,7 @@ public class Take extends Command {
         if (itemTaken == null) {
             printOutput("This item is not here.");
         } else {
-            printOutput("You put the " + itemTaken + "in your inventory.");
+            printOutput("You put the " + itemTaken + " in your inventory.");
         }
 
     }
