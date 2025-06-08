@@ -75,29 +75,31 @@ public class Say extends Command {
                         letter.markAsSolved();
 
                         switch (letter.getName().toLowerCase()) {
-                            case "a daisy petal":
+                            case "daisy petal":
                                 printOutput("Your answer is true. The numbers shall guide you to the treasure. In first place, you should keep the 2.");
                                 break;
                             case "hazelnut":
                                 printOutput("Your answer is true. The numbers shall guide you to the treasure. In second place, you should keep the 5.");
                                 break;
-                            case "the swan odette":
+                            case "swan odette":
                                 printOutput("Your answer is true. The numbers shall guide you to the treasure. In third place, you should keep the 0.");
                                 break;
-                            case "tomorrow":
+                            case "strange toad":
                                 printOutput("Your answer is true. The way to the castle bridge is now open to you.");
                                 break;
-                            case "fire":
+                            case "chimney candle":
                                 printOutput("Your answer is true. the old chimney creaketh open, revealing a hidden dungeon. You mayest enter.");
                                 break;
-                            case "swan":
+                            case "curious branch":
                                 printOutput("Your answer is true. The numbers shall guide you to the treasure. In the fifth place, you should keep the 9.");
                                 break;
-                            case "gold":
+                            case "queen skull":
                                 printOutput("Your answer is true. The throne of the new hall awaits you with eager patience. In the sixth place, you should keep the 3.");
                                 break;
-                            case "250693":
-                                printOutput("Your answer is true. You start smelling bubbles... Coming from... A new room...");;
+                            case "magic box":
+                                printOutput("Your answer is true. You start smelling bubbles... Coming from... A new room... Check your map!");
+                                Game.getInstance().getWorldMap().getLocationGrid().get(3).get(3).unlock();
+                                break;
                             default:
                                 printOutput("Your answer is true.");
                         }
