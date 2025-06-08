@@ -94,7 +94,7 @@ public class Game {
                         "The toad whispers in your ear : \"What is always coming but never arrives?\"",
                         "tomorrow", null),
                 new Letter("Chimney Candle",
-                        "The Candle burns a blue flame, a ghost whispers in your ear: Give me food, and I shall live. Give me drink, and I shall perish. What am I?",
+                        "The candle burns with a blue flame, and a ghost whispers in your ear: Give me food, and I shall live. Give me drink, and I shall perish. What am I?",
                         "fire", "Royal Dungeon"),
                 new Letter("Curious Branch",
                         "It's a curious branch laying alone, it is shaped in the likeness of Prince Siegfried. It whispers: \"A long neck bear I, my gown is white - yet at whiles am I clad in black. What am I?\"",
