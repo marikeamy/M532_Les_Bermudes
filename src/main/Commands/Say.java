@@ -51,7 +51,7 @@ public class Say extends Command {
                                     } else {
                                         Item key = new Key("Key to " + locationName,
                                                 "A key that unlocks " + locationName,
-                                                locationName, map);
+                                                locationName, map, player);
                                         inventory.add(key);
                                         printOutput("Your answer is true! You've received the key to " + locationName
                                                 + ".");
@@ -69,16 +69,16 @@ public class Say extends Command {
                     switch (letter.getName().toLowerCase()) {
                         case "daisy petal":
                             printOutput(
-                                    "The numbers shall guide you to the treasure. In first place, you should keep the 2.");
+                                    "You hear the wind whispering again: \"The numbers shall guide you to the treasure. In first place, you should keep the 2.\"");
                             break;
                         case "hazelnut":
                             printOutput(
-                                    "The numbers shall guide you to the treasure. In second place, you should keep the 5.");
+                                    "A squirrel appear and steal your nut! It says before leaving: \"The numbers shall guide you to the treasure. In second place, you should keep the 5.\"");
                             break;
                         case "swan odette":
                             printOutput(
-                                    "\"The swan transforms into a beautiful woman. She says : \\\"Thank you for saving me, my prince. The numbers shall guide you to the treasure. In third place, you should keep the 0. I hope we will meet again soon.\"");
-                            printOutput("She disappears in a puff of white feather.");
+                                    "\"The swan transforms into a beautiful woman. She says : \"Thank you for saving me, my prince. The numbers shall guide you to the treasure. In third place, you should keep the 0. I hope we will meet again soon.\"");
+                            printOutput("She disappears in a puff of white feathers.");
                                     break;
                         case "strange toad":
                             printOutput("The toad leaped to the Castle Bridge and lowered down the bridge. You can go inside the castle now!");
@@ -86,15 +86,15 @@ public class Say extends Command {
                             break;
                         case "curious branch":
                             printOutput(
-                                    "The numbers shall guide you to the treasure. In the fifth place, you should keep the 9.");
+                                    "The branch cracks and you hear a little bird sing: \"The numbers shall guide you to the treasure. In the fifth place, you should keep the 9.\"");
                             break;
                         case "queen skull":
                             printOutput(
-                                    "The throne of the new hall awaits you with eager patience. In the sixth place, you should keep the 3.");
+                                    "The skull whispers: \"You truly are a worthy heir, my son. The throne of the new hall awaits you with eager patience. In the sixth place, you must keep the 3.\"");
                             break;
                         case "magic box":
                             printOutput(
-                                    "You start smelling bubbles... Coming from... A new room... Check your map and try to teleport there!");
+                                    "The magic box opens let out a puff of magical clouds. You start smelling soap... Coming from... A new room..? Check your map and try to teleport there!");
                             Game.getInstance().getWorldMap().getLocationGrid().get(3).get(3).unlock();
                             break;
                         default:
