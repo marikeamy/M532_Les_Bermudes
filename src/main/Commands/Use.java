@@ -7,16 +7,13 @@ import main.Game.Item;
 import main.Game.Key;
 import main.Game.Letter;
 import main.Game.Player;
-import main.Game.WorldMap;
 
 public class Use extends Command {
-    private WorldMap map;
     private Player player;
     /* private Inventory inventory; */
 
-    public Use(String description, String verb, WorldMap map, Player player /* , Inventory inventory */) {
+    public Use(String description, String verb, Player player /* , Inventory inventory */) {
         super(description, verb);
-        this.map = map;
         this.player = player;
     }
 

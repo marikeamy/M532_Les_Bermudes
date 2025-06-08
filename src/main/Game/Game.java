@@ -219,7 +219,7 @@ public class Game {
         Command commandSay = new Say("Say a word to answer a riddle.", "say", map, player);
         allCommands.put("say", commandSay); /* Tess */
 
-        Command commandUse = new Use("Use an object you found.", "use", map, player);
+        Command commandUse = new Use("Use an object you found.", "use", player);
         allCommands.put("use", commandUse); /* Tess */
 
         Command commandInspect = new Inspect("You can inspect whichever item you possess and find what their use are.",
