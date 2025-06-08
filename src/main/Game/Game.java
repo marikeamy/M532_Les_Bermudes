@@ -90,7 +90,7 @@ public class Game {
                 "coin",
                 "Master Sword Meadow"),
                 new Letter("Strange Toad",
-                        "What is always coming but never arrives?",
+                        "The toad whispers in your ear : \"What is always coming but never arrives?\"",
                         "tomorrow", null),
                 new Letter("Chimney Candle",
                         "You see, inside a chimney veiled in dust, a burning candle bearing a carving upon its wax: give me food, and I shall live. Give me drink, and I shall perish. What am I?",
@@ -103,18 +103,9 @@ public class Game {
                         "gold", "Royal Throne"),
                 new Item("Teleport Crystal",
                         "With this magic stone you can teleport around the world to your heart's content."),
-                new Letter("Magic Box", 
-                    "The box is bearing an ancient carving : The numbers shall reveal the path to eternity...", 
-                    "250693", "Hall of Bubbling Waters"),
-                /*new Letter("The lost parchment of a fairy", /* Tess 07.06.25 */
-                /*        "On the parchment in written: I lie between forest and hill,\n"
-                /*                + "With blossoms fair and air so still.\n"
-                /*                + "No castle stands upon my grace,\n"
-                /*                + "Yet knights and fawns may share my space.\n"
-                /*                + "Where sunlight dances, soft and low.\n"
-                /*                + "Tell me now, what am I, thou know?",
-                /*        "meadow",
-                /*        "Master Sword Meadow"),*/
+                new Letter("Magic Box",
+                        "The box is bearing an ancient carving : The numbers shall reveal the path to eternity...",
+                        "250693", "Hall of Bubbling Waters"),
                 new Letter("Daisy petal", /* Tess 07.06.25 */
                         "The petal in your hand, the wind whispers in your ears: I have no voice, but I can tell you many stories.I have no legs, but I can spread for miles. I am full of life, but I am not alive. What am I?",
                         "woods", null),
@@ -125,7 +116,7 @@ public class Game {
                         "On the Sword is engraved a message: I have a mouth but never speak. I have a bed but never sleep. I can run, but I have no legs. What am I?",
                         "river", "Peaceful River"),
                 new Letter("Swan Odette", /* Tess 07.06.25 */
-                        "The swan tells you: By day, I am bound by a cruel spell, A prisoner of a fate I didn't compel. But when darkness falls and the stars ignite, A broken promise might end my endless night. Only true love's vow, and a heart so pure, Can free me from the form I must endure. Who is the one destined to save me, my only hope?",
+                        "The swan tells you: \"By day, I am bound by a cruel spell, A prisoner of a fate I didn't compel. But when darkness falls and the stars ignite, A broken promise might end my endless night.\" \n\"Only true love's vow, and a heart so pure, Can free me from the form I must endure. Who is the one destined to save me, my only hope?\"",
                         "siegfried", null)));
         return itemList;
 
@@ -149,15 +140,16 @@ public class Game {
 
         grid.add(Arrays.asList(
                 new Location("empty", null, true, false, null),
-                new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls. You see written on the doors: in the fourth place, you should keep the 6.",
+                new Location("Castle bridge",
+                        "You are on the Castle Bridge leading straight to the Royal Halls. You see written on the doors: in the fourth place, you should keep the 6.",
                         true, false,
                         new ArrayList<>()),
                 new Location("Peaceful River",
-                        "It's a peaceful river with some ducks, plants and a strange toad standing on a rock.", true,
+                        "It's a peaceful river with some ducks, plants and a strange toad standing on a rock.", false,
                         false,
                         new ArrayList<>()),
                 new Location("Magic Lake",
-                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", true, false,
+                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", false, false,
                         new ArrayList<>())));
 
         grid.add(Arrays.asList(
@@ -172,8 +164,8 @@ public class Game {
 
         grid.add(Arrays.asList(
                 new Location("Royal Throne",
-                    "The mighty Throne of the Queen stands before you, but no one's there.", true,
-                    false, new ArrayList<>()),
+                        "The mighty Throne of the Queen stands before you, but no one's there.", true,
+                        false, new ArrayList<>()),
                 new Location("Royal Dungeon",
                         "You stand in the Royal Dungeon. There's some old empty cells and blood on the walls...", true,
                         false,
@@ -191,7 +183,6 @@ public class Game {
         List<Item> itemList = createAllLetters();
         List<List<Location>> locationGrid = Game.getInstance().getWorldMap().getLocationGrid();
         locationGrid.get(0).get(0).getItemList().add(itemList.get(0)); // Golden Pyramid in Village
-        /*locationGrid.get(0).get(0).getItemList().add(itemList.get(0)); // The lost parchment of a fairy - Old Village*/
         // Code Marike
         locationGrid.get(1).get(2).getItemList().add(itemList.get(1)); // Old Toad in River
         locationGrid.get(1).get(2).getItemList().add(itemList.get(5)); // Crystal in River
@@ -369,7 +360,7 @@ public class Game {
         }
 
         System.out.println(
-                "Thou hast braved trials most dire and ventured deep into the Queen’s hidden domain — the sacred Hall of Royal Jacuzzis.");
+                "Thou hast braved trials most dire and ventured deep into the Queen\u2019s hidden domain \u2014 the sacred Hall of Royal Jacuzzis.");
 
         try {
             Thread.sleep(2000);
@@ -401,8 +392,9 @@ public class Game {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        
+
         System.out.println();
-        System.out.println(StringStyling.StyleString("Thank you for playing Jacuzzi Quest :)", Style.ITALIC, Color.GREEN));
+        System.out.println(
+                StringStyling.StyleString("Thank you for playing Jacuzzi Quest :)", Style.ITALIC, Color.GREEN));
     }
 }

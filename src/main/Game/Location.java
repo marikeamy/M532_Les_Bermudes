@@ -49,7 +49,6 @@ public class Location implements IPrintable {
         return this.itemList;
     }
 
-    // Methods
     public void unlock() {
         this.isLocked = false;
     }
@@ -58,6 +57,8 @@ public class Location implements IPrintable {
     public String getPrintableString() {
         if (!isLocked) {
             return name;
+        } else if(isLocked && !this.getName().equals("empty")) {
+            return "?";
         }
         return "";
     }

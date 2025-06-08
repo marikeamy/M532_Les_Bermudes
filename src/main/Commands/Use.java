@@ -55,8 +55,7 @@ public class Use extends Command {
             boolean success = key.unlockLocation();
             if (success) {
                 inventory.remove(itemToUse);
-                System.out
-                        .println("You unlocked " + key.getLocationNameToUnlock() + ".");
+                printOutput("You unlocked the " + key.getLocationNameToUnlock() + ".");
             } else {
                 printOutput("The key doesn't match any locked location.");
             }

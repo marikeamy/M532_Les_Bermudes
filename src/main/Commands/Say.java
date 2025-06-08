@@ -83,10 +83,6 @@ public class Say extends Command {
                             printOutput("The toad leaped to the Castle Bridge and lowered down the bridge. You can go inside the castle now!");
                             Game.getInstance().getWorldMap().getLocationGrid().get(1).get(1).unlock();
                             break;
-                        case "chimney candle":
-                            printOutput(
-                                    "An old lock appears on the fireplace.");
-                            break;
                         case "curious branch":
                             printOutput(
                                     "The numbers shall guide you to the treasure. In the fifth place, you should keep the 9.");
