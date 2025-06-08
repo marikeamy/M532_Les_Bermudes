@@ -107,7 +107,7 @@ public class Game {
                         "The box is bearing an ancient carving : The numbers shall reveal the path to eternity...",
                         "250693", "Hall of Bubbling Waters"),
                 new Letter("Daisy petal", /* Tess 07.06.25 */
-                        "The petal in your hand, the wind whispers in your ears: I have no voice, but I can tell you many stories.I have no legs, but I can spread for miles. I am full of life, but I am not alive. What am I?",
+                        "The petal in your hand, the wind whispers in your ears: \"I have no voice, but I can tell you many stories. I have no legs, but I can spread for miles. I am full of life, but I am not alive. What am I?\"",
                         "woods", null),
                 new Letter("Hazelnut", /* Tess 07.06.25 */
                         "On the hazelnut is carved: I gather nuts but have no hands. I climb trees but have no feet. I have a bushy tail and love to leap. What am I?",
