@@ -112,7 +112,7 @@ public class Game {
                 new Letter("Hazelnut", /* Tess 07.06.25 */
                         "On the hazelnut is carved: I gather nuts but have no hands. I climb trees but have no feet. I have a bushy tail and love to leap. What am I?",
                         "squirrel", null),
-                new Letter("Elven Sword", /* Tess 07.06.25 */
+                new Letter("Master Sword", /* Tess 07.06.25 */
                         "On the Sword is engraved a message: I have a mouth but never speak. I have a bed but never sleep. I can run, but I have no legs. What am I?",
                         "river", "Peaceful River"),
                 new Letter("Swan Odette", /* Tess 07.06.25 */
@@ -193,7 +193,7 @@ public class Game {
         // Code Tess
         locationGrid.get(0).get(1).getItemList().add(itemList.get(7)); // Daisy Petal in the Ermit Grotto
         locationGrid.get(0).get(2).getItemList().add(itemList.get(8)); // Hazelnut in the Forgotten Woods
-        locationGrid.get(0).get(3).getItemList().add(itemList.get(9)); // Elven Sword in the Meadow
+        locationGrid.get(0).get(3).getItemList().add(itemList.get(9)); // Master Sword in the Meadow
         locationGrid.get(1).get(3).getItemList().add(itemList.get(10)); // Swan Odette on the Magic Lake
     }
 
