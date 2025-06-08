@@ -301,7 +301,7 @@ public class Game {
         }
 
         System.out.println(
-                "\"Find the secret numbers scattered around the world to claim the treasures of the Queen as yours.\"");
+                "\"With the help of your map, try to find the secret numbers scattered around the world to claim the treasures of the Queen as yours.\"");
 
         try {
             Thread.sleep(2000);
