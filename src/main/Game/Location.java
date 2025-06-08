@@ -54,7 +54,9 @@ public class Location implements IPrintable {
     public String getPrintableString() {
         if (isLocked && this.getName().equalsIgnoreCase("empty")) {
             return "";
-        } 
+        } else if(isLocked && this.getName().equalsIgnoreCase("hall of bubbling waters")){
+            return "?";
+        }
         return name;
     }
 
