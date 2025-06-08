@@ -38,7 +38,7 @@ public class Take extends Command {
                                         "teleport", map, player, player.getInventory()));
                         printOutput("You feel a strange power... You can now teleport! Use the help command to find out how to use the Teleport Crystal.");
                     } else if(i.getName().equalsIgnoreCase("Master Sword")){
-                        printOutput("You are the chosen one! You took the Master Sword out of the rock it was plunged in.");
+                        printOutput("You are the chosen one! You have drawn the Master Sword out of the rock it was plunged in.");
                     } 
                 }
             }
