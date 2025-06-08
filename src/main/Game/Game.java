@@ -130,7 +130,7 @@ public class Game {
                 new Location("Old Village", "The Old Village seems completely abandonned...", false, false,
                         new ArrayList<>()),
                 new Location("Ermit Grotto",
-                        "The Grotto is now empty. You only hear the wind wispering to you.", false, true,
+                        "The Grotto is now empty. You only hear the wind wispering to you, and petals swirling around you.", false, true,
                         new ArrayList<>()),
                 new Location("Lost Woods",
                         "You stand in the Forgotten Woods, where twisted trees whisper secrets of a time long lost.",
