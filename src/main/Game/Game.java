@@ -371,7 +371,7 @@ public class Game {
         }
 
         System.out.println(
-                "Thou hast braved trials most dire and ventured deep into the Queen\u2019s hidden domain \u2014 the sacred Hall of Royal Jacuzzis.");
+                "Thou hast braved trials most dire and ventured deep into the Queen's hidden domain — the sacred Hall of Royal Jacuzzis.");
 
         try {
             Thread.sleep(2000);
