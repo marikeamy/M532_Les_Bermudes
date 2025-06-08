@@ -51,11 +51,16 @@ public class Teleport extends Command {
                 hasTeleportStone = true;
             }
         }
+
         if (hasTeleportStone) {
             if (!grid.get(foundX).get(foundY).getIsLocked() && grid.get(foundX).get(foundY).wasVisited()) {
                 player.getPlayerPosition().set(0, foundX);
                 player.getPlayerPosition().set(1, foundY);
                 printOutput("You teleported to the " + map.getPlayerLocation().getName());
+                if (map.getPlayerLocation().getName().equalsIgnoreCase("Hall of Bubbling Waters")) {
+                    Game.startOutro();
+                    System.exit(0);
+                }
             } else if(!grid.get(foundX).get(foundY).wasVisited()){
                 printOutput("You never visited this place. You can't teleport there.");
             }

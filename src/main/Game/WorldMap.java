@@ -4,6 +4,7 @@ import java.util.List;
 
 public class WorldMap {
     private List<List<Location>> locationGrid;
+    public Object getPlayerLocation;
 
     public WorldMap(List<List<Location>> locationGrid) {
         this.locationGrid = locationGrid;

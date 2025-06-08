@@ -105,7 +105,7 @@ public class Game {
                         "With this magic stone you can teleport around the world to your heart's content."),
                 new Letter("Magic Box", 
                     "The box is bearing an ancient carving : The numbers shall reveal the path to eternity...", 
-                    "250693", null),
+                    "250693", "Hall of Bubbling Waters"),
                 /*new Letter("The lost parchment of a fairy", /* Tess 07.06.25 */
                 /*        "On the parchment in written: I lie between forest and hill,\n"
                 /*                + "With blossoms fair and air so still.\n"
@@ -149,7 +149,7 @@ public class Game {
 
         grid.add(Arrays.asList(
                 new Location("empty", null, true, false, null),
-                new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls.",
+                new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls. You see written on the doors: in the fourth place, you should keep the 6.",
                         true, false,
                         new ArrayList<>()),
                 new Location("Peaceful River",
@@ -180,7 +180,7 @@ public class Game {
                         new ArrayList<>()),
                 new Location("empty", null, true, false, null),
                 new Location("Hall of Bubbling Waters",
-                        "Hello dear",
+                        "",
                         true, true,
                         new ArrayList<>())));
         // Nom et description à valider et finir.
@@ -273,7 +273,7 @@ public class Game {
     public static void startIntro() {
         instance.setIsStarting(false);
         System.out.println();
-        System.out.println(StringStyling.StyleString("Welcome to our game!", Style.ITALIC, Color.GREEN));
+        System.out.println(StringStyling.StyleString("Welcome to Jacuzzi Quest!", Style.ITALIC, Color.GREEN));
         System.out.println();
 
         try {
@@ -372,7 +372,7 @@ public class Game {
                 "Thou hast braved trials most dire and ventured deep into the Queen’s hidden domain — the sacred Hall of Royal Jacuzzis.");
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -380,7 +380,7 @@ public class Game {
         System.out.println(
                 "Here doth the very waters bubble with enchantment, known to sages as the Elixir of Life, said to mend the flesh, ease the spirit, and turn back the sands of time.");
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -397,11 +397,12 @@ public class Game {
         System.out.println("Rest now, hero of legend, for thou art worthy indeed of such rare delights...");
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        
         System.out.println();
+        System.out.println(StringStyling.StyleString("Thank you for playing Jacuzzi Quest :)", Style.ITALIC, Color.GREEN));
     }
 }

@@ -80,12 +80,12 @@ public class Say extends Command {
                                     "The numbers shall guide you to the treasure. In third place, you should keep the 0.");
                             break;
                         case "strange toad":
-                            printOutput("The way to the castle bridge is now open to you.");
+                            printOutput("The toad leaped to the Castle Bridge and lowered down the bridge. You can go inside the castle now!");
                             Game.getInstance().getWorldMap().getLocationGrid().get(1).get(1).unlock();
                             break;
                         case "chimney candle":
                             printOutput(
-                                    "The old chimney creaketh open, revealing a hidden dungeon. You mayest enter.");
+                                    "An old lock appears on the fireplace.");
                             break;
                         case "curious branch":
                             printOutput(

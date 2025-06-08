@@ -14,7 +14,7 @@ public class Main {
             String sentence = Game.getInstance().getScanner().nextLine().toLowerCase();
 
             if (sentence.isEmpty()) {
-                System.out.println("Enter a command, please.");
+                System.out.println("Enter a command, please. If you are lost, try typing \"help\".");
                 System.out.print("> ");
                 continue;
             }
