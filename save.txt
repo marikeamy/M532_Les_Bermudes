@@ -1,3 +1,0 @@
-go left
-take broken golden pyramid
-say coin
