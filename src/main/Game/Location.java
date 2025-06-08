@@ -3,10 +3,7 @@ package main.Game;
 
 import java.util.List;
 
-import utils.Color;
 import utils.IPrintable;
-import utils.StringStyling;
-import utils.Style;
 
 public class Location implements IPrintable {
     private String name;
