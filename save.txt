@@ -1,6 +1,0 @@
-map
-go left
-go right
-go right
-go down
-take teleport crystal

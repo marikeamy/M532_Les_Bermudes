@@ -56,7 +56,7 @@ public class Use extends Command {
             if (success) {
                 inventory.remove(itemToUse);
                 System.out
-                        .println("You used the " + key.getName() + " to unlock " + key.getLocationNameToUnlock() + ".");
+                        .println("You unlocked " + key.getLocationNameToUnlock() + ".");
             } else {
                 printOutput("The key doesn't match any locked location.");
             }

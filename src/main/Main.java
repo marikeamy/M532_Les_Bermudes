@@ -24,7 +24,7 @@ public class Main {
             try {
                 String commandName = command[0];
                 String argument = (command.length > 1) ? command[1] : "";
-                
+
                 Game.getInstance().getCommandsRegistry().getCommand(commandName).execute(argument);
 
                 if (!commandName.equals("save")) {
@@ -36,10 +36,10 @@ public class Main {
                 System.out.println("I don't recognise this command.");
 
             }
-
+            System.out.print("> ");
         }
         Game.getInstance().getScanner().close();
-    
+
     }
 
 }

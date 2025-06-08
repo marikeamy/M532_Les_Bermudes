@@ -91,7 +91,7 @@ public class Game {
                 "Master Sword Meadow"),
                 new Letter("Strange Toad",
                         "What is always coming but never arrives?",
-                        "tomorrow", "Castle bridge"),
+                        "tomorrow", null),
                 new Letter("Chimney Candle",
                         "You see, inside a chimney veiled in dust, a burning candle bearing a carving upon its wax: give me food, and I shall live. Give me drink, and I shall perish. What am I?",
                         "fire", "Royal Dungeon"),
@@ -145,19 +145,19 @@ public class Game {
                         false, false, new ArrayList<>()),
                 new Location("Master Sword Meadow",
                         "The meadow is breaming with life. There's deers everywhere and a mighty sword plunged into a rock in the middle.",
-                        false, false, new ArrayList<>())));
+                        true, false, new ArrayList<>())));
 
         grid.add(Arrays.asList(
                 new Location("empty", null, true, false, null),
                 new Location("Castle bridge", "You are on the Castle Bridge leading straight to the Royal Halls.",
-                        false, false,
+                        true, false,
                         new ArrayList<>()),
                 new Location("Peaceful River",
-                        "It's a peaceful river with some ducks, plants and a strange toad standing on a rock.", false,
+                        "It's a peaceful river with some ducks, plants and a strange toad standing on a rock.", true,
                         false,
                         new ArrayList<>()),
                 new Location("Magic Lake",
-                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", false, false,
+                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", true, false,
                         new ArrayList<>())));
 
         grid.add(Arrays.asList(
@@ -172,10 +172,10 @@ public class Game {
 
         grid.add(Arrays.asList(
                 new Location("Royal Throne",
-                    "The mighty Throne of the Queen stands before you, but no one's there.", false,
+                    "The mighty Throne of the Queen stands before you, but no one's there.", true,
                     false, new ArrayList<>()),
                 new Location("Royal Dungeon",
-                        "You stand in the Royal Dungeon. There's some old empty cells and blood on the walls...", false,
+                        "You stand in the Royal Dungeon. There's some old empty cells and blood on the walls...", true,
                         false,
                         new ArrayList<>()),
                 new Location("empty", null, true, false, null),
@@ -247,6 +247,7 @@ public class Game {
     public static void titleScreen() {
         System.out.println("1. New game");
         System.out.println("2. Load last save");
+        System.out.print("> ");
         boolean validChoice = false;
         int choice;
         while (!validChoice) {
