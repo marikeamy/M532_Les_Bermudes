@@ -145,11 +145,11 @@ public class Game {
                         true, false,
                         new ArrayList<>()),
                 new Location("Peaceful River",
-                        "It's a peaceful river with some ducks, plants and a strange toad standing on a rock.", false,
+                        "It's a peaceful river with some ducks, plants and a strange toad standing on a rock.", true,
                         false,
                         new ArrayList<>()),
                 new Location("Magic Lake",
-                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", false, false,
+                        "You are on the coast of the Magic Lake. There's some swans and cute ducks.", true, false,
                         new ArrayList<>())));
 
         grid.add(Arrays.asList(
