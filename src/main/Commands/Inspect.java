@@ -27,7 +27,7 @@ public class Inspect extends Command {
             for (Item i : itemList) {
                 printOutput("- " + i.getName());
             }
-            printOutput("Which item would you like to inspect?");
+            printOutput("Inspect again with the name of the item you want.");
         } else { // Sinon, on cherche l'item correspondant à l'argument
             for (Item i : itemList) {
                 if (i.getName().equalsIgnoreCase(argument.trim())) {

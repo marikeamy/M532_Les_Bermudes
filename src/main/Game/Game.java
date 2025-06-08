@@ -213,7 +213,7 @@ public class Game {
         Command commandMap = new DisplayMap("Displays the map of the game.", "map", map, player);
         allCommands.put("map", commandMap);
 
-        Command commandTake = new Take("Take an object found in the location you are in.", "take", map, player);
+        Command commandTake = new Take("Take a specific object found in the location you are in.", "take", map, player);
         allCommands.put("take", commandTake);
 
         Command commandSay = new Say("Say a word to answer a riddle.", "say", map, player);
@@ -226,7 +226,7 @@ public class Game {
                 "inspect", player.getInventory());
         allCommands.put("inspect", commandInspect);
 
-        Command commandInventory = new CommandInventory("You can inspect whatever item is in your inventory.",
+        Command commandInventory = new CommandInventory("You can check whatever item is in your inventory.",
                 "inventory", player.getInventory());
         allCommands.put("inventory", commandInventory);
 
