@@ -94,7 +94,7 @@ public class Say extends Command {
                             break;
                         case "magic box":
                             printOutput(
-                                    "The magic box opens let out a puff of magical clouds. You start smelling soap... Coming from... A new room..? Check your map and try to teleport there!");
+                                    "The Magic Box opens let out a puff of magical clouds. You start smelling soap... Coming from... A new room..? Check your map and try to teleport there!");
                             Game.getInstance().getWorldMap().getLocationGrid().get(3).get(3).unlock();
                             break;
                         default:

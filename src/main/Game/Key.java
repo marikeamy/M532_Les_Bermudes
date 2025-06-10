@@ -20,15 +20,17 @@ public class Key extends Item {
         return locationNameToUnlock;
     }
 
-    public boolean unlockLocation() {
+    public boolean unlockLocation(Key k) {
         List<List<Location>> grid = map.getLocationGrid();
         for (int i = 0; i < grid.size(); i++) {
             List<Location> row = grid.get(i);
             for (int j = 0; j < row.size(); j++) {
                 Location location = row.get(j);
                 if (location.getName().equalsIgnoreCase(locationNameToUnlock)) {
-                    location.unlock();
-                    return true;
+                    if (playerIsAdjacentToLocation(k)) {
+                        location.unlock();
+                        return true;
+                    }
                 }
             }
         }

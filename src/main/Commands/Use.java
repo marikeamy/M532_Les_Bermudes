@@ -44,11 +44,11 @@ public class Use extends Command {
         if (itemToUse instanceof Key) {
             Key key = (Key) itemToUse;
             boolean isAdjacentSuccess = key.playerIsAdjacentToLocation(key);
-            boolean unlockSuccess = key.unlockLocation();
+            boolean unlockSuccess = key.unlockLocation(key);
             if (isAdjacentSuccess && unlockSuccess) {
                 inventory.remove(itemToUse);
                 printOutput("You unlocked the " + key.getLocationNameToUnlock() + ".");
-            } else if (!isAdjacentSuccess && unlockSuccess) {
+            } else if (!isAdjacentSuccess) {
                 printOutput("You have to be next to the location you want to unlock to use your key!");
             } else {
                 printOutput("The key doesn't match any locked location.");
