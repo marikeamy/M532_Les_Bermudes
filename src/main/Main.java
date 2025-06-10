@@ -32,7 +32,6 @@ public class Main {
                 }
 
             } catch (Exception e) {
-                 e.printStackTrace();
                 System.out.println("I don't recognise this command.");
 
             }
